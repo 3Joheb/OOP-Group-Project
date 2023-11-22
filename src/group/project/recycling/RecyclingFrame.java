@@ -59,6 +59,7 @@ public class RecyclingFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        depotsBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         depotsBtn.setText("Our Depots");
         depotsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +67,7 @@ public class RecyclingFrame extends javax.swing.JFrame {
             }
         });
 
+        browseFacBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         browseFacBtn.setText("Browse Facilities");
         browseFacBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +75,7 @@ public class RecyclingFrame extends javax.swing.JFrame {
             }
         });
 
+        addFacBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         addFacBtn.setText("Add Your Facility");
         addFacBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +83,7 @@ public class RecyclingFrame extends javax.swing.JFrame {
             }
         });
 
+        homeBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         homeBtn.setText("Home");
         homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

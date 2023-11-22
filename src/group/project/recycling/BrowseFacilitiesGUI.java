@@ -41,10 +41,10 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
         searchTxtFld = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
         countyComboBox = new javax.swing.JComboBox<>();
-        countyComboBox1 = new javax.swing.JComboBox<>();
+        wasteComboBox = new javax.swing.JComboBox<>();
         searchLbl = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        countryFltrLbl = new javax.swing.JLabel();
+        wasteFltrLbl = new javax.swing.JLabel();
         cardPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 204, 204));
@@ -58,12 +58,14 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
 
         optionsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        searchTxtFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         searchTxtFld.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTxtFldActionPerformed(evt);
             }
         });
 
+        searchBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         searchBtn.setText("search");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,20 +73,25 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
             }
         });
 
+        countyComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dublin", "Kildare", "Galway", "Mayo" }));
 
-        countyComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wood", "Electronics", "Textiles", "Plastics" }));
-        countyComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        wasteComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wood", "Electronics", "Textiles", "Plastics" }));
+        wasteComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countyComboBox1ActionPerformed(evt);
+                wasteComboBoxActionPerformed(evt);
             }
         });
 
+        searchLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         searchLbl.setText("Search facility by name");
 
-        jLabel1.setText("Filter by county");
+        countryFltrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+        countryFltrLbl.setText("Filter by county");
 
-        jLabel2.setText("Filter by waste accepted");
+        wasteFltrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+        wasteFltrLbl.setText("Filter by waste accepted");
 
         javax.swing.GroupLayout optionsPanelLayout = new javax.swing.GroupLayout(optionsPanel);
         optionsPanel.setLayout(optionsPanelLayout);
@@ -99,12 +106,12 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
                 .addComponent(searchBtn)
                 .addGap(57, 57, 57)
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(countryFltrLbl)
                     .addComponent(countyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(countyComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wasteFltrLbl)
+                    .addComponent(wasteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         optionsPanelLayout.setVerticalGroup(
@@ -113,14 +120,14 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(searchLbl)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(countryFltrLbl)
+                    .addComponent(wasteFltrLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(searchTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn)
                     .addComponent(countyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(countyComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wasteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -174,22 +181,22 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void countyComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBox1ActionPerformed
+    private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_countyComboBox1ActionPerformed
+    }//GEN-LAST:event_wasteComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
+    private javax.swing.JLabel countryFltrLbl;
     private javax.swing.JComboBox<String> countyComboBox;
-    private javax.swing.JComboBox<String> countyComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel optionsPanel;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JPanel scrollPaneContainer;
     private javax.swing.JButton searchBtn;
     private javax.swing.JLabel searchLbl;
     private javax.swing.JTextField searchTxtFld;
+    private javax.swing.JComboBox<String> wasteComboBox;
+    private javax.swing.JLabel wasteFltrLbl;
     // End of variables declaration//GEN-END:variables
 }

@@ -65,12 +65,12 @@ public class DepotsGUI extends javax.swing.JPanel {
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        pickupHeadingLbl.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        pickupHeadingLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 22)); // NOI18N
         pickupHeadingLbl.setText("Want us to pick up your recycling waste?");
 
         pickUpTxtAr.setEditable(false);
         pickUpTxtAr.setColumns(20);
-        pickUpTxtAr.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pickUpTxtAr.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pickUpTxtAr.setLineWrap(true);
         pickUpTxtAr.setRows(5);
         pickUpTxtAr.setText("If you’d like us to pick up your recycling waste, fill in the form below.");
@@ -89,12 +89,12 @@ public class DepotsGUI extends javax.swing.JPanel {
         cardContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 20, 5));
         cardScrollPane.setViewportView(cardContainer);
 
-        dropOffLbl.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        dropOffLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 32)); // NOI18N
         dropOffLbl.setText("Drop off you recycling waste at our depots");
 
         dropOffTxtAr.setEditable(false);
         dropOffTxtAr.setColumns(20);
-        dropOffTxtAr.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dropOffTxtAr.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         dropOffTxtAr.setLineWrap(true);
         dropOffTxtAr.setRows(5);
         dropOffTxtAr.setText("If you aren’t near any recycling facilities or only want to go to a single place to drop of various recycling waste, drop off your waste at one of our depots and we’ll hand it over to recycling facilities free of charge.");
@@ -107,25 +107,25 @@ public class DepotsGUI extends javax.swing.JPanel {
         dropOffTxtAr.setEnabled(false);
         dropOffTxtAr.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
-        nameLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         nameLbl.setText("Name:");
 
-        emailLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         emailLbl.setText("Email");
 
-        pNumLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pNumLbl.setText("Phone number:");
 
-        addressLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         addressLbl.setText("Address:");
 
-        cityLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cityLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         cityLbl.setText("City:");
 
-        countyLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        countyLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         countyLbl.setText("County:");
 
-        totalLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        totalLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         totalLbl.setText("Total:");
 
         emailTFld.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +165,7 @@ public class DepotsGUI extends javax.swing.JPanel {
         });
 
         payBtn.setBackground(new java.awt.Color(0, 153, 51));
-        payBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        payBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         payBtn.setForeground(new java.awt.Color(242, 242, 242));
         payBtn.setText("Pay");
         payBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +174,7 @@ public class DepotsGUI extends javax.swing.JPanel {
             }
         });
 
-        closestDepotLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        closestDepotLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         closestDepotLbl.setText("Closest Depot:");
 
         closestDepotSldr.setValue(0);
@@ -282,7 +282,7 @@ public class DepotsGUI extends javax.swing.JPanel {
                 .addComponent(totalLbl)
                 .addGap(14, 14, 14)
                 .addComponent(payBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         scrollPane.setViewportView(scrollContainer);

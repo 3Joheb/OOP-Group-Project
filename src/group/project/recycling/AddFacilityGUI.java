@@ -39,93 +39,93 @@ public class AddFacilityGUI extends javax.swing.JPanel {
         closeTimeLbl = new javax.swing.JLabel();
         wasteAcceptedLbl = new javax.swing.JLabel();
         imgLbl = new javax.swing.JLabel();
-        companyNameTField = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        companyNameTFld = new javax.swing.JTextField();
+        facilityNameTFld = new javax.swing.JTextField();
+        emailTFld = new javax.swing.JTextField();
+        pNumTFld = new javax.swing.JTextField();
+        addressTFld = new javax.swing.JTextField();
+        cityTFld = new javax.swing.JTextField();
+        countyTFld = new javax.swing.JTextField();
+        openTimeTFld = new javax.swing.JTextField();
+        closeTimeTFld = new javax.swing.JTextField();
+        wasteTFld = new javax.swing.JTextField();
+        selectFileBtn = new javax.swing.JButton();
+        submitBtn = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1092, 614));
         setMinimumSize(new java.awt.Dimension(1092, 614));
 
-        formHeadingLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        formHeadingLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 24)); // NOI18N
         formHeadingLbl.setText("Fill the form below to list your recycling facility?");
 
-        companyNameLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        companyNameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         companyNameLbl.setText("Company Name:");
 
-        facilityNameLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        facilityNameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         facilityNameLbl.setText("Facility Name:");
 
-        emailLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         emailLbl.setText("Email:");
 
-        pNumLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pNumLbl.setText("Phone number:");
 
-        addressLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         addressLbl.setText("Address:");
 
-        cityLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cityLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         cityLbl.setText("City:");
 
-        countyLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        countyLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         countyLbl.setText("County:");
 
-        openTimeLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        openTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         openTimeLbl.setText("Open time:");
 
-        closeTimeLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        closeTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         closeTimeLbl.setText("Close time:");
 
-        wasteAcceptedLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        wasteAcceptedLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         wasteAcceptedLbl.setText("Waste accepted:");
 
-        imgLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        imgLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         imgLbl.setText("Image of facility");
 
-        companyNameTField.addActionListener(new java.awt.event.ActionListener() {
+        companyNameTFld.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                companyNameTFieldActionPerformed(evt);
+                companyNameTFldActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        facilityNameTFld.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                facilityNameTFldActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        addressTFld.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                addressTFldActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(242, 242, 242));
-        jButton1.setText("Select File");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        selectFileBtn.setBackground(new java.awt.Color(0, 102, 204));
+        selectFileBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
+        selectFileBtn.setForeground(new java.awt.Color(242, 242, 242));
+        selectFileBtn.setText("Select File");
+        selectFileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                selectFileBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 151, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(242, 242, 242));
-        jButton2.setText("Submit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        submitBtn.setBackground(new java.awt.Color(0, 151, 51));
+        submitBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
+        submitBtn.setForeground(new java.awt.Color(242, 242, 242));
+        submitBtn.setText("Submit");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                submitBtnActionPerformed(evt);
             }
         });
 
@@ -154,23 +154,23 @@ public class AddFacilityGUI extends javax.swing.JPanel {
                                     .addComponent(imgLbl))
                                 .addGap(131, 131, 131)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(companyNameTField)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField6)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField9)
+                                    .addComponent(companyNameTFld)
+                                    .addComponent(facilityNameTFld)
+                                    .addComponent(emailTFld)
+                                    .addComponent(pNumTFld)
+                                    .addComponent(addressTFld)
+                                    .addComponent(cityTFld)
+                                    .addComponent(countyTFld)
+                                    .addComponent(openTimeTFld)
+                                    .addComponent(closeTimeTFld)
+                                    .addComponent(wasteTFld)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(selectFileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(485, 485, 485)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(259, Short.MAX_VALUE))
+                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,97 +185,97 @@ public class AddFacilityGUI extends javax.swing.JPanel {
                                         .addComponent(formHeadingLbl)
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(companyNameTField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(companyNameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(companyNameLbl))
                                         .addGap(18, 18, 18)
                                         .addComponent(facilityNameLbl))
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(facilityNameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(emailLbl))
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(pNumLbl))
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addressLbl)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cityLbl)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(countyLbl)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(openTimeLbl)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(openTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeTimeLbl)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(closeTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(wasteAcceptedLbl)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wasteTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(imgLbl)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                    .addComponent(selectFileBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(submitBtn)
                 .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void companyNameTFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameTFieldActionPerformed
+    private void companyNameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameTFldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_companyNameTFieldActionPerformed
+    }//GEN-LAST:event_companyNameTFldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void selectFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_selectFileBtnActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void facilityNameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityNameTFldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_facilityNameTFldActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void addressTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTFldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_addressTFldActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_submitBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLbl;
+    private javax.swing.JTextField addressTFld;
     private javax.swing.JLabel cityLbl;
+    private javax.swing.JTextField cityTFld;
     private javax.swing.JLabel closeTimeLbl;
+    private javax.swing.JTextField closeTimeTFld;
     private javax.swing.JLabel companyNameLbl;
-    private javax.swing.JTextField companyNameTField;
+    private javax.swing.JTextField companyNameTFld;
     private javax.swing.JLabel countyLbl;
+    private javax.swing.JTextField countyTFld;
     private javax.swing.JLabel emailLbl;
+    private javax.swing.JTextField emailTFld;
     private javax.swing.JLabel facilityNameLbl;
+    private javax.swing.JTextField facilityNameTFld;
     private javax.swing.JLabel formHeadingLbl;
     private javax.swing.JLabel imgLbl;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel openTimeLbl;
+    private javax.swing.JTextField openTimeTFld;
     private javax.swing.JLabel pNumLbl;
+    private javax.swing.JTextField pNumTFld;
+    private javax.swing.JButton selectFileBtn;
+    private javax.swing.JButton submitBtn;
     private javax.swing.JLabel wasteAcceptedLbl;
+    private javax.swing.JTextField wasteTFld;
     // End of variables declaration//GEN-END:variables
 }

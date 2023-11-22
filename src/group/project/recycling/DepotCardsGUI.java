@@ -33,16 +33,16 @@ public class DepotCardsGUI extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(215, 215, 215));
 
-        nameLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         nameLbl.setText("Name");
 
-        locationLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        locationLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         locationLbl.setText("Location");
 
-        openTimeLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        openTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         openTimeLbl.setText("Open - Close time");
 
-        pNumLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pNumLbl.setText("Phone number");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -50,7 +50,7 @@ public class DepotCardsGUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(pNumLbl)
                     .addComponent(openTimeLbl)
@@ -69,7 +69,7 @@ public class DepotCardsGUI extends javax.swing.JPanel {
                 .addComponent(openTimeLbl)
                 .addGap(18, 18, 18)
                 .addComponent(pNumLbl)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

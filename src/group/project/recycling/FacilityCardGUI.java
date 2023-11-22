@@ -36,22 +36,22 @@ public class FacilityCardGUI extends javax.swing.JPanel {
 
         imgLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/group/project/recycling/img/placeholder.png"))); // NOI18N
 
-        nameLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         nameLbl.setText("Name");
 
-        locationLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        locationLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         locationLbl.setText("Location");
 
-        openTimeLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        openTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         openTimeLbl.setText("Open time - Close time");
 
-        wasteAcceptedLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        wasteAcceptedLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         wasteAcceptedLbl.setText("Waste Accepted");
 
-        emailLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         emailLbl.setText("Email");
 
-        pNumLbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         pNumLbl.setText("Phone nunber");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,7 +69,7 @@ public class FacilityCardGUI extends javax.swing.JPanel {
                     .addComponent(wasteAcceptedLbl)
                     .addComponent(emailLbl)
                     .addComponent(pNumLbl))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
