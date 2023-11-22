@@ -4,6 +4,8 @@
  */
 package group.project;
 
+import group.project.recycling.RecyclingFrame;
+
 /**
  *
  * @author Matty School
@@ -15,6 +17,8 @@ public class GroupProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        RecyclingFrame window = new RecyclingFrame();
+        window.setVisible(true);
     }
     
 }
