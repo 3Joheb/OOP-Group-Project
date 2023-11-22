@@ -73,9 +73,11 @@ public class ListGUI extends javax.swing.JFrame {
         ListBtn = new javax.swing.JRadioButton();
         BuyBtn = new javax.swing.JRadioButton();
         BrowseBtn = new javax.swing.JRadioButton();
+        homeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Eras Medium ITC", 0, 11)); // NOI18N
         jLabel1.setText("LIST ITEMS");
 
         Qlbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
@@ -153,6 +155,14 @@ public class ListGUI extends javax.swing.JFrame {
             }
         });
 
+        homeBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 11)); // NOI18N
+        homeBtn.setText("Home");
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,16 +201,20 @@ public class ListGUI extends javax.swing.JFrame {
                         .addComponent(BrowseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(8, 8, 8))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
+                .addGap(36, 36, 36)
+                .addComponent(homeBtn)
+                .addGap(59, 59, 59)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(homeBtn))
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Qlbl)
                     .addComponent(QualityCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,6 +320,11 @@ public class ListGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ListBtnActionPerformed
 
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+         MainGUI m = new MainGUI();
+         m.setVisible(true);
+    }//GEN-LAST:event_homeBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -363,6 +382,7 @@ public class ListGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Sizelbl;
     private javax.swing.JComboBox<String> TypeCbx;
     private javax.swing.JLabel Typelbl;
+    private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
