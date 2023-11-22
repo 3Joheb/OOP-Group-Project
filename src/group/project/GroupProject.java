@@ -15,6 +15,8 @@ public class GroupProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MainGUI m = new MainGUI();
+        m.setVisible(true);
     }
     
 }
