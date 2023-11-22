@@ -19,9 +19,13 @@ public class RecyclingFrame extends javax.swing.JFrame {
         //set layout
         setLayout(new java.awt.FlowLayout());
         
-        // add browse facilities
-        BrowseFacilitiesGUI browse = new BrowseFacilitiesGUI();
-        add(browse);
+        // add browse facilities section
+//        BrowseFacilitiesGUI browse = new BrowseFacilitiesGUI();
+//        add(browse);
+
+        // add depots section
+        DepotsGUI depots = new DepotsGUI();
+        add(depots);
     }
 
     /**
