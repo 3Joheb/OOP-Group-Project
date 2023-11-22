@@ -8,15 +8,15 @@ package group.project.recycling;
  *
  * @author zoheb
  */
-public class RecyclingFrame extends javax.swing.JFrame {
-    private DepotsGUI depots;
-    private BrowseFacilitiesGUI browse;
-    private AddFacilityGUI facilities;
+public class RecyclingFrameGUI extends javax.swing.JFrame {
+    private final DepotsGUI depots;
+    private final BrowseFacilitiesGUI browse;
+    private final AddFacilityGUI facilities;
 
     /**
      * Creates new form RecyclingFrame
      */
-    public RecyclingFrame() {
+    public RecyclingFrameGUI() {
         initComponents();
         
         //set layout
@@ -50,7 +50,6 @@ public class RecyclingFrame extends javax.swing.JFrame {
         depotsBtn = new javax.swing.JButton();
         browseFacBtn = new javax.swing.JButton();
         addFacBtn = new javax.swing.JButton();
-        homeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1110, 764));
@@ -83,49 +82,34 @@ public class RecyclingFrame extends javax.swing.JFrame {
             }
         });
 
-        homeBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        homeBtn.setText("Home");
-        homeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout navPanelLayout = new javax.swing.GroupLayout(navPanel);
         navPanel.setLayout(navPanelLayout);
         navPanelLayout.setHorizontalGroup(
             navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navPanelLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(homeBtn)
-                .addGap(40, 40, 40)
+                .addGap(116, 116, 116)
                 .addComponent(depotsBtn)
                 .addGap(30, 30, 30)
                 .addComponent(browseFacBtn)
                 .addGap(34, 34, 34)
                 .addComponent(addFacBtn)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         navPanelLayout.setVerticalGroup(
             navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(homeBtn)
                     .addComponent(depotsBtn)
                     .addComponent(browseFacBtn)
                     .addComponent(addFacBtn))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         getContentPane().add(navPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeBtnActionPerformed
 
     private void depotsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depotsBtnActionPerformed
         // TODO add your handling code here:
@@ -164,20 +148,21 @@ public class RecyclingFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RecyclingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecyclingFrameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RecyclingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecyclingFrameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RecyclingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecyclingFrameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RecyclingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecyclingFrameGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RecyclingFrame().setVisible(true);
+                new RecyclingFrameGUI().setVisible(true);
             }
         });
     }
@@ -186,7 +171,6 @@ public class RecyclingFrame extends javax.swing.JFrame {
     private javax.swing.JButton addFacBtn;
     private javax.swing.JButton browseFacBtn;
     private javax.swing.JButton depotsBtn;
-    private javax.swing.JButton homeBtn;
     private javax.swing.JPanel navPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
  */
 package group.project;
 
+import group.project.recycling.RecyclingFrameGUI;
+
 /**
  *
  * @author Matty School
@@ -106,6 +108,8 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void wasteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteBtnActionPerformed
         // TODO add your handling code here:
+        RecyclingFrameGUI recyclingGUI = new RecyclingFrameGUI();
+        recyclingGUI.setVisible(true);
     }//GEN-LAST:event_wasteBtnActionPerformed
 
     /**
