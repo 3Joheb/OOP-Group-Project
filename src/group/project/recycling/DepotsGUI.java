@@ -61,6 +61,7 @@ public class DepotsGUI extends javax.swing.JPanel {
         closestDepotLbl = new javax.swing.JLabel();
         closestDepotSldr = new javax.swing.JSlider();
 
+        scrollPane.setBorder(null);
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 

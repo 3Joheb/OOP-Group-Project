@@ -9,6 +9,9 @@ package group.project.recycling;
  * @author zoheb
  */
 public class RecyclingFrame extends javax.swing.JFrame {
+    private DepotsGUI depots;
+    private BrowseFacilitiesGUI browse;
+    private AddFacilityGUI facilities;
 
     /**
      * Creates new form RecyclingFrame
@@ -19,13 +22,19 @@ public class RecyclingFrame extends javax.swing.JFrame {
         //set layout
         setLayout(new java.awt.FlowLayout());
         
-        // add browse facilities section
-//        BrowseFacilitiesGUI browse = new BrowseFacilitiesGUI();
-//        add(browse);
-
         // add depots section
-        DepotsGUI depots = new DepotsGUI();
+        depots = new DepotsGUI();
         add(depots);
+        
+        // add browse facilities section
+        browse = new BrowseFacilitiesGUI();
+        add(browse);
+        browse.setVisible(false);
+        
+        // add add facility section
+        facilities = new AddFacilityGUI();
+        add(facilities);
+        facilities.setVisible(false);
     }
 
     /**
@@ -37,22 +46,103 @@ public class RecyclingFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        navPanel = new javax.swing.JPanel();
+        depotsBtn = new javax.swing.JButton();
+        browseFacBtn = new javax.swing.JButton();
+        addFacBtn = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1092, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1110, 764));
+        setMinimumSize(new java.awt.Dimension(1110, 764));
+        setPreferredSize(new java.awt.Dimension(1110, 764));
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        depotsBtn.setText("Our Depots");
+        depotsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                depotsBtnActionPerformed(evt);
+            }
+        });
+
+        browseFacBtn.setText("Browse Facilities");
+        browseFacBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseFacBtnActionPerformed(evt);
+            }
+        });
+
+        addFacBtn.setText("Add Your Facility");
+        addFacBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFacBtnActionPerformed(evt);
+            }
+        });
+
+        homeBtn.setText("Home");
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout navPanelLayout = new javax.swing.GroupLayout(navPanel);
+        navPanel.setLayout(navPanelLayout);
+        navPanelLayout.setHorizontalGroup(
+            navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navPanelLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(homeBtn)
+                .addGap(40, 40, 40)
+                .addComponent(depotsBtn)
+                .addGap(30, 30, 30)
+                .addComponent(browseFacBtn)
+                .addGap(34, 34, 34)
+                .addComponent(addFacBtn)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+        navPanelLayout.setVerticalGroup(
+            navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(homeBtn)
+                    .addComponent(depotsBtn)
+                    .addComponent(browseFacBtn)
+                    .addComponent(addFacBtn))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        getContentPane().add(navPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void depotsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depotsBtnActionPerformed
+        // TODO add your handling code here:
+        setPanelVisible(depots, depots, browse, facilities);
+    }//GEN-LAST:event_depotsBtnActionPerformed
+
+    private void browseFacBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFacBtnActionPerformed
+        // TODO add your handling code here:
+        setPanelVisible(browse, depots, browse, facilities);
+    }//GEN-LAST:event_browseFacBtnActionPerformed
+
+    private void addFacBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFacBtnActionPerformed
+        // TODO add your handling code here:
+        setPanelVisible(facilities, depots, browse, facilities);
+    }//GEN-LAST:event_addFacBtnActionPerformed
+
+    static void setPanelVisible(javax.swing.JPanel panel, DepotsGUI depots, BrowseFacilitiesGUI browse, AddFacilityGUI facilities){
+        depots.setVisible(panel == depots);
+        browse.setVisible(panel == browse);
+        facilities.setVisible(panel == facilities);
+    }
     /**
      * @param args the command line arguments
      */
@@ -89,5 +179,10 @@ public class RecyclingFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addFacBtn;
+    private javax.swing.JButton browseFacBtn;
+    private javax.swing.JButton depotsBtn;
+    private javax.swing.JButton homeBtn;
+    private javax.swing.JPanel navPanel;
     // End of variables declaration//GEN-END:variables
 }
