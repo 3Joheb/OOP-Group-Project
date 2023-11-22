@@ -4,32 +4,37 @@
  */
 package group.project;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author adria
  */
 public class ListGUI extends javax.swing.JFrame {
+    private ArrayList <List> list;
 
     /**
      * Creates new form ClothesGUI
      */
     public ListGUI() {
         initComponents();
-        QualityCbx.setVisible(true);
-        SizeCbx.setVisible(true);
-        TypeCbx.setVisible(true);
-        Pricelbl.setVisible(true);
+        Typelbl.setVisible(false);
+        Sizelbl.setVisible(false);
+        Qlbl.setVisible(false);
+        QualityCbx.setVisible(false);
+        SizeCbx.setVisible(false);
+        TypeCbx.setVisible(false);
+        Pricelbl.setVisible(false);
         Namelbl.setVisible(false);
         Quantitylbl.setVisible(false);
         Cardlbl.setVisible(false);
         Addresslbl.setVisible(false);
-        PriceFld.setVisible(true);
+        PriceFld.setVisible(false);
         NameFld.setVisible(false);
         QuantityFld.setVisible(false);
         CardFld.setVisible(false);
         AddressFld.setVisible(false);
+        list = new ArrayList<>();
+        
         
         
         
@@ -73,38 +78,65 @@ public class ListGUI extends javax.swing.JFrame {
 
         jLabel1.setText("LIST ITEMS");
 
+        Qlbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Qlbl.setText("Quality");
 
+        Sizelbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Sizelbl.setText("Size");
 
+        Typelbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Typelbl.setText("Type");
 
+        Pricelbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Pricelbl.setText("Price");
 
+        Namelbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Namelbl.setText("Name");
 
+        Quantitylbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Quantitylbl.setText("Quantity");
 
+        Cardlbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Cardlbl.setText("Card Details");
 
+        Addresslbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         Addresslbl.setText("Address");
 
+        AddressFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         AddressFld.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddressFldActionPerformed(evt);
             }
         });
 
+        CardFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+
+        QuantityFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+
+        NameFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+
+        PriceFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+
+        SizeCbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         SizeCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S", "M", "L" }));
 
+        QualityCbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         QualityCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BAD", "OKAY", "GOOD", "EXCELLENT" }));
 
+        TypeCbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         TypeCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SHOE", "TOPS", "BOTTOMS" }));
 
         BTN1.add(ListBtn);
+        ListBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         ListBtn.setText("LIST");
+        ListBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListBtnActionPerformed(evt);
+            }
+        });
 
         BTN1.add(BuyBtn);
+        BuyBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         BuyBtn.setText("BUY");
         BuyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +145,7 @@ public class ListGUI extends javax.swing.JFrame {
         });
 
         BTN1.add(BrowseBtn);
+        BrowseBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         BrowseBtn.setText("BROWSE");
         BrowseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +247,7 @@ public class ListGUI extends javax.swing.JFrame {
 
     private void BuyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyBtnActionPerformed
         // TODO add your handling code here:
-        initComponents();
+        Sizelbl.setVisible(false);
         QualityCbx.setVisible(false);
         SizeCbx.setVisible(false);
         TypeCbx.setVisible(false);
@@ -235,9 +268,9 @@ public class ListGUI extends javax.swing.JFrame {
 
     private void BrowseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseBtnActionPerformed
         // TODO add your handling code here:
-        initComponents();
+        Sizelbl.setVisible(true);
         QualityCbx.setVisible(false);
-        SizeCbx.setVisible(false);
+        SizeCbx.setVisible(true);
         TypeCbx.setVisible(false);
         Pricelbl.setVisible(true);
         Namelbl.setVisible(true);
@@ -245,11 +278,33 @@ public class ListGUI extends javax.swing.JFrame {
         Cardlbl.setVisible(false);
         Addresslbl.setVisible(false);
         PriceFld.setVisible(true);
-        NameFld.setVisible(false);
+        NameFld.setVisible(true);
         QuantityFld.setVisible(true);
         CardFld.setVisible(false);
         AddressFld.setVisible(false);
     }//GEN-LAST:event_BrowseBtnActionPerformed
+
+    private void ListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListBtnActionPerformed
+        // TODO add your handling code here:
+        Qlbl.setVisible(true);
+        Sizelbl.setVisible(true);
+        Typelbl.setVisible(true);
+        QualityCbx.setVisible(true);
+        SizeCbx.setVisible(true);
+        TypeCbx.setVisible(true);
+        Pricelbl.setVisible(true);
+        Namelbl.setVisible(false);
+        Quantitylbl.setVisible(false);
+        Cardlbl.setVisible(false);
+        Addresslbl.setVisible(false);
+        PriceFld.setVisible(true);
+        NameFld.setVisible(false);
+        QuantityFld.setVisible(false);
+        CardFld.setVisible(false);
+        AddressFld.setVisible(false);
+        
+        
+    }//GEN-LAST:event_ListBtnActionPerformed
 
     /**
      * @param args the command line arguments
