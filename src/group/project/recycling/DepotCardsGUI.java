@@ -16,6 +16,23 @@ public class DepotCardsGUI extends javax.swing.JPanel {
     public DepotCardsGUI() {
         initComponents();
     }
+    
+    public void setLocationLbl(String location){
+        locationLbl.setText(location);
+    }
+    
+    public void setNameLbl(String name){
+        nameLbl.setText(name);
+    }
+    
+    public void setTimeLbl(String openTime, String closeTime){
+        openTimeLbl.setText(openTime + "-" + closeTime);
+    }
+    
+    public void setPhoneNumLbl(String num){
+        pNumLbl.setText(num);
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

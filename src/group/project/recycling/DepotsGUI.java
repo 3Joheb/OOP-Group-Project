@@ -25,14 +25,8 @@ public class DepotsGUI extends javax.swing.JPanel {
         // Fix text area bg color
         pickUpTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
         dropOffTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
-
-        // Create and add three cards
-        for (int i = 0; i < 5; i++) {
-            DepotCardsGUI card = new DepotCardsGUI();
-            cardContainer.add(card);
-        }
         
-        // Test json file
+        // Add Depot Cards using json file
         try {
             // JSON file path
             String filePath = "src/group/project/recycling/data/depots.json";
@@ -43,8 +37,29 @@ public class DepotsGUI extends javax.swing.JPanel {
             // Read JSON file into JsonNode
             JsonNode jsonNode = objMapper.readTree(new File(filePath));
             
-            // print properties
-            System.out.println(jsonNode.toString());
+            // Check if root is array to prevent errors
+            if (jsonNode.isArray()){
+                // Iterate over each element in array
+                for(JsonNode depotObj : jsonNode){
+                    // Store json values
+                    // Note that I've added no error handling for non existing keys
+                    String name = depotObj.get("name").asText();
+                    String location = depotObj.get("location").get("address").asText();
+                    String openTime = depotObj.get("time").get("open").asText();
+                    String closeTime = depotObj.get("time").get("close").asText();
+                    String number = depotObj.get("contact").get("phone").asText();
+                    
+                    // Create new card for element & change lable values
+                    DepotCardsGUI card = new DepotCardsGUI();
+                    card.setNameLbl(name);
+                    card.setLocationLbl(location);
+                    card.setTimeLbl(openTime, closeTime);
+                    card.setPhoneNumLbl(number);
+                    
+                    // Add card to card container/panel
+                    cardContainer.add(card);
+                }
+            }
         } catch (IOException e){
             System.out.println("Error opening json file" + e);
         }
