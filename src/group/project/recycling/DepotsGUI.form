@@ -58,46 +58,54 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="pickupHeadingLbl" min="-2" max="-2" attributes="0"/>
                                   <Component id="totalLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="closestDepotLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="closestDepotSldr" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="closestDepotLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="usrSldrValue" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="depotSldr0Lbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="closestDepotSldr" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="countyTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="pNumTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="addressLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="addressTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="cityTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="nameTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="emailTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="pickUpTxtAr" min="-2" pref="302" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="countyTFld" min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="pNumTFld" min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="addressLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="addressTFld" min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="cityTFld" min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="nameTFld" min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="emailTFld" min="-2" pref="144" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Component id="pickUpTxtAr" min="-2" pref="302" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="depotSldr50Lbl" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
@@ -116,56 +124,68 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="dropOffLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="dropOffTxtAr" min="-2" pref="83" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="cardScrollPane" min="-2" pref="224" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="pickupHeadingLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pickUpTxtAr" min="-2" pref="44" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="nameLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="dropOffLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="dropOffTxtAr" min="-2" pref="83" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="cardScrollPane" min="-2" pref="224" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="pickupHeadingLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pickUpTxtAr" min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="nameLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="emailLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="pNumLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pNumTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="addressLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addressTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="cityLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cityTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="countyLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countyTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="depotSldr0Lbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="closestDepotSldr" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="depotSldr50Lbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="totalLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="payBtn" min="-2" pref="37" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="868" pref="868" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="closestDepotLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="usrSldrValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="emailLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailTFld" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="pNumLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="pNumTFld" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="addressLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="addressTFld" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="cityLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="cityTFld" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="countyLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="countyTFld" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="closestDepotLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="closestDepotSldr" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="totalLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="payBtn" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -382,6 +402,21 @@
               <Properties>
                 <Property name="value" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="closestDepotSldrStateChanged"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="depotSldr0Lbl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="0 KM"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="depotSldr50Lbl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="50 KM"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="usrSldrValue">
             </Component>
           </SubComponents>
         </Container>

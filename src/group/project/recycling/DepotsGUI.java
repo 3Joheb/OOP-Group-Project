@@ -25,6 +25,9 @@ public class DepotsGUI extends javax.swing.JPanel {
             DepotCardsGUI card = new DepotCardsGUI();
             cardContainer.add(card);
         }
+        
+        // set slider max value
+        closestDepotSldr.setMaximum(50);
     }
 
     /**
@@ -60,6 +63,9 @@ public class DepotsGUI extends javax.swing.JPanel {
         payBtn = new javax.swing.JButton();
         closestDepotLbl = new javax.swing.JLabel();
         closestDepotSldr = new javax.swing.JSlider();
+        depotSldr0Lbl = new javax.swing.JLabel();
+        depotSldr50Lbl = new javax.swing.JLabel();
+        usrSldrValue = new javax.swing.JLabel();
 
         scrollPane.setBorder(null);
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -178,6 +184,15 @@ public class DepotsGUI extends javax.swing.JPanel {
         closestDepotLbl.setText("Closest Depot:");
 
         closestDepotSldr.setValue(0);
+        closestDepotSldr.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                closestDepotSldrStateChanged(evt);
+            }
+        });
+
+        depotSldr0Lbl.setText("0 KM");
+
+        depotSldr50Lbl.setText("50 KM");
 
         javax.swing.GroupLayout scrollContainerLayout = new javax.swing.GroupLayout(scrollContainer);
         scrollContainer.setLayout(scrollContainerLayout);
@@ -197,38 +212,45 @@ public class DepotsGUI extends javax.swing.JPanel {
                         .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pickupHeadingLbl)
                             .addComponent(totalLbl)
-                            .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(closestDepotLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(closestDepotSldr, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(countyLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(pNumLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(addressLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(cityLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(nameLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addComponent(emailLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                    .addGap(41, 41, 41)
-                                    .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(scrollContainerLayout.createSequentialGroup()
+                                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(closestDepotLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(usrSldrValue)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(depotSldr0Lbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(closestDepotSldr, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(countyLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(pNumLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(addressLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(cityLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(nameLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(emailLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
+                                        .addGap(41, 41, 41)
+                                        .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(depotSldr50Lbl)))
                         .addGap(360, 360, 360))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scrollContainerLayout.createSequentialGroup()
                         .addComponent(dropOffLbl)
@@ -240,48 +262,56 @@ public class DepotsGUI extends javax.swing.JPanel {
         scrollContainerLayout.setVerticalGroup(
             scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scrollContainerLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(dropOffLbl)
-                .addGap(18, 18, 18)
-                .addComponent(dropOffTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(cardScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pickupHeadingLbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(nameLbl)
-                    .addComponent(nameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(emailLbl)
-                    .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(pNumLbl)
-                    .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(addressLbl)
-                    .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(cityLbl)
-                    .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(countyLbl)
-                    .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closestDepotLbl)
-                    .addComponent(closestDepotSldr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(totalLbl)
-                .addGap(14, 14, 14)
-                .addComponent(payBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scrollContainerLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(dropOffLbl)
+                        .addGap(18, 18, 18)
+                        .addComponent(dropOffTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(cardScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pickupHeadingLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(nameLbl)
+                            .addComponent(nameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(emailLbl)
+                            .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(pNumLbl)
+                            .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(addressLbl)
+                            .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(cityLbl)
+                            .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(countyLbl)
+                            .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(depotSldr0Lbl)
+                            .addComponent(closestDepotSldr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(depotSldr50Lbl))
+                        .addGap(20, 20, 20)
+                        .addComponent(totalLbl)
+                        .addGap(14, 14, 14)
+                        .addComponent(payBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(scrollContainerLayout.createSequentialGroup()
+                        .addGap(868, 868, 868)
+                        .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(closestDepotLbl)
+                            .addComponent(usrSldrValue))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -327,6 +357,12 @@ public class DepotsGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_payBtnActionPerformed
 
+    private void closestDepotSldrStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_closestDepotSldrStateChanged
+        // TODO add your handling code here:
+        int sliderValue = closestDepotSldr.getValue();
+        usrSldrValue.setText(Integer.toString(sliderValue));
+    }//GEN-LAST:event_closestDepotSldrStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLbl;
@@ -339,6 +375,8 @@ public class DepotsGUI extends javax.swing.JPanel {
     private javax.swing.JSlider closestDepotSldr;
     private javax.swing.JLabel countyLbl;
     private javax.swing.JTextField countyTFld;
+    private javax.swing.JLabel depotSldr0Lbl;
+    private javax.swing.JLabel depotSldr50Lbl;
     private javax.swing.JLabel dropOffLbl;
     private javax.swing.JTextArea dropOffTxtAr;
     private javax.swing.JLabel emailLbl;
@@ -353,5 +391,6 @@ public class DepotsGUI extends javax.swing.JPanel {
     private javax.swing.JPanel scrollContainer;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JLabel totalLbl;
+    private javax.swing.JLabel usrSldrValue;
     // End of variables declaration//GEN-END:variables
 }
