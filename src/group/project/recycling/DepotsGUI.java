@@ -4,6 +4,12 @@
  */
 package group.project.recycling;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * @author zoheb
@@ -24,6 +30,23 @@ public class DepotsGUI extends javax.swing.JPanel {
         for (int i = 0; i < 5; i++) {
             DepotCardsGUI card = new DepotCardsGUI();
             cardContainer.add(card);
+        }
+        
+        // Test json file
+        try {
+            // JSON file path
+            String filePath = "src/group/project/recycling/data/depots.json";
+            
+            // Create instance of ObjectMapper
+            ObjectMapper objMapper = new ObjectMapper();
+            
+            // Read JSON file into JsonNode
+            JsonNode jsonNode = objMapper.readTree(new File(filePath));
+            
+            // print properties
+            System.out.println(jsonNode.toString());
+        } catch (IOException e){
+            System.out.println("Error opening json file" + e);
         }
         
         // set slider max value

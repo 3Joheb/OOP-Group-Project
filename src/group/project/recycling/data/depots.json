@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Depot 1",
+    "Location": {
+      "address": "123 Test city",
+      "city": "Dublin",
+      "county": "Dublin"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "phone": "013345768"
+    }
+  },
+  {
+    "name": "Depot 2",
+    "Location": {
+      "address": "155 Test city",
+      "city": "Dublin",
+      "county": "Dublin"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "phone": "013654318"
+    }
+  },
+  {
+    "name": "Depot 3",
+    "Location": {
+      "address": "133 Test city",
+      "city": "Dublin",
+      "county": "Dublin"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "phone": "0132334318"
+    }
+  }
+]
