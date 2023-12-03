@@ -8,12 +8,12 @@ package group.project.recycling;
  *
  * @author zoheb
  */
-public class AddFacilityGUI extends javax.swing.JPanel {
+public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form AddFacilityGUI
      */
-    public AddFacilityGUI() {
+    public AddFacilitySectionGUI() {
         initComponents();
     }
 

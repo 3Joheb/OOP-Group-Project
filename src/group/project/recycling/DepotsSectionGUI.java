@@ -4,68 +4,45 @@
  */
 package group.project.recycling;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.IOException;
-
 /**
  *
  * @author zoheb
  */
-public class DepotsGUI extends javax.swing.JPanel {
+public class DepotsSectionGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form DepotsGUI
      */
-    public DepotsGUI() {
+    public DepotsSectionGUI() {
         initComponents();
-        
+
         // Fix text area bg color
         pickUpTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
         dropOffTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
-        
-        // Add Depot Cards using json file
-        try {
-            // JSON file path
-            String filePath = "src/group/project/recycling/data/depots.json";
-            
-            // Create instance of ObjectMapper
-            ObjectMapper objMapper = new ObjectMapper();
-            
-            // Read JSON file into JsonNode
-            JsonNode jsonNode = objMapper.readTree(new File(filePath));
-            
-            // Check if root is array to prevent errors
-            if (jsonNode.isArray()){
-                // Iterate over each element in array
-                for(JsonNode depotObj : jsonNode){
-                    // Store json values
-                    // Note that I've added no error handling for non existing keys
-                    String name = depotObj.get("name").asText();
-                    String location = depotObj.get("location").get("address").asText();
-                    String openTime = depotObj.get("time").get("open").asText();
-                    String closeTime = depotObj.get("time").get("close").asText();
-                    String number = depotObj.get("contact").get("phone").asText();
-                    
-                    // Create new card for element & change lable values
-                    DepotCardsGUI card = new DepotCardsGUI();
-                    card.setNameLbl(name);
-                    card.setLocationLbl(location);
-                    card.setTimeLbl(openTime, closeTime);
-                    card.setPhoneNumLbl(number);
-                    
-                    // Add card to card container/panel
-                    cardContainer.add(card);
-                }
-            }
-        } catch (IOException e){
-            System.out.println("Error opening json file" + e);
-        }
-        
+
         // set slider max value
         closestDepotSldr.setMaximum(50);
+    }
+
+    public void createNewCard(DepotCard card) {
+        // Store card variables
+        String name = card.getName();
+        String location = card.getLocation();
+        String openTime = card.getOpenTime();
+        String closeTime = card.getCloseTime();
+        String num = card.getPhoneNumber();
+        String err = card.getReadError();
+        
+        // Create new card gui instance
+        DepotCardGUI cardGUI = new DepotCardGUI();
+        cardGUI.setNameLbl(name);
+        cardGUI.setLocationLbl(location);
+        cardGUI.setTimeLbl(openTime, closeTime);
+        cardGUI.setPhoneNumLbl(num);
+        cardGUI.setReadError(err);
+        
+        // Add card to card container/panel
+        cardContainer.add(cardGUI);
     }
 
     /**

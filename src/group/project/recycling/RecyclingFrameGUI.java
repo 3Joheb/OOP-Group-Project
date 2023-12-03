@@ -4,14 +4,16 @@
  */
 package group.project.recycling;
 
+import java.util.List;
+
 /**
  *
  * @author zoheb
  */
 public class RecyclingFrameGUI extends javax.swing.JFrame {
-    private final DepotsGUI depots;
-    private final BrowseFacilitiesGUI browse;
-    private final AddFacilityGUI facilities;
+    private final DepotsSectionGUI depotsGUI;
+    private final BrowseFacilitiesSectionGUI browse;
+    private final AddFacilitySectionGUI facilities;
 
     /**
      * Creates new form RecyclingFrame
@@ -23,16 +25,24 @@ public class RecyclingFrameGUI extends javax.swing.JFrame {
         setLayout(new java.awt.FlowLayout());
         
         // add depots section
-        depots = new DepotsGUI();
-        add(depots);
+        DepotsSection depots = new DepotsSection();
+        List<DepotCard> cards = depots.getCardsList();
+        depotsGUI = new DepotsSectionGUI();
+        
+        // Create card GUIs
+        for(DepotCard card : cards){
+            depotsGUI.createNewCard(card);
+        }
+        
+        add(depotsGUI);
         
         // add browse facilities section
-        browse = new BrowseFacilitiesGUI();
+        browse = new BrowseFacilitiesSectionGUI();
         add(browse);
         browse.setVisible(false);
         
         // add add facility section
-        facilities = new AddFacilityGUI();
+        facilities = new AddFacilitySectionGUI();
         add(facilities);
         facilities.setVisible(false);
     }
@@ -113,20 +123,20 @@ public class RecyclingFrameGUI extends javax.swing.JFrame {
 
     private void depotsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depotsBtnActionPerformed
         // TODO add your handling code here:
-        setPanelVisible(depots, depots, browse, facilities);
+        setPanelVisible(depotsGUI, depotsGUI, browse, facilities);
     }//GEN-LAST:event_depotsBtnActionPerformed
 
     private void browseFacBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFacBtnActionPerformed
         // TODO add your handling code here:
-        setPanelVisible(browse, depots, browse, facilities);
+        setPanelVisible(browse, depotsGUI, browse, facilities);
     }//GEN-LAST:event_browseFacBtnActionPerformed
 
     private void addFacBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFacBtnActionPerformed
         // TODO add your handling code here:
-        setPanelVisible(facilities, depots, browse, facilities);
+        setPanelVisible(facilities, depotsGUI, browse, facilities);
     }//GEN-LAST:event_addFacBtnActionPerformed
 
-    static void setPanelVisible(javax.swing.JPanel panel, DepotsGUI depots, BrowseFacilitiesGUI browse, AddFacilityGUI facilities){
+    static void setPanelVisible(javax.swing.JPanel panel, DepotsSectionGUI depots, BrowseFacilitiesSectionGUI browse, AddFacilitySectionGUI facilities){
         depots.setVisible(panel == depots);
         browse.setVisible(panel == browse);
         facilities.setVisible(panel == facilities);

@@ -8,12 +8,12 @@ package group.project.recycling;
  *
  * @author zoheb
  */
-public class DepotCardsGUI extends javax.swing.JPanel {
+public class DepotCardGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form DepotCardsGUI
      */
-    public DepotCardsGUI() {
+    public DepotCardGUI() {
         initComponents();
     }
     
@@ -32,7 +32,10 @@ public class DepotCardsGUI extends javax.swing.JPanel {
     public void setPhoneNumLbl(String num){
         pNumLbl.setText(num);
     }
-   
+    
+    public void setReadError(String text){
+        fileReadErrLbl.setText(text);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +50,7 @@ public class DepotCardsGUI extends javax.swing.JPanel {
         locationLbl = new javax.swing.JLabel();
         openTimeLbl = new javax.swing.JLabel();
         pNumLbl = new javax.swing.JLabel();
+        fileReadErrLbl = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(215, 215, 215));
 
@@ -62,6 +66,8 @@ public class DepotCardsGUI extends javax.swing.JPanel {
         pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pNumLbl.setText("Phone number");
 
+        fileReadErrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,7 +78,8 @@ public class DepotCardsGUI extends javax.swing.JPanel {
                     .addComponent(pNumLbl)
                     .addComponent(openTimeLbl)
                     .addComponent(locationLbl)
-                    .addComponent(nameLbl))
+                    .addComponent(nameLbl)
+                    .addComponent(fileReadErrLbl))
                 .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
@@ -86,12 +93,15 @@ public class DepotCardsGUI extends javax.swing.JPanel {
                 .addComponent(openTimeLbl)
                 .addGap(18, 18, 18)
                 .addComponent(pNumLbl)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fileReadErrLbl)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fileReadErrLbl;
     private javax.swing.JLabel locationLbl;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JLabel openTimeLbl;

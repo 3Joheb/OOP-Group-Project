@@ -8,12 +8,12 @@ package group.project.recycling;
  *
  * @author zoheb
  */
-public class BrowseFacilitiesGUI extends javax.swing.JPanel {
+public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form BrowseFacilitiesGUI
      */
-    public BrowseFacilitiesGUI() {
+    public BrowseFacilitiesSectionGUI() {
         initComponents();
         
         //increase scroll increment
