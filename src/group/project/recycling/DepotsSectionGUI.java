@@ -160,42 +160,6 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         totalLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         totalLbl.setText("Total:");
 
-        emailTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTFldActionPerformed(evt);
-            }
-        });
-
-        nameTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTFldActionPerformed(evt);
-            }
-        });
-
-        pNumTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pNumTFldActionPerformed(evt);
-            }
-        });
-
-        cityTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityTFldActionPerformed(evt);
-            }
-        });
-
-        countyTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countyTFldActionPerformed(evt);
-            }
-        });
-
-        streetTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                streetTFldActionPerformed(evt);
-            }
-        });
-
         payBtn.setBackground(new java.awt.Color(0, 153, 51));
         payBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         payBtn.setForeground(new java.awt.Color(242, 242, 242));
@@ -355,30 +319,6 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailTFldActionPerformed
-
-    private void nameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameTFldActionPerformed
-
-    private void pNumTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pNumTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pNumTFldActionPerformed
-
-    private void cityTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityTFldActionPerformed
-
-    private void countyTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_countyTFldActionPerformed
-
-    private void streetTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_streetTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_streetTFldActionPerformed
-
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
         // Save text field values to logic
         logic.setFullName(nameTFld.getText());
@@ -388,8 +328,19 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         logic.setCity(cityTFld.getText());
         logic.setCounty(countyTFld.getText());
         logic.setPaymentValue(getPaymentValue());
+        logic.saveJSONFile();
+        resetTextFields();
     }//GEN-LAST:event_payBtnActionPerformed
 
+    private void resetTextFields(){
+        nameTFld.setText("");
+        emailTFld.setText("");
+        pNumTFld.setText("");
+        streetTFld.setText("");
+        cityTFld.setText("");
+        countyTFld.setText("");
+    }
+    
     private void closestDepotSldrStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_closestDepotSldrStateChanged
 
         int sliderValue = closestDepotSldr.getValue();
@@ -415,6 +366,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
             paymentValue = 10;
         }
     }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardContainer;

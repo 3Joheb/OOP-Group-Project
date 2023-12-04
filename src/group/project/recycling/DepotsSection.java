@@ -4,11 +4,16 @@
  */
 package group.project.recycling;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import group.project.recycling.POJOs.Address;
+import group.project.recycling.POJOs.Contact;
+import group.project.recycling.POJOs.User;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,20 +54,69 @@ public class DepotsSection {
     // Load the JSON file data
     private JsonNode loadJSONFile() {
         // Add Depot Cards using json file
+
+        // JSON file path
+        String filePath = "src/group/project/recycling/data/depots.json";
+
+        // Create instance of ObjectMapper
+        ObjectMapper objMapper = new ObjectMapper();
         try {
-            // JSON file path
-            String filePath = "src/group/project/recycling/data/depots.json";
-
-            // Create instance of ObjectMapper
-            ObjectMapper objMapper = new ObjectMapper();
-
             // Read JSON file into JsonNode
+            // readTree() is useful if you want to traverse JSON without having a predefined class to map to
             JsonNode jsonNode = objMapper.readTree(new File(filePath));
             return jsonNode;
         } catch (IOException e) {
             // Print error
             System.out.println("Error opening json file" + e);
             return null;
+        }
+    }
+
+    // Save data to JSON file
+    public void saveJSONFile() {
+        // JSON file path
+        String filePath = "src/group/project/recycling/data/users.json";
+
+        // Create instance of ObjectMapper
+        ObjectMapper objMapper = new ObjectMapper();
+
+        // Create POJO
+        Address addressObj = new Address(street, city, county);
+        Contact contactObj = new Contact(email, number);
+        User userObj = new User(fullName, contactObj, addressObj, paymentValue);
+
+        try {
+            File file = new File(filePath);
+
+            // Check if file exists
+            if (file.exists()) {
+                // Use readValue() instead of readTree() because we have a class to map to
+                // TypeReference tells Jackson the deserialized object should be the type List<User>
+                List<User> userList = objMapper.readValue(file, new TypeReference<List<User>>() {
+                });
+
+                // Add object to existing user list
+                userList.add(userObj);
+
+                // Write to file
+                objMapper.writeValue(file, userList);
+
+                // Print succes
+                System.out.println("Successfully wrote to User json file");
+            } else {
+                // Collections.singleton() returns a list containing the argument e.g. [userObj]
+                // This makes sure the root JSON data type is a list and not an object
+                List<User> userList = Collections.singletonList(userObj);
+                
+                // Create new file
+                objMapper.writeValue(file, userList);
+
+                // Print succes
+                System.out.println("Successfully wrote to User json file");
+            }
+        } catch (IOException e) {
+            // Print error
+            System.out.println("Error saving User json file" + e);
         }
     }
 
@@ -78,7 +132,7 @@ public class DepotsSection {
                 String location = depotObj.get("location").get("address").asText();
                 String openTime = depotObj.get("time").get("open").asText();
                 String closeTime = depotObj.get("time").get("close").asText();
-                String number = depotObj.get("contact").get("phone").asText();
+                String num = depotObj.get("contact").get("phone").asText();
 
                 // Create new instance of class to store data
                 DepotCard card = new DepotCard();
@@ -86,7 +140,7 @@ public class DepotsSection {
                 card.setLocation(location);
                 card.setOpenTime(openTime);
                 card.setCloseTime(closeTime);
-                card.setPhoneNumber(number);
+                card.setPhoneNumber(num);
                 card.setReadError("");
 
                 // Add objects to list

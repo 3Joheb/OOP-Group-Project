@@ -10,13 +10,18 @@ package group.project.recycling.POJOs;
  */
 // POJO to store address data
 public class Address {
-    private String street;
-    private String city;
-    private String county;
+    public String street;
+    public String city;
+    public String county;
 
-    Address(String street, String city, String county) {
+    // Default constructor for Jackson deserialization
+    public Address(){
+        
+    }
+    
+    public Address(String street, String city, String county) {
         this.street = street;
         this.city = city;
-        this.city = county;
+        this.county = county;
     }
 }

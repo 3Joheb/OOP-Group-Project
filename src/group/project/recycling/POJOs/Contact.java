@@ -10,10 +10,15 @@ package group.project.recycling.POJOs;
  */
 // POJO to store contact data
 public class Contact {
-    private String email;
-    private String number;
+    public String email;
+    public String number;
     
-    Contact(String email, String number){
+    // Default constructor for Jackson deserialization
+    public Contact(){
+        
+    }
+    
+    public Contact(String email, String number){
         this.email = email;
         this.number = number;
     }
