@@ -80,9 +80,9 @@
                                               <Component id="pNumTFld" min="-2" pref="144" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="addressLbl" min="-2" max="-2" attributes="0"/>
+                                              <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="addressTFld" min="-2" pref="144" max="-2" attributes="0"/>
+                                              <Component id="streetTFld" min="-2" pref="144" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
@@ -154,8 +154,8 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
-                                  <Component id="addressLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addressTFld" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="streetLbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="streetTFld" alignment="2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
@@ -311,12 +311,12 @@
                 <Property name="text" type="java.lang.String" value="Phone number:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="addressLbl">
+            <Component class="javax.swing.JLabel" name="streetLbl">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Eras Medium ITC" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Address:"/>
+                <Property name="text" type="java.lang.String" value="Street:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="cityLbl">
@@ -368,9 +368,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countyTFldActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="addressTFld">
+            <Component class="javax.swing.JTextField" name="streetTFld">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressTFldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="streetTFldActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="payBtn">

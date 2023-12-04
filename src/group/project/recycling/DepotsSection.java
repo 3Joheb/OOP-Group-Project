@@ -17,19 +17,33 @@ import java.util.List;
  */
 public class DepotsSection {
 
+    private DepotsSectionGUI GUI;
+
+    private String fullName;
+    private String email;
+    private String number;
+    private String street;
+    private String city;
+    private String county;
+    private Integer paymentValue;
+
     // List to store card data
     private List<DepotCard> depotList = new ArrayList<>();
 
     public DepotsSection() {
         // Load JSON
         JsonNode data = loadJSONFile();
-        
+
         // Handle data error
-        if(data == null){
+        if (data == null) {
             createPlaceholderCards(depotList);
         } else {
             createCards(data, depotList);
         }
+
+        // Create new GUI instance
+        // Pass DepotsSection as an argument so GUI has access to objects
+        GUI = new DepotsSectionGUI(this);
     }
 
     // Load the JSON file data
@@ -89,8 +103,40 @@ public class DepotsSection {
             depotList.add(card);
         }
     }
-    
-    public List<DepotCard> getCardsList(){
+
+    public List<DepotCard> getCards() {
         return depotList;
+    }
+
+    public DepotsSectionGUI getGUI() {
+        return GUI;
+    }
+
+    public void setFullName(String fn) {
+        fullName = fn;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setNumber(String num) {
+        number = num;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public void setPaymentValue(Integer value) {
+        paymentValue = value;
     }
 }

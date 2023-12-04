@@ -9,12 +9,18 @@ package group.project.recycling;
  * @author zoheb
  */
 public class DepotsSectionGUI extends javax.swing.JPanel {
+    private DepotsSection logic;
+    private Integer paymentValue;
 
     /**
      * Creates new form DepotsGUI
+     * @param logic
      */
-    public DepotsSectionGUI() {
+    public DepotsSectionGUI(DepotsSection logic) {
         initComponents();
+        
+        // Save logic instance
+        this.logic = logic;
 
         // Fix text area bg color
         pickUpTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
@@ -22,25 +28,30 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
 
         // set slider max value
         closestDepotSldr.setMaximum(50);
+        
+        // Create cards using logic list
+        for(DepotCard card : logic.getCards()){
+            createNewCard(card);
+        }
     }
 
-    public void createNewCard(DepotCard card) {
+    private void createNewCard(DepotCard card) {
         // Store card variables
-        String name = card.getName();
+        String cardName = card.getName();
         String location = card.getLocation();
         String openTime = card.getOpenTime();
         String closeTime = card.getCloseTime();
         String num = card.getPhoneNumber();
         String err = card.getReadError();
-        
+
         // Create new card gui instance
         DepotCardGUI cardGUI = new DepotCardGUI();
-        cardGUI.setNameLbl(name);
+        cardGUI.setNameLbl(cardName);
         cardGUI.setLocationLbl(location);
         cardGUI.setTimeLbl(openTime, closeTime);
         cardGUI.setPhoneNumLbl(num);
         cardGUI.setReadError(err);
-        
+
         // Add card to card container/panel
         cardContainer.add(cardGUI);
     }
@@ -65,7 +76,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         nameLbl = new javax.swing.JLabel();
         emailLbl = new javax.swing.JLabel();
         pNumLbl = new javax.swing.JLabel();
-        addressLbl = new javax.swing.JLabel();
+        streetLbl = new javax.swing.JLabel();
         cityLbl = new javax.swing.JLabel();
         countyLbl = new javax.swing.JLabel();
         totalLbl = new javax.swing.JLabel();
@@ -74,7 +85,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         pNumTFld = new javax.swing.JTextField();
         cityTFld = new javax.swing.JTextField();
         countyTFld = new javax.swing.JTextField();
-        addressTFld = new javax.swing.JTextField();
+        streetTFld = new javax.swing.JTextField();
         payBtn = new javax.swing.JButton();
         closestDepotLbl = new javax.swing.JLabel();
         closestDepotSldr = new javax.swing.JSlider();
@@ -137,8 +148,8 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pNumLbl.setText("Phone number:");
 
-        addressLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        addressLbl.setText("Address:");
+        streetLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        streetLbl.setText("Street:");
 
         cityLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         cityLbl.setText("City:");
@@ -179,9 +190,9 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
             }
         });
 
-        addressTFld.addActionListener(new java.awt.event.ActionListener() {
+        streetTFld.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressTFldActionPerformed(evt);
+                streetTFldActionPerformed(evt);
             }
         });
 
@@ -246,9 +257,9 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
-                                        .addComponent(addressLbl)
+                                        .addComponent(streetLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(streetTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
                                         .addComponent(cityLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -303,8 +314,8 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                             .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(addressLbl)
-                            .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(streetLbl)
+                            .addComponent(streetTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(cityLbl)
@@ -364,24 +375,48 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_countyTFldActionPerformed
 
-    private void addressTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTFldActionPerformed
+    private void streetTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_streetTFldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addressTFldActionPerformed
+    }//GEN-LAST:event_streetTFldActionPerformed
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-        // TODO add your handling code here:
+        // Save text field values to logic
+        logic.setFullName(nameTFld.getText());
+        logic.setEmail(emailTFld.getText());
+        logic.setNumber(pNumTFld.getText());
+        logic.setStreet(streetTFld.getText());
+        logic.setCity(cityTFld.getText());
+        logic.setCounty(countyTFld.getText());
+        logic.setPaymentValue(getPaymentValue());
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void closestDepotSldrStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_closestDepotSldrStateChanged
-        // TODO add your handling code here:
+
         int sliderValue = closestDepotSldr.getValue();
         usrSldrValue.setText(Integer.toString(sliderValue));
+
+        // Change payment value
+        setPaymentValue(sliderValue);
+
+        // Update payment label
+        totalLbl.setText("Total: €" + Integer.toString(paymentValue));
     }//GEN-LAST:event_closestDepotSldrStateChanged
 
+    public Integer getPaymentValue() {
+        return paymentValue;
+    }
 
+    private void setPaymentValue(Integer sliderValue) {
+        if (sliderValue < 10) {
+            paymentValue = 5;
+        } else if (sliderValue > 35) {
+            paymentValue = 15;
+        } else {
+            paymentValue = 10;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressLbl;
-    private javax.swing.JTextField addressTFld;
     private javax.swing.JPanel cardContainer;
     private javax.swing.JScrollPane cardScrollPane;
     private javax.swing.JLabel cityLbl;
@@ -405,6 +440,8 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
     private javax.swing.JLabel pickupHeadingLbl;
     private javax.swing.JPanel scrollContainer;
     private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JLabel streetLbl;
+    private javax.swing.JTextField streetTFld;
     private javax.swing.JLabel totalLbl;
     private javax.swing.JLabel usrSldrValue;
     // End of variables declaration//GEN-END:variables

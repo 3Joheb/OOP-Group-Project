@@ -32,7 +32,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         facilityNameLbl = new javax.swing.JLabel();
         emailLbl = new javax.swing.JLabel();
         pNumLbl = new javax.swing.JLabel();
-        addressLbl = new javax.swing.JLabel();
+        streetLbl = new javax.swing.JLabel();
         cityLbl = new javax.swing.JLabel();
         countyLbl = new javax.swing.JLabel();
         openTimeLbl = new javax.swing.JLabel();
@@ -70,8 +70,8 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         pNumLbl.setText("Phone number:");
 
-        addressLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        addressLbl.setText("Address:");
+        streetLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        streetLbl.setText("Street:");
 
         cityLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         cityLbl.setText("City:");
@@ -145,7 +145,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                                     .addComponent(facilityNameLbl)
                                     .addComponent(emailLbl)
                                     .addComponent(pNumLbl)
-                                    .addComponent(addressLbl)
+                                    .addComponent(streetLbl)
                                     .addComponent(cityLbl)
                                     .addComponent(countyLbl)
                                     .addComponent(openTimeLbl)
@@ -198,7 +198,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                     .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl)
+                    .addComponent(streetLbl)
                     .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,7 +252,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressLbl;
     private javax.swing.JTextField addressTFld;
     private javax.swing.JLabel cityLbl;
     private javax.swing.JTextField cityTFld;
@@ -274,6 +273,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JLabel pNumLbl;
     private javax.swing.JTextField pNumTFld;
     private javax.swing.JButton selectFileBtn;
+    private javax.swing.JLabel streetLbl;
     private javax.swing.JButton submitBtn;
     private javax.swing.JLabel wasteAcceptedLbl;
     private javax.swing.JTextField wasteTFld;

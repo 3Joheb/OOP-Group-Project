@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Frank",
+    "contact": {
+      "email": "example@gmail.com",
+      "number": "013334895"
+    },
+    "address": {
+      "street": "123 Text Street",
+      "city": "Dublin",
+      "county": "Dublin"
+    },
+    "payment": 30
+  }
+]
