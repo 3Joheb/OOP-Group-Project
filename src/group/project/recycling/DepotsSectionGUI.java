@@ -320,7 +320,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-        // Save text field values to logic
+        // Save text field values to logic variables
         logic.setFullName(nameTFld.getText());
         logic.setEmail(emailTFld.getText());
         logic.setNumber(pNumTFld.getText());
@@ -328,7 +328,11 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         logic.setCity(cityTFld.getText());
         logic.setCounty(countyTFld.getText());
         logic.setPaymentValue(getPaymentValue());
+        
+        // Run save file method
         logic.saveJSONFile();
+        
+        // Reset text fields
         resetTextFields();
     }//GEN-LAST:event_payBtnActionPerformed
 

@@ -9,12 +9,15 @@ package group.project.recycling;
  * @author zoheb
  */
 public class AddFacilitySectionGUI extends javax.swing.JPanel {
-
+    AddFacilitySection logic;
     /**
      * Creates new form AddFacilityGUI
      */
-    public AddFacilitySectionGUI() {
+    public AddFacilitySectionGUI(AddFacilitySection logic) {
         initComponents();
+        
+        // Save logic instance
+        this.logic = logic;
     }
 
     /**
@@ -26,7 +29,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFileChooser1 = new javax.swing.JFileChooser();
         formHeadingLbl = new javax.swing.JLabel();
         companyNameLbl = new javax.swing.JLabel();
         facilityNameLbl = new javax.swing.JLabel();
@@ -90,24 +92,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
         imgLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         imgLbl.setText("Image of facility");
-
-        companyNameTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                companyNameTFldActionPerformed(evt);
-            }
-        });
-
-        facilityNameTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facilityNameTFldActionPerformed(evt);
-            }
-        });
-
-        addressTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressTFldActionPerformed(evt);
-            }
-        });
 
         selectFileBtn.setBackground(new java.awt.Color(0, 102, 204));
         selectFileBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
@@ -230,21 +214,9 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void companyNameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_companyNameTFldActionPerformed
-
     private void selectFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectFileBtnActionPerformed
-
-    private void facilityNameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityNameTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_facilityNameTFldActionPerformed
-
-    private void addressTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressTFldActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
@@ -267,7 +239,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JTextField facilityNameTFld;
     private javax.swing.JLabel formHeadingLbl;
     private javax.swing.JLabel imgLbl;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel openTimeLbl;
     private javax.swing.JTextField openTimeTFld;
     private javax.swing.JLabel pNumLbl;

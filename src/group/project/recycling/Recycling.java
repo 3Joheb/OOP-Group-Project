@@ -12,7 +12,6 @@ public class Recycling {
 
     public void initSection() {
         // Add depots section //
-        // Code
         DepotsSection depots = new DepotsSection();
 
         // Add browse section //
@@ -20,11 +19,10 @@ public class Recycling {
         browseGUI.setVisible(false);
 
         // Add facilities section //
-        AddFacilitySectionGUI facilitiesGUI = new AddFacilitySectionGUI();
-        facilitiesGUI.setVisible(false);
+        AddFacilitySection addFacilities = new AddFacilitySection();
 
         // Add GUI to recycling frame //
-        RecyclingFrameGUI recyclingGUI = new RecyclingFrameGUI(depots.getGUI(), browseGUI, facilitiesGUI);
+        RecyclingFrameGUI recyclingGUI = new RecyclingFrameGUI(depots.getGUI(), browseGUI, addFacilities.getGUI());
         recyclingGUI.setVisible(true);
     }
 }
