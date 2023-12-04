@@ -4,47 +4,36 @@
  */
 package group.project.recycling;
 
-import java.util.List;
-
 /**
  *
  * @author zoheb
  */
 public class RecyclingFrameGUI extends javax.swing.JFrame {
-    private final DepotsSectionGUI depotsGUI;
-    private final BrowseFacilitiesSectionGUI browse;
-    private final AddFacilitySectionGUI facilities;
+    private DepotsSectionGUI depotsGUI;
+    private BrowseFacilitiesSectionGUI browseGUI;
+    private AddFacilitySectionGUI facilitiesGUI;
 
     /**
      * Creates new form RecyclingFrame
+     * @param depotsGUI
+     * @param browseGUI
+     * @param facilitiesGUI
      */
-    public RecyclingFrameGUI() {
+    public RecyclingFrameGUI(DepotsSectionGUI depotsGUI,BrowseFacilitiesSectionGUI browseGUI,AddFacilitySectionGUI facilitiesGUI) {
         initComponents();
         
         //set layout
         setLayout(new java.awt.FlowLayout());
         
-        // add depots section
-        DepotsSection depots = new DepotsSection();
-        List<DepotCard> cards = depots.getCardsList();
-        depotsGUI = new DepotsSectionGUI();
+        // Store GUI
+        this.depotsGUI = depotsGUI;
+        this.browseGUI = browseGUI;
+        this.facilitiesGUI = facilitiesGUI;
         
-        // Create card GUIs
-        for(DepotCard card : cards){
-            depotsGUI.createNewCard(card);
-        }
-        
-        add(depotsGUI);
-        
-        // add browse facilities section
-        browse = new BrowseFacilitiesSectionGUI();
-        add(browse);
-        browse.setVisible(false);
-        
-        // add add facility section
-        facilities = new AddFacilitySectionGUI();
-        add(facilities);
-        facilities.setVisible(false);
+        // Add GUI panels to frame
+        add(this.depotsGUI);
+        add(this.browseGUI);
+        add(this.facilitiesGUI);
     }
 
     /**
@@ -123,23 +112,23 @@ public class RecyclingFrameGUI extends javax.swing.JFrame {
 
     private void depotsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depotsBtnActionPerformed
         // TODO add your handling code here:
-        setPanelVisible(depotsGUI, depotsGUI, browse, facilities);
+        setPanelVisible(depotsGUI);
     }//GEN-LAST:event_depotsBtnActionPerformed
 
     private void browseFacBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFacBtnActionPerformed
         // TODO add your handling code here:
-        setPanelVisible(browse, depotsGUI, browse, facilities);
+        setPanelVisible(browseGUI);
     }//GEN-LAST:event_browseFacBtnActionPerformed
 
     private void addFacBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFacBtnActionPerformed
         // TODO add your handling code here:
-        setPanelVisible(facilities, depotsGUI, browse, facilities);
+        setPanelVisible(facilitiesGUI);
     }//GEN-LAST:event_addFacBtnActionPerformed
 
-    static void setPanelVisible(javax.swing.JPanel panel, DepotsSectionGUI depots, BrowseFacilitiesSectionGUI browse, AddFacilitySectionGUI facilities){
-        depots.setVisible(panel == depots);
-        browse.setVisible(panel == browse);
-        facilities.setVisible(panel == facilities);
+    private void setPanelVisible(javax.swing.JPanel panel){
+        depotsGUI.setVisible(panel == depotsGUI);
+        browseGUI.setVisible(panel == browseGUI);
+        facilitiesGUI.setVisible(panel == facilitiesGUI);
     }
     /**
      * @param args the command line arguments
@@ -170,11 +159,11 @@ public class RecyclingFrameGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RecyclingFrameGUI().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new RecyclingFrameGUI().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

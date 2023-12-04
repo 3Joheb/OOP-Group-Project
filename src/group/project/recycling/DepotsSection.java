@@ -23,7 +23,9 @@ public class DepotsSection {
     public DepotsSection() {
         // Load JSON
         JsonNode data = loadJSONFile();
-        if(data.isNull()){
+        
+        // Handle data error
+        if(data == null){
             createPlaceholderCards(depotList);
         } else {
             createCards(data, depotList);
