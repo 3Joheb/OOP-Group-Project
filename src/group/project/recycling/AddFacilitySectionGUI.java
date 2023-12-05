@@ -58,14 +58,15 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         facilityNameTFld = new javax.swing.JTextField();
         emailTFld = new javax.swing.JTextField();
         pNumTFld = new javax.swing.JTextField();
-        addressTFld = new javax.swing.JTextField();
+        streetTFld = new javax.swing.JTextField();
         cityTFld = new javax.swing.JTextField();
         countyTFld = new javax.swing.JTextField();
         openTimeTFld = new javax.swing.JTextField();
         closeTimeTFld = new javax.swing.JTextField();
-        wasteTFld = new javax.swing.JTextField();
         selectFileBtn = new javax.swing.JButton();
         submitBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setMaximumSize(new java.awt.Dimension(1092, 614));
         setMinimumSize(new java.awt.Dimension(1092, 614));
@@ -95,16 +96,34 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         countyLbl.setText("County:");
 
         openTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        openTimeLbl.setText("Open time:");
+        openTimeLbl.setText("Opening time:");
 
         closeTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        closeTimeLbl.setText("Close time:");
+        closeTimeLbl.setText("Closing time:");
 
         wasteAcceptedLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         wasteAcceptedLbl.setText("Waste accepted:");
 
         imgLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         imgLbl.setText("Image of facility");
+
+        facilityNameTFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facilityNameTFldActionPerformed(evt);
+            }
+        });
+
+        pNumTFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pNumTFldActionPerformed(evt);
+            }
+        });
+
+        openTimeTFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openTimeTFldActionPerformed(evt);
+            }
+        });
 
         selectFileBtn.setBackground(new java.awt.Color(0, 102, 204));
         selectFileBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
@@ -126,6 +145,13 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
             }
         });
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Paper (newspapers, magazines, cardboard)", "Plastic bottles", "Glass bottles and jars", "Aluminum cans", "Steel cans", "Electronics (computers, laptops, smartphones)", "Batteries (alkaline, rechargeable)", "Textiles (clothing, shoes)", "Organic waste (food scraps, yard waste)", "Metal appliances (refrigerators, washing machines)", "Paperboard (cereal boxes, shoeboxes)", "Styrofoam", "Light bulbs (CFLs, LEDs)", "Printer cartridges", "Tires", "Paint cans", "Wood waste", "Used cooking oil", "Household hazardous waste (cleaning products, chemicals)", "Plastic bags" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,94 +160,96 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(322, 322, 322)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(formHeadingLbl)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(companyNameLbl)
                                     .addComponent(facilityNameLbl)
-                                    .addComponent(emailLbl)
                                     .addComponent(pNumLbl)
                                     .addComponent(streetLbl)
-                                    .addComponent(cityLbl)
                                     .addComponent(countyLbl)
                                     .addComponent(openTimeLbl)
                                     .addComponent(closeTimeLbl)
                                     .addComponent(wasteAcceptedLbl)
-                                    .addComponent(imgLbl))
-                                .addGap(131, 131, 131)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(imgLbl)
+                                    .addComponent(emailLbl)
+                                    .addComponent(companyNameLbl)
+                                    .addComponent(cityLbl))
+                                .addGap(165, 165, 165)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(companyNameTFld)
                                     .addComponent(facilityNameTFld)
                                     .addComponent(emailTFld)
                                     .addComponent(pNumTFld)
-                                    .addComponent(addressTFld)
+                                    .addComponent(streetTFld)
                                     .addComponent(cityTFld)
                                     .addComponent(countyTFld)
                                     .addComponent(openTimeTFld)
-                                    .addComponent(closeTimeTFld)
-                                    .addComponent(wasteTFld)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(selectFileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(closeTimeTFld)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(formHeadingLbl))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(485, 485, 485)
                         .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addContainerGap()
+                .addComponent(formHeadingLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(companyNameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyNameLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(facilityNameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facilityNameLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pNumLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(streetTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(streetLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(countyLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(openTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openTimeLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(closeTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(closeTimeLbl))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(formHeadingLbl)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(companyNameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(companyNameLbl))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(facilityNameLbl))
-                                    .addComponent(facilityNameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(emailLbl))
-                            .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(pNumLbl))
-                    .addComponent(pNumTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(streetLbl)
-                    .addComponent(addressTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cityLbl)
-                    .addComponent(cityTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(countyLbl)
-                    .addComponent(countyTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(openTimeLbl)
-                    .addComponent(openTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closeTimeLbl)
-                    .addComponent(closeTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(wasteAcceptedLbl)
-                    .addComponent(wasteTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(wasteAcceptedLbl)))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(imgLbl)
                     .addComponent(selectFileBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(submitBtn)
                 .addGap(26, 26, 26))
         );
@@ -237,6 +265,18 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         logic.saveImageLocally();
     }//GEN-LAST:event_submitBtnActionPerformed
 
+    private void facilityNameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityNameTFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_facilityNameTFldActionPerformed
+
+    private void pNumTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pNumTFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pNumTFldActionPerformed
+
+    private void openTimeTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openTimeTFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_openTimeTFldActionPerformed
+
     // Create dialog box to select image file
     private void selectImagePath() {
         JFileChooser fileChooser = new JFileChooser();
@@ -251,7 +291,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField addressTFld;
     private javax.swing.JLabel cityLbl;
     private javax.swing.JTextField cityTFld;
     private javax.swing.JLabel closeTimeLbl;
@@ -266,14 +305,16 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JTextField facilityNameTFld;
     private javax.swing.JLabel formHeadingLbl;
     private javax.swing.JLabel imgLbl;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel openTimeLbl;
     private javax.swing.JTextField openTimeTFld;
     private javax.swing.JLabel pNumLbl;
     private javax.swing.JTextField pNumTFld;
     private javax.swing.JButton selectFileBtn;
     private javax.swing.JLabel streetLbl;
+    private javax.swing.JTextField streetTFld;
     private javax.swing.JButton submitBtn;
     private javax.swing.JLabel wasteAcceptedLbl;
-    private javax.swing.JTextField wasteTFld;
     // End of variables declaration//GEN-END:variables
 }
