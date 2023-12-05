@@ -234,9 +234,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-        if(sourcePath != null & imageName != null){
-            saveImageLocally(sourcePath, "src/group/project/recycling/img/");
-        }
+        logic.saveImageLocally();
     }//GEN-LAST:event_submitBtnActionPerformed
 
     // Create dialog box to select image file
@@ -247,42 +245,8 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
 
-            // Check file is image
-            if (isFileImage(selectedFile)) {
-                sourcePath = selectedFile.getAbsolutePath();
-                imageName = selectedFile.getName();
-                System.out.println(sourcePath);
-            } else {
-                System.out.println("File type not supported, please select .jpg, .jpeg or .png");
-            }
-        }
-    }
-
-    // Check file type is image
-    private boolean isFileImage(File file) {
-        String fileName = file.getName().toLowerCase();
-        return fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png");
-    }
-
-    // Copy file from source to destination
-    private void saveImageLocally(String sourcePath, String destinationFolderPath) {
-        // Create unique file name
-        String fileName = "facility_" + System.currentTimeMillis() + "-" + imageName;
-
-        // Attach file name to file destination path
-        String destinationPath = destinationFolderPath + fileName;
-
-        try {
-            // Set source & destination paths
-            Path source = Paths.get(sourcePath);
-            Path destination = Paths.get(destinationPath);
-
-            // Copy file from source to destination
-            Files.copy(source, destination);
-
-            System.out.println("Image copied successfully to " + destination);
-        } catch (IOException e) {
-            System.out.println("Error copying image: " + e);
+            // Handle file logic checks
+            logic.resolveFile(selectedFile);
         }
     }
 
