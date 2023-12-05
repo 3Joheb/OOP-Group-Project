@@ -253,7 +253,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         logic.setCloseTime(closeTimeTFld.getText());
         logic.setAcceptedWaste(wasteJList.getSelectedValuesList());
 
-        logic.saveImageLocally();
+        logic.saveJSONFile();
         
         resetTextFields();
     }//GEN-LAST:event_submitBtnActionPerformed
