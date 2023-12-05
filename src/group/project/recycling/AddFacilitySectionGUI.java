@@ -5,6 +5,10 @@
 package group.project.recycling;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -13,11 +17,14 @@ import javax.swing.JFileChooser;
  */
 public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
-    private AddFacilitySection logic;
-    private String imagePath;
+    private final AddFacilitySection logic;
+    private String sourcePath;
+    private String imageName;
 
     /**
      * Creates new form AddFacilityGUI
+     *
+     * @param logic
      */
     public AddFacilitySectionGUI(AddFacilitySection logic) {
         initComponents();
@@ -227,15 +234,11 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        if(sourcePath != null & imageName != null){
+            saveImageLocally(sourcePath, "src/group/project/recycling/img/");
+        }
     }//GEN-LAST:event_submitBtnActionPerformed
 
-    private void saveImageLocally(){
-        String destinationFolderPath = "src/group/project/recycling/img";
-        
-
-        
-    }
-    
     // Create dialog box to select image file
     private void selectImagePath() {
         JFileChooser fileChooser = new JFileChooser();
@@ -246,17 +249,41 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
             // Check file is image
             if (isFileImage(selectedFile)) {
-                imagePath = selectedFile.getAbsolutePath();
-                System.out.println(imagePath);
+                sourcePath = selectedFile.getAbsolutePath();
+                imageName = selectedFile.getName();
+                System.out.println(sourcePath);
             } else {
                 System.out.println("File type not supported, please select .jpg, .jpeg or .png");
             }
         }
     }
 
+    // Check file type is image
     private boolean isFileImage(File file) {
         String fileName = file.getName().toLowerCase();
         return fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png");
+    }
+
+    // Copy file from source to destination
+    private void saveImageLocally(String sourcePath, String destinationFolderPath) {
+        // Create unique file name
+        String fileName = "facility_" + System.currentTimeMillis() + "-" + imageName;
+
+        // Attach file name to file destination path
+        String destinationPath = destinationFolderPath + fileName;
+
+        try {
+            // Set source & destination paths
+            Path source = Paths.get(sourcePath);
+            Path destination = Paths.get(destinationPath);
+
+            // Copy file from source to destination
+            Files.copy(source, destination);
+
+            System.out.println("Image copied successfully to " + destination);
+        } catch (IOException e) {
+            System.out.println("Error copying image: " + e);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
