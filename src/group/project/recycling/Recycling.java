@@ -8,6 +8,7 @@ package group.project.recycling;
  *
  * @author zoheb
  */
+// Recycling section entry file
 public class Recycling {
 
     public void initSection() {

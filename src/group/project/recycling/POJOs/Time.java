@@ -9,8 +9,8 @@ package group.project.recycling.POJOs;
  * @author zoheb
  */
 public class Time {
-    private String opening;
-    private String closing;
+    public String opening;
+    public String closing;
     
     // Jackson empty constructor for deserialization
     public Time(){

@@ -12,13 +12,13 @@ import java.util.List;
  */
 // Facility POJO
 public class Facility {
-    private String company_name;
-    private String facility_name;
-    private Contact contact;
-    private Address address;
-    private Time time;
-    private List<String> accepted_waste;
-    private String image_path;
+    public String company_name;
+    public String facility_name;
+    public Contact contact;
+    public Address address;
+    public Time time;
+    public List<String> accepted_waste;
+    public String image_path;
     
     // Jackson deserialization constructor
     public Facility(){
