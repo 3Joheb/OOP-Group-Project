@@ -39,8 +39,8 @@ public class AddFacilitySection {
     private String street;
     private String city;
     private String county;
-    private String openingTime;
-    private String closingTime;
+    private String openTime;
+    private String closeTime;
     private List<String> acceptedWaste;
 
     public AddFacilitySection() {
@@ -130,13 +130,13 @@ public class AddFacilitySection {
         this.county = county;
     }
     
-    public void setOpeningTime(String time){
+    public void setOpenTime(String time){
         // Format is military e.g. 0700 = 7am
-        openingTime = time;
+        openTime = time;
     }
     
-    public void setClosingTime(String time){
-        closingTime = time;
+    public void setCloseTime(String time){
+        closeTime = time;
     }
     
     public void setAcceptedWaste(List<String> waste){

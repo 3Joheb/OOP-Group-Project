@@ -5,10 +5,6 @@
 package group.project.recycling;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -66,7 +62,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         selectFileBtn = new javax.swing.JButton();
         submitBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        wasteJList = new javax.swing.JList<>();
 
         setMaximumSize(new java.awt.Dimension(1092, 614));
         setMinimumSize(new java.awt.Dimension(1092, 614));
@@ -107,24 +103,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         imgLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         imgLbl.setText("Image of facility");
 
-        facilityNameTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facilityNameTFldActionPerformed(evt);
-            }
-        });
-
-        pNumTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pNumTFldActionPerformed(evt);
-            }
-        });
-
-        openTimeTFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openTimeTFldActionPerformed(evt);
-            }
-        });
-
         selectFileBtn.setBackground(new java.awt.Color(0, 102, 204));
         selectFileBtn.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         selectFileBtn.setForeground(new java.awt.Color(242, 242, 242));
@@ -145,12 +123,12 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        wasteJList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Paper (newspapers, magazines, cardboard)", "Plastic bottles", "Glass bottles and jars", "Aluminum cans", "Steel cans", "Electronics (computers, laptops, smartphones)", "Batteries (alkaline, rechargeable)", "Textiles (clothing, shoes)", "Organic waste (food scraps, yard waste)", "Metal appliances (refrigerators, washing machines)", "Paperboard (cereal boxes, shoeboxes)", "Styrofoam", "Light bulbs (CFLs, LEDs)", "Printer cartridges", "Tires", "Paint cans", "Wood waste", "Used cooking oil", "Household hazardous waste (cleaning products, chemicals)", "Plastic bags" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(wasteJList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -262,32 +240,50 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+
+        // Logic setters
+        logic.setCompanyName(companyNameTFld.getText());
+        logic.setFacilityName(facilityNameTFld.getText());
+        logic.setEmail(emailTFld.getText());
+        logic.setNumber(pNumTFld.getText());
+        logic.setStreet(streetTFld.getText());
+        logic.setCity(cityTFld.getText());
+        logic.setCounty(countyTFld.getText());
+        logic.setOpenTime(openTimeTFld.getText());
+        logic.setCloseTime(closeTimeTFld.getText());
+        logic.setAcceptedWaste(wasteJList.getSelectedValuesList());
+
         logic.saveImageLocally();
+        
+        resetTextFields();
     }//GEN-LAST:event_submitBtnActionPerformed
-
-    private void facilityNameTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityNameTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_facilityNameTFldActionPerformed
-
-    private void pNumTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pNumTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pNumTFldActionPerformed
-
-    private void openTimeTFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openTimeTFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_openTimeTFldActionPerformed
 
     // Create dialog box to select image file
     private void selectImagePath() {
         JFileChooser fileChooser = new JFileChooser();
+
+        // Result determined by the action user takes
         int result = fileChooser.showOpenDialog(this);
 
+        // If result is (user selected a file)
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
 
             // Handle file logic checks
             logic.resolveFile(selectedFile);
         }
+    }
+
+    private void resetTextFields() {
+        companyNameTFld.setText("");
+        facilityNameTFld.setText("");
+        emailTFld.setText("");
+        pNumTFld.setText("");
+        streetTFld.setText("");
+        cityTFld.setText("");
+        countyTFld.setText("");
+        openTimeTFld.setText("");
+        closeTimeTFld.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,7 +301,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JTextField facilityNameTFld;
     private javax.swing.JLabel formHeadingLbl;
     private javax.swing.JLabel imgLbl;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel openTimeLbl;
     private javax.swing.JTextField openTimeTFld;
@@ -316,5 +311,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JTextField streetTFld;
     private javax.swing.JButton submitBtn;
     private javax.swing.JLabel wasteAcceptedLbl;
+    private javax.swing.JList<String> wasteJList;
     // End of variables declaration//GEN-END:variables
 }
