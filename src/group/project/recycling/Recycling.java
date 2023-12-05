@@ -16,14 +16,13 @@ public class Recycling {
         DepotsSection depots = new DepotsSection();
 
         // Add browse section //
-        BrowseFacilitiesSectionGUI browseGUI = new BrowseFacilitiesSectionGUI();
-        browseGUI.setVisible(false);
+        BrowseFacilitiesSection browse = new BrowseFacilitiesSection();
 
         // Add facilities section //
         AddFacilitySection addFacilities = new AddFacilitySection();
 
         // Add GUI to recycling frame //
-        RecyclingFrameGUI recyclingGUI = new RecyclingFrameGUI(depots.getGUI(), browseGUI, addFacilities.getGUI());
+        RecyclingFrameGUI recyclingGUI = new RecyclingFrameGUI(depots.getGUI(), browse.getGUI(), addFacilities.getGUI());
         recyclingGUI.setVisible(true);
     }
 }

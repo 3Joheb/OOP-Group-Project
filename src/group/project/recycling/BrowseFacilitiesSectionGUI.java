@@ -9,14 +9,19 @@ package group.project.recycling;
  * @author zoheb
  */
 public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
+    private final BrowseFacilitiesSection logic;
 
     /**
      * Creates new form BrowseFacilitiesGUI
+     * @param logic
      */
-    public BrowseFacilitiesSectionGUI() {
+    public BrowseFacilitiesSectionGUI(BrowseFacilitiesSection logic) {
         initComponents();
         
-        //increase scroll increment
+        // Store logic reference
+        this.logic = logic;
+        
+        // Increase scroll increment
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
         
         // Create and add three cards
