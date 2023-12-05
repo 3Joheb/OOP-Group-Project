@@ -4,18 +4,24 @@
  */
 package group.project.recycling;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author zoheb
  */
 public class AddFacilitySectionGUI extends javax.swing.JPanel {
-    AddFacilitySection logic;
+
+    private AddFacilitySection logic;
+    private String imagePath;
+
     /**
      * Creates new form AddFacilityGUI
      */
     public AddFacilitySectionGUI(AddFacilitySection logic) {
         initComponents();
-        
+
         // Save logic instance
         this.logic = logic;
     }
@@ -216,12 +222,42 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     private void selectFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileBtnActionPerformed
         // TODO add your handling code here:
+        selectImagePath();
     }//GEN-LAST:event_selectFileBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_submitBtnActionPerformed
 
+    private void saveImageLocally(){
+        String destinationFolderPath = "src/group/project/recycling/img";
+        
+
+        
+    }
+    
+    // Create dialog box to select image file
+    private void selectImagePath() {
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+
+            // Check file is image
+            if (isFileImage(selectedFile)) {
+                imagePath = selectedFile.getAbsolutePath();
+                System.out.println(imagePath);
+            } else {
+                System.out.println("File type not supported, please select .jpg, .jpeg or .png");
+            }
+        }
+    }
+
+    private boolean isFileImage(File file) {
+        String fileName = file.getName().toLowerCase();
+        return fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTFld;
