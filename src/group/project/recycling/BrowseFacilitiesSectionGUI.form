@@ -142,9 +142,6 @@
                       <Font name="Eras Medium ITC" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchTxtFldActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="searchBtn">
                   <Properties>
@@ -163,14 +160,18 @@
                       <Font name="Eras Medium ITC" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Dublin"/>
-                        <StringItem index="1" value="Kildare"/>
-                        <StringItem index="2" value="Galway"/>
-                        <StringItem index="3" value="Mayo"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="NONE"/>
+                        <StringItem index="1" value="Dublin"/>
+                        <StringItem index="2" value="Kildare"/>
+                        <StringItem index="3" value="Galway"/>
+                        <StringItem index="4" value="Mayo"/>
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countyComboBoxActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -181,11 +182,12 @@
                       <Font name="Eras Medium ITC" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Wood"/>
-                        <StringItem index="1" value="Electronics"/>
-                        <StringItem index="2" value="Textiles"/>
-                        <StringItem index="3" value="Plastics"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="NONE"/>
+                        <StringItem index="1" value="Wood"/>
+                        <StringItem index="2" value="Electronics"/>
+                        <StringItem index="3" value="Textiles"/>
+                        <StringItem index="4" value="Plastics"/>
                       </StringArray>
                     </Property>
                   </Properties>

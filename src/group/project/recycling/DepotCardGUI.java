@@ -16,24 +16,28 @@ public class DepotCardGUI extends javax.swing.JPanel {
     public DepotCardGUI() {
         initComponents();
     }
-    
-    public void setLocationLbl(String location){
-        locationLbl.setText(location);
+
+    public void setStreetLbl(String street) {
+        streetLbl.setText(street);
     }
-    
-    public void setNameLbl(String name){
+
+    public void setCityLbl(String city) {
+        cityLbl.setText(city);
+    }
+
+    public void setNameLbl(String name) {
         nameLbl.setText(name);
     }
-    
-    public void setTimeLbl(String openTime, String closeTime){
+
+    public void setTimeLbl(String openTime, String closeTime) {
         openTimeLbl.setText(openTime + "-" + closeTime);
     }
-    
-    public void setPhoneNumLbl(String num){
+
+    public void setPhoneNumLbl(String num) {
         pNumLbl.setText(num);
     }
-    
-    public void setReadError(String text){
+
+    public void setReadError(String text) {
         fileReadErrLbl.setText(text);
     }
 
@@ -47,18 +51,19 @@ public class DepotCardGUI extends javax.swing.JPanel {
     private void initComponents() {
 
         nameLbl = new javax.swing.JLabel();
-        locationLbl = new javax.swing.JLabel();
+        streetLbl = new javax.swing.JLabel();
         openTimeLbl = new javax.swing.JLabel();
         pNumLbl = new javax.swing.JLabel();
         fileReadErrLbl = new javax.swing.JLabel();
+        cityLbl = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(215, 215, 215));
 
         nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         nameLbl.setText("Name");
 
-        locationLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        locationLbl.setText("Location");
+        streetLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        streetLbl.setText("Location");
 
         openTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         openTimeLbl.setText("Open - Close time");
@@ -67,6 +72,9 @@ public class DepotCardGUI extends javax.swing.JPanel {
         pNumLbl.setText("Phone number");
 
         fileReadErrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+
+        cityLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        cityLbl.setText("City");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,9 +85,10 @@ public class DepotCardGUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(pNumLbl)
                     .addComponent(openTimeLbl)
-                    .addComponent(locationLbl)
+                    .addComponent(streetLbl)
                     .addComponent(nameLbl)
-                    .addComponent(fileReadErrLbl))
+                    .addComponent(fileReadErrLbl)
+                    .addComponent(cityLbl))
                 .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
@@ -88,23 +97,26 @@ public class DepotCardGUI extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addComponent(nameLbl)
                 .addGap(18, 18, 18)
-                .addComponent(locationLbl)
+                .addComponent(streetLbl)
                 .addGap(18, 18, 18)
+                .addComponent(cityLbl)
+                .addGap(13, 13, 13)
                 .addComponent(openTimeLbl)
                 .addGap(18, 18, 18)
                 .addComponent(pNumLbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fileReadErrLbl)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cityLbl;
     private javax.swing.JLabel fileReadErrLbl;
-    private javax.swing.JLabel locationLbl;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JLabel openTimeLbl;
     private javax.swing.JLabel pNumLbl;
+    private javax.swing.JLabel streetLbl;
     // End of variables declaration//GEN-END:variables
 }

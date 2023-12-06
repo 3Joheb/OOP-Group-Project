@@ -2,7 +2,7 @@
   {
     "name": "Depot 1",
     "location": {
-      "address": "123 Test city",
+      "street": "123 Test city",
       "city": "Dublin",
       "county": "Dublin"
     },
@@ -18,7 +18,7 @@
   {
     "name": "Depot 2",
     "location": {
-      "address": "155 Test city",
+      "street": "155 Test city",
       "city": "Dublin",
       "county": "Dublin"
     },
@@ -34,7 +34,7 @@
   {
     "name": "Depot 3",
     "location": {
-      "address": "133 Test city",
+      "street": "133 Test city",
       "city": "Dublin",
       "county": "Dublin"
     },
@@ -50,7 +50,7 @@
   {
     "name": "Depot 1",
     "location": {
-      "address": "123 Test city",
+      "street": "123 Test city",
       "city": "Dublin",
       "county": "Dublin"
     },
@@ -66,7 +66,7 @@
   {
     "name": "Depot 2",
     "location": {
-      "address": "155 Test city",
+      "street": "155 Test city",
       "city": "Dublin",
       "county": "Dublin"
     },
@@ -82,7 +82,7 @@
   {
     "name": "Depot 3",
     "location": {
-      "address": "133 Test city",
+      "street": "133 Test city",
       "city": "Dublin",
       "county": "Dublin"
     },

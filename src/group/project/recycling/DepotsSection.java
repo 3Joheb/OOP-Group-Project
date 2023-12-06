@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class DepotsSection {
 
-    private DepotsSectionGUI GUI;
+    private final DepotsSectionGUI GUI;
 
     private String fullName;
     private String email;
@@ -53,8 +53,6 @@ public class DepotsSection {
 
     // Load the JSON file data
     private JsonNode loadJSONFile() {
-        // Add Depot Cards using json file
-
         // JSON file path
         String filePath = "src/group/project/recycling/data/depots.json";
 
@@ -129,7 +127,8 @@ public class DepotsSection {
                 // Store json values
                 // Note that I've added no error handling for non existing keys
                 String name = depotObj.get("name").asText();
-                String location = depotObj.get("location").get("address").asText();
+                String street = depotObj.get("location").get("street").asText();
+                String city = depotObj.get("location").get("city").asText();
                 String openTime = depotObj.get("time").get("open").asText();
                 String closeTime = depotObj.get("time").get("close").asText();
                 String num = depotObj.get("contact").get("phone").asText();
@@ -137,7 +136,8 @@ public class DepotsSection {
                 // Create new instance of class to store data
                 DepotCard card = new DepotCard();
                 card.setName(name);
-                card.setLocation(location);
+                card.setStreet(street);
+                card.setCity(city);
                 card.setOpenTime(openTime);
                 card.setCloseTime(closeTime);
                 card.setPhoneNumber(num);

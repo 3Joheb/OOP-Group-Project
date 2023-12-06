@@ -4,31 +4,63 @@
  */
 package group.project.recycling;
 
+import java.util.List;
+
 /**
  *
  * @author zoheb
  */
 public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
+
     private final BrowseFacilitiesSection logic;
 
     /**
      * Creates new form BrowseFacilitiesGUI
+     *
      * @param logic
      */
     public BrowseFacilitiesSectionGUI(BrowseFacilitiesSection logic) {
         initComponents();
-        
+
         // Store logic reference
         this.logic = logic;
-        
+
         // Increase scroll increment
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
-        
+
         // Create and add three cards
-        for (int i = 0; i < 10; i++) {
-            FacilityCardGUI card = new FacilityCardGUI();
-            cardPanel.add(card);
+        for(FacilityCard card : logic.getList()){
+            createNewCardGUI(card);
         }
+    }
+
+    private void createNewCardGUI(FacilityCard card) {
+        // Store card variables
+        String cardName = card.getName();
+        String street = card.getStreet();
+        String city = card.getCity();
+        String county = card.getCounty();
+        String openTime = card.getOpenTime();
+        String closeTime = card.getCloseTime();
+        List<String> acceptedWaste = card.getAcceptedWaste();
+        String email = card.getEmail();
+        String num = card.getNum();
+        String imgPath = card.getImgPath();
+
+        // Create new card gui instance
+        FacilityCardGUI cardGUI = new FacilityCardGUI();
+        cardGUI.setNameLbl(cardName);
+        cardGUI.setStreetLbl(street);
+        cardGUI.setCityLbl(city);
+        cardGUI.setCountyLbl(county);
+        cardGUI.setTimeLbl(openTime, closeTime);
+        cardGUI.setAcceptedWasteLbl(acceptedWaste);
+        cardGUI.setEmailLbl(email);
+        cardGUI.setNumLbl(num);
+        cardGUI.setImgIconPath(imgPath);
+
+        // Add card to card container/panel
+        cardPanel.add(cardGUI);
     }
 
     /**
@@ -64,11 +96,6 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         optionsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         searchTxtFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        searchTxtFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtFldActionPerformed(evt);
-            }
-        });
 
         searchBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         searchBtn.setText("search");
@@ -79,10 +106,15 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         });
 
         countyComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dublin", "Kildare", "Galway", "Mayo" }));
+        countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Dublin", "Kildare", "Galway", "Mayo" }));
+        countyComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countyComboBoxActionPerformed(evt);
+            }
+        });
 
         wasteComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wood", "Electronics", "Textiles", "Plastics" }));
+        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Wood", "Electronics", "Textiles", "Plastics" }));
         wasteComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wasteComboBoxActionPerformed(evt);
@@ -178,10 +210,6 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchTxtFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchTxtFldActionPerformed
-
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchBtnActionPerformed
@@ -189,6 +217,10 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
     private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_wasteComboBoxActionPerformed
+
+    private void countyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_countyComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

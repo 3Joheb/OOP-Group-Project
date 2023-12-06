@@ -13,7 +13,8 @@ public class DepotCard {
 
     // Use placeholders to prevent errors
     private String name = "Name";
-    private String location = "Location";
+    private String street = "Street";
+    private String city = "City";
 
     // Time format is military
     private String openTime = "0000";
@@ -30,12 +31,20 @@ public class DepotCard {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getStreet() {
+        return street;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setStreet(String location) {
+        this.street = location;
+    }
+    
+    public String getCity(){
+        return city;
+    }
+    
+    public void setCity(String city){
+        this.city = city;
     }
 
     public String getOpenTime() {

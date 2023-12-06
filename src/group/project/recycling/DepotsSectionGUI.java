@@ -31,14 +31,15 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         
         // Create cards using logic list
         for(DepotCard card : logic.getCards()){
-            createNewCard(card);
+            createNewCardGUI(card);
         }
     }
 
-    private void createNewCard(DepotCard card) {
+    private void createNewCardGUI(DepotCard card) {
         // Store card variables
         String cardName = card.getName();
-        String location = card.getLocation();
+        String street = card.getStreet();
+        String city = card.getCity();
         String openTime = card.getOpenTime();
         String closeTime = card.getCloseTime();
         String num = card.getPhoneNumber();
@@ -47,7 +48,8 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         // Create new card gui instance
         DepotCardGUI cardGUI = new DepotCardGUI();
         cardGUI.setNameLbl(cardName);
-        cardGUI.setLocationLbl(location);
+        cardGUI.setStreetLbl(street);
+        cardGUI.setCityLbl(city);
         cardGUI.setTimeLbl(openTime, closeTime);
         cardGUI.setPhoneNumLbl(num);
         cardGUI.setReadError(err);

@@ -4,6 +4,8 @@
  */
 package group.project.recycling;
 
+import java.util.List;
+
 /**
  *
  * @author zoheb
@@ -17,6 +19,47 @@ public class FacilityCardGUI extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void setNameLbl(String name) {
+        nameLbl.setText(name);
+    }
+
+    public void setStreetLbl(String street) {
+        streetLbl.setText(street);
+    }
+
+    public void setCityLbl(String city) {
+        cityLbl.setText(city);
+    }
+
+    public void setCountyLbl(String county) {
+        countyLbl.setText(county);
+    }
+    
+    public void setTimeLbl(String openTime, String closeTime){
+        openTimeLbl.setText(openTime + " - " + closeTime);
+    }
+    
+    public void setAcceptedWasteLbl(List<String> items){
+        String itemString = String.join(", ", items);
+        acceptedWasteLbl.setText(itemString);
+    }
+    
+    public void setEmailLbl(String email){
+        emailLbl.setText(email);
+    }
+    
+    public void setNumLbl(String num){
+        pNumLbl.setText(num);
+    }
+    
+    public void setImgIconPath(String path){
+        try {
+            imgLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource(path)));
+        } catch(Exception e) {
+            System.out.println("Error loading image...using placeholder instead");
+        } 
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,31 +71,39 @@ public class FacilityCardGUI extends javax.swing.JPanel {
 
         imgLbl = new javax.swing.JLabel();
         nameLbl = new javax.swing.JLabel();
-        locationLbl = new javax.swing.JLabel();
+        streetLbl = new javax.swing.JLabel();
         openTimeLbl = new javax.swing.JLabel();
-        wasteAcceptedLbl = new javax.swing.JLabel();
+        acceptedWasteLbl = new javax.swing.JLabel();
         emailLbl = new javax.swing.JLabel();
         pNumLbl = new javax.swing.JLabel();
+        cityLbl = new javax.swing.JLabel();
+        countyLbl = new javax.swing.JLabel();
 
         imgLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/group/project/recycling/img/placeholder.png"))); // NOI18N
 
         nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         nameLbl.setText("Name");
 
-        locationLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
-        locationLbl.setText("Location");
+        streetLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        streetLbl.setText("Street");
 
         openTimeLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         openTimeLbl.setText("Open time - Close time");
 
-        wasteAcceptedLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
-        wasteAcceptedLbl.setText("Waste Accepted");
+        acceptedWasteLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        acceptedWasteLbl.setText("Waste Accepted");
 
         emailLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         emailLbl.setText("Email");
 
         pNumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         pNumLbl.setText("Phone nunber");
+
+        cityLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        cityLbl.setText("City");
+
+        countyLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        countyLbl.setText("County");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -65,11 +116,13 @@ public class FacilityCardGUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLbl)
                     .addComponent(openTimeLbl)
-                    .addComponent(locationLbl)
-                    .addComponent(wasteAcceptedLbl)
+                    .addComponent(streetLbl)
+                    .addComponent(acceptedWasteLbl)
                     .addComponent(emailLbl)
-                    .addComponent(pNumLbl))
-                .addContainerGap(103, Short.MAX_VALUE))
+                    .addComponent(pNumLbl)
+                    .addComponent(cityLbl)
+                    .addComponent(countyLbl))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,17 +131,21 @@ public class FacilityCardGUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imgLbl)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addComponent(nameLbl)
-                        .addGap(18, 18, 18)
-                        .addComponent(locationLbl)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(streetLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cityLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(countyLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(openTimeLbl)
-                        .addGap(18, 18, 18)
-                        .addComponent(wasteAcceptedLbl)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(acceptedWasteLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(emailLbl)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pNumLbl)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -96,12 +153,14 @@ public class FacilityCardGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel acceptedWasteLbl;
+    private javax.swing.JLabel cityLbl;
+    private javax.swing.JLabel countyLbl;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JLabel imgLbl;
-    private javax.swing.JLabel locationLbl;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JLabel openTimeLbl;
     private javax.swing.JLabel pNumLbl;
-    private javax.swing.JLabel wasteAcceptedLbl;
+    private javax.swing.JLabel streetLbl;
     // End of variables declaration//GEN-END:variables
 }
