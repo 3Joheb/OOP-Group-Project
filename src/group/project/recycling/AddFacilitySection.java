@@ -72,7 +72,7 @@ public class AddFacilitySection {
 
         // Attach file name to file destination path
         String destinationPath = "src/group/project/recycling/img/" + fileName;
-        this.destinationPath = destinationPath;
+        this.destinationPath = "/group/project/recycling/img/" + fileName;
 
         try {
             // Set source & destination paths
