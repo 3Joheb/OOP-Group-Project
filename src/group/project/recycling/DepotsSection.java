@@ -110,11 +110,11 @@ public class DepotsSection {
                 objMapper.writeValue(file, userList);
 
                 // Print succes
-                System.out.println("Successfully wrote to User json file");
+                System.out.println("Depots: Successfully wrote to User json file");
             }
         } catch (IOException e) {
             // Print error
-            System.out.println("Error saving User json file" + e);
+            System.out.println("Depots: Error saving User json file" + e);
         }
     }
 

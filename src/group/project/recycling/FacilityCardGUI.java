@@ -57,7 +57,7 @@ public class FacilityCardGUI extends javax.swing.JPanel {
             javax.swing.ImageIcon icon = new javax.swing.ImageIcon(new javax.swing.ImageIcon(getClass().getResource(path)).getImage().getScaledInstance(256, 256, java.awt.Image.SCALE_SMOOTH));
             imgLbl.setIcon(icon);
         } catch(Exception e) {
-            System.out.println("Error loading image...using placeholder instead");
+            System.out.println("Facility Card GUI: Error loading image...using placeholder instead");
         } 
     }
 

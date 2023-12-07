@@ -28,8 +28,8 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         // Increase scroll increment
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 
-        // Create and add three cards
-        for(FacilityCard card : logic.getList()){
+        // Create card GUIs
+        for (FacilityCard card : logic.getList()) {
             createNewCardGUI(card);
         }
     }
@@ -114,7 +114,7 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         });
 
         wasteComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Wood", "Electronics", "Textiles", "Plastics" }));
+        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Paper (newspapers, magazines, cardboard)", "Plastic bottles", "Glass bottles and jars", "Aluminum cans", "Steel cans", "Electronics (computers, laptops, smartphones)", "Batteries (alkaline, rechargeable)", "Textiles (clothing, shoes)", "Organic waste (food scraps, yard waste)", "Metal appliances (refrigerators, washing machines)", "Paperboard (cereal boxes, shoeboxes)", "Styrofoam", "Light bulbs (CFLs, LEDs)", "Printer cartridges", "Tires", "Paint cans", "Wood waste", "Used cooking oil", "Household hazardous waste (cleaning products, chemicals)", "Plastic bags" }));
         wasteComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wasteComboBoxActionPerformed(evt);
@@ -216,13 +216,31 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
 
     private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
+        String selectedItem = (String) wasteComboBox.getSelectedItem();
+        loadNewCards(selectedItem);
     }//GEN-LAST:event_wasteComboBoxActionPerformed
 
     private void countyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_countyComboBoxActionPerformed
 
-
+    private void loadNewCards(String filter) {
+        logic.loadNewCards(filter);
+        
+        // Remove old card GUIs
+        cardPanel.removeAll(); // remove from panel
+        cardPanel.revalidate(); // inform layout manager of change
+        cardPanel.repaint(); // make the visual update
+        
+        // Create card GUIs
+        for (FacilityCard card : logic.getList()) {
+            createNewCardGUI(card);
+        }
+    }
+    
+    public String getSelectedWaste(){
+        return (String) wasteComboBox.getSelectedItem();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel countryFltrLbl;

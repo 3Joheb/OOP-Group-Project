@@ -63,7 +63,7 @@ public class AddFacilitySection {
     private void saveImageLocally() {
         // "Guard clause" to check file variables are valid
         if (sourcePath == null || imageName == null) {
-            System.out.println("saveImageLocally() not executed, sourcePath || imageName == null ");
+            System.out.println("Add Facility: saveImageLocally() not executed, sourcePath || imageName == null ");
             return;
         }
 
@@ -82,13 +82,13 @@ public class AddFacilitySection {
             // Copy file from source to destination
             Files.copy(source, destination);
 
-            System.out.println("Image copied successfully to " + destination);
+            System.out.println("Add Facility: Image copied successfully to " + destination);
 
             // Reset file variables
             sourcePath = null;
             imageName = null;
         } catch (IOException e) {
-            System.out.println("Error copying image: " + e);
+            System.out.println("Add Facility: Error copying image: " + e);
         }
     }
 
@@ -138,7 +138,7 @@ public class AddFacilitySection {
                 objMapper.writeValue(file, facilityList);
 
                 // Print succes
-                System.out.println("Successfully wrote to User json file");
+                System.out.println("Add Facility: Successfully wrote to User json file");
             } else {
                 // Collections.singleton() returns a list containing the argument e.g. [userObj]
                 // This makes sure the root JSON data type is a list and not an object
@@ -148,11 +148,11 @@ public class AddFacilitySection {
                 objMapper.writeValue(file, facilityList);
 
                 // Print succes
-                System.out.println("Successfully wrote to User json file");
+                System.out.println("Add Facility: Successfully wrote to User json file");
             }
         } catch (IOException e) {
             // Print error
-            System.out.println("Error saving User json file" + e);
+            System.out.println("Add Facility: Error saving User json file" + e);
         }
     }
 

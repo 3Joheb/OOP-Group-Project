@@ -182,12 +182,28 @@
                       <Font name="Eras Medium ITC" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="21">
                         <StringItem index="0" value="NONE"/>
-                        <StringItem index="1" value="Wood"/>
-                        <StringItem index="2" value="Electronics"/>
-                        <StringItem index="3" value="Textiles"/>
-                        <StringItem index="4" value="Plastics"/>
+                        <StringItem index="1" value="Paper (newspapers, magazines, cardboard)"/>
+                        <StringItem index="2" value="Plastic bottles"/>
+                        <StringItem index="3" value="Glass bottles and jars"/>
+                        <StringItem index="4" value="Aluminum cans"/>
+                        <StringItem index="5" value="Steel cans"/>
+                        <StringItem index="6" value="Electronics (computers, laptops, smartphones)"/>
+                        <StringItem index="7" value="Batteries (alkaline, rechargeable)"/>
+                        <StringItem index="8" value="Textiles (clothing, shoes)"/>
+                        <StringItem index="9" value="Organic waste (food scraps, yard waste)"/>
+                        <StringItem index="10" value="Metal appliances (refrigerators, washing machines)"/>
+                        <StringItem index="11" value="Paperboard (cereal boxes, shoeboxes)"/>
+                        <StringItem index="12" value="Styrofoam"/>
+                        <StringItem index="13" value="Light bulbs (CFLs, LEDs)"/>
+                        <StringItem index="14" value="Printer cartridges"/>
+                        <StringItem index="15" value="Tires"/>
+                        <StringItem index="16" value="Paint cans"/>
+                        <StringItem index="17" value="Wood waste"/>
+                        <StringItem index="18" value="Used cooking oil"/>
+                        <StringItem index="19" value="Household hazardous waste (cleaning products, chemicals)"/>
+                        <StringItem index="20" value="Plastic bags"/>
                       </StringArray>
                     </Property>
                   </Properties>

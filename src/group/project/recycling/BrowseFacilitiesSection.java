@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,6 +23,28 @@ public class BrowseFacilitiesSection {
     // List to store card data
     private List<FacilityCard> facilityList = new ArrayList<>();
 
+    // Set accepted waste list
+    private List<String> acceptedWaste = Arrays.asList("Paper (newspapers, magazines, cardboard)",
+            "Plastic bottles",
+            "Glass bottles and jars",
+            "Aluminum cans",
+            "Steel cans",
+            "Electronics (computers, laptops, smartphones)",
+            "Batteries (alkaline, rechargeable)",
+            "Textiles (clothing, shoes)",
+            "Organic waste (food scraps, yard waste)",
+            "Metal appliances (refrigerators, washing machines)",
+            "Paperboard (cereal boxes, shoeboxes)",
+            "Styrofoam",
+            "Light bulbs (CFLs, LEDs)",
+            "Printer cartridges",
+            "Tires",
+            "Paint cans",
+            "Wood waste",
+            "Used cooking oil",
+            "Household hazardous waste (cleaning products, chemicals)",
+            "Plastic bags");
+
     public BrowseFacilitiesSection() {
         // Load JSON
         JsonNode data = loadJSONFile();
@@ -29,6 +52,8 @@ public class BrowseFacilitiesSection {
         // Handle data error
         if (data != null) {
             createCards(data, facilityList);
+        } else {
+            System.out.println("Browse: No cards loaded");
         }
 
         // Create GUI
@@ -39,8 +64,8 @@ public class BrowseFacilitiesSection {
     public BrowseFacilitiesSectionGUI getGUI() {
         return GUI;
     }
-    
-    public List<FacilityCard> getList(){
+
+    public List<FacilityCard> getList() {
         return facilityList;
     }
 
@@ -80,16 +105,15 @@ public class BrowseFacilitiesSection {
                 String email = facilityObj.get("contact").get("email").asText();
                 String num = facilityObj.get("contact").get("number").asText();
                 String imgPath = (facilityObj.get("image_path") != null) ? facilityObj.get("image_path").asText() : "defaultImagePath";
-                
+
                 // Handle accepted waste since its an array
                 JsonNode acceptedWasteNode = facilityObj.get("accepted_waste");
                 List<String> acceptedWaste = new ArrayList();
-                if(acceptedWasteNode.isArray()){
-                    for (JsonNode item : acceptedWasteNode){
+                if (acceptedWasteNode.isArray()) {
+                    for (JsonNode item : acceptedWasteNode) {
                         acceptedWaste.add(item.asText());
                     }
                 }
-                
 
                 // Create new instance of class to store data
                 FacilityCard card = new FacilityCard();
@@ -106,6 +130,58 @@ public class BrowseFacilitiesSection {
                 // Add objects to list
                 facilityList.add(card);
             }
+        }
+    }
+
+    // Return a filtered list of cards
+    private List<FacilityCard> getFilteredList(List<FacilityCard> cards, String filter) {
+        // Keep track of index
+        int i = 0;
+
+        List<FacilityCard> filteredList = new ArrayList<>();
+
+        // Check each card
+        for (FacilityCard card : cards) {
+            Boolean acceptCard = false;
+            List<String> waste = card.getAcceptedWaste();
+
+            // Check if the card contains any filter
+            for (String wasteType : waste) {
+                if (wasteType.equals(filter)) {
+                    acceptCard = true;
+                    break;
+                }
+            }
+
+            if (acceptCard) {
+                filteredList.add(card);
+            }
+
+            i++;
+        }
+
+        return filteredList;
+    }
+
+    // Load new card list
+    public void loadNewCards(String filter) {
+        // Load JSON
+        JsonNode data = loadJSONFile();
+
+        List<FacilityCard> cardList = new ArrayList<>();
+
+        // Handle data error
+        if (data != null) {
+            if (!GUI.getSelectedWaste().equals("NONE")) {
+                createCards(data, cardList);
+                facilityList = getFilteredList(cardList, filter);
+            } else {
+                createCards(data, facilityList);
+            }
+            
+            System.out.println(facilityList);
+        } else {
+            System.out.println("Browse: No cards loaded");
         }
     }
 }
