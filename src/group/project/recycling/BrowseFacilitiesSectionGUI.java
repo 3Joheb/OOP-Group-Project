@@ -106,7 +106,7 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         });
 
         countyComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Dublin", "Kildare", "Galway", "Mayo" }));
+        countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Carlow", "Cavan", "Clare", "Cork", "Donegal", "Dublin", "Galway", "Kerry", "Kildare", "Kilkenny", "Laois (formerly called Queen's County)", "Leitrim", "Limerick", "Longford", "Louth", "Mayo", "Meath", "Monaghan", "Offaly (formerly called King's County)", "Roscommon", "Sligo", "Tipperary", "Waterford", "Westmeath", "Wexford", "Wicklow" }));
         countyComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 countyComboBoxActionPerformed(evt);

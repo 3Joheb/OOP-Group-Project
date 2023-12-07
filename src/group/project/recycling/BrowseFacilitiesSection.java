@@ -20,7 +20,11 @@ public class BrowseFacilitiesSection {
 
     private final BrowseFacilitiesSectionGUI GUI;
 
-    // List to store card data
+    // List to store card data from JSON file
+    private List<FacilityCard> fileFacilityList = new ArrayList<>();
+
+    // List to store card data that will be displayed
+    // This list can be filtered
     private List<FacilityCard> facilityList = new ArrayList<>();
 
     // Set accepted waste list
@@ -51,7 +55,8 @@ public class BrowseFacilitiesSection {
 
         // Handle data error
         if (data != null) {
-            createCards(data, facilityList);
+            createCards(data, fileFacilityList);
+            facilityList = fileFacilityList;
         } else {
             System.out.println("Browse: No cards loaded");
         }
@@ -165,23 +170,11 @@ public class BrowseFacilitiesSection {
 
     // Load new card list
     public void loadNewCards(String filter) {
-        // Load JSON
-        JsonNode data = loadJSONFile();
-
-        List<FacilityCard> cardList = new ArrayList<>();
-
-        // Handle data error
-        if (data != null) {
-            if (!GUI.getSelectedWaste().equals("NONE")) {
-                createCards(data, cardList);
-                facilityList = getFilteredList(cardList, filter);
-            } else {
-                createCards(data, facilityList);
-            }
-            
-            System.out.println(facilityList);
+        // If no filter selected by GUI
+        if (!GUI.getSelectedWaste().equals("NONE")) {
+            facilityList = getFilteredList(fileFacilityList, filter);
         } else {
-            System.out.println("Browse: No cards loaded");
+            facilityList = fileFacilityList;
         }
     }
 }

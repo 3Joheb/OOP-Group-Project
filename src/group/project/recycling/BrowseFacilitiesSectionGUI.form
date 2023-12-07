@@ -160,12 +160,34 @@
                       <Font name="Eras Medium ITC" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="27">
                         <StringItem index="0" value="NONE"/>
-                        <StringItem index="1" value="Dublin"/>
-                        <StringItem index="2" value="Kildare"/>
-                        <StringItem index="3" value="Galway"/>
-                        <StringItem index="4" value="Mayo"/>
+                        <StringItem index="1" value="Carlow"/>
+                        <StringItem index="2" value="Cavan"/>
+                        <StringItem index="3" value="Clare"/>
+                        <StringItem index="4" value="Cork"/>
+                        <StringItem index="5" value="Donegal"/>
+                        <StringItem index="6" value="Dublin"/>
+                        <StringItem index="7" value="Galway"/>
+                        <StringItem index="8" value="Kerry"/>
+                        <StringItem index="9" value="Kildare"/>
+                        <StringItem index="10" value="Kilkenny"/>
+                        <StringItem index="11" value="Laois (formerly called Queen&apos;s County)"/>
+                        <StringItem index="12" value="Leitrim"/>
+                        <StringItem index="13" value="Limerick"/>
+                        <StringItem index="14" value="Longford"/>
+                        <StringItem index="15" value="Louth"/>
+                        <StringItem index="16" value="Mayo"/>
+                        <StringItem index="17" value="Meath"/>
+                        <StringItem index="18" value="Monaghan"/>
+                        <StringItem index="19" value="Offaly (formerly called King&apos;s County)"/>
+                        <StringItem index="20" value="Roscommon"/>
+                        <StringItem index="21" value="Sligo"/>
+                        <StringItem index="22" value="Tipperary"/>
+                        <StringItem index="23" value="Waterford"/>
+                        <StringItem index="24" value="Westmeath"/>
+                        <StringItem index="25" value="Wexford"/>
+                        <StringItem index="26" value="Wicklow"/>
                       </StringArray>
                     </Property>
                   </Properties>
