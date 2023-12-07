@@ -139,42 +139,43 @@ public class BrowseFacilitiesSection {
     }
 
     // Return a filtered list of cards
-    private List<FacilityCard> getFilteredList(List<FacilityCard> cards, String filter) {
-        // Keep track of index
-        int i = 0;
-
+    private List<FacilityCard> getFilteredList(List<FacilityCard> cards, String county, String waste) {
         List<FacilityCard> filteredList = new ArrayList<>();
 
         // Check each card
         for (FacilityCard card : cards) {
-            Boolean acceptCard = false;
-            List<String> waste = card.getAcceptedWaste();
+            boolean acceptCard = false;
+            List<String> cardWaste = card.getAcceptedWaste();
+            String cardCounty = card.getCounty();
 
-            // Check if the card contains any filter
-            for (String wasteType : waste) {
-                if (wasteType.equals(filter)) {
-                    acceptCard = true;
-                    break;
+            // Check waste filter
+            if (waste.equals("NONE")) {
+                acceptCard = true;  // No waste filter, accept all
+            } else {
+                for (String wasteType : cardWaste) {
+                    if (wasteType.equals(waste)) {
+                        acceptCard = true;
+                        break;
+                    }
                 }
+            }
+
+            // Check county filter
+            if (!county.equals("NONE") && !cardCounty.equals(county)) {
+                acceptCard = false;
             }
 
             if (acceptCard) {
                 filteredList.add(card);
             }
-
-            i++;
         }
 
         return filteredList;
     }
 
     // Load new card list
-    public void loadNewCards(String filter) {
+    public void loadNewCards(String county, String waste) {
         // If no filter selected by GUI
-        if (!GUI.getSelectedWaste().equals("NONE")) {
-            facilityList = getFilteredList(fileFacilityList, filter);
-        } else {
-            facilityList = fileFacilityList;
-        }
+        facilityList = getFilteredList(fileFacilityList, county, waste);
     }
 }

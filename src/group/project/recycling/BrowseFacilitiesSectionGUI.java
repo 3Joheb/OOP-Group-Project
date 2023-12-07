@@ -216,16 +216,19 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
 
     private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
-        String selectedItem = (String) wasteComboBox.getSelectedItem();
-        loadNewCards(selectedItem);
+        loadNewCards();
     }//GEN-LAST:event_wasteComboBoxActionPerformed
 
     private void countyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBoxActionPerformed
         // TODO add your handling code here:
+        loadNewCards();
     }//GEN-LAST:event_countyComboBoxActionPerformed
 
-    private void loadNewCards(String filter) {
-        logic.loadNewCards(filter);
+    private void loadNewCards() {
+        String county = (String) countyComboBox.getSelectedItem();
+        String waste = (String) wasteComboBox.getSelectedItem();
+        
+        logic.loadNewCards(county, waste);
         
         // Remove old card GUIs
         cardPanel.removeAll(); // remove from panel
@@ -238,9 +241,6 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
         }
     }
     
-    public String getSelectedWaste(){
-        return (String) wasteComboBox.getSelectedItem();
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel countryFltrLbl;
