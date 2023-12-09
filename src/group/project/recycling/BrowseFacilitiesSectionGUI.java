@@ -36,7 +36,7 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
 
     private void createNewCardGUI(FacilityCard card) {
         // Store card variables
-        String cardName = card.getName();
+        String cardName = card.getFacilityName();
         String street = card.getStreet();
         String city = card.getCity();
         String county = card.getCounty();
@@ -212,35 +212,43 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
+        String query = searchTxtFld.getText();
+        logic.getSearchResult(query);
+        repaintCards();
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
-        loadNewCards();
+        loadComboCards();
     }//GEN-LAST:event_wasteComboBoxActionPerformed
 
     private void countyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBoxActionPerformed
         // TODO add your handling code here:
-        loadNewCards();
+
+        loadComboCards();
     }//GEN-LAST:event_countyComboBoxActionPerformed
 
-    private void loadNewCards() {
-        String county = (String) countyComboBox.getSelectedItem();
-        String waste = (String) wasteComboBox.getSelectedItem();
-        
-        logic.loadNewCards(county, waste);
-        
+    private void repaintCards() {
         // Remove old card GUIs
         cardPanel.removeAll(); // remove from panel
         cardPanel.revalidate(); // inform layout manager of change
         cardPanel.repaint(); // make the visual update
-        
+
         // Create card GUIs
         for (FacilityCard card : logic.getList()) {
             createNewCardGUI(card);
         }
     }
-    
+
+    private void loadComboCards() {
+        String county = (String) countyComboBox.getSelectedItem();
+        String waste = (String) wasteComboBox.getSelectedItem();
+
+        logic.loadNewCards(county, waste);
+        
+        repaintCards();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel countryFltrLbl;

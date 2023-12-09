@@ -30,13 +30,13 @@ public class FacilityCard {
 
     private String imgPath = "/group/project/recycling/img/placeholder.png";
 
-    public void setName(String name) {
+    public void setFacilityName(String name) {
         if (name != null) {
             this.name = name;
         }
     }
 
-    public String getName() {
+    public String getFacilityName() {
         return name;
     }
 

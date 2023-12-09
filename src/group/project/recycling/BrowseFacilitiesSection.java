@@ -122,7 +122,7 @@ public class BrowseFacilitiesSection {
 
                 // Create new instance of class to store data
                 FacilityCard card = new FacilityCard();
-                card.setName(name);
+                card.setFacilityName(name);
                 card.setStreet(street);
                 card.setCity(city);
                 card.setOpenTime(openTime);
@@ -139,11 +139,11 @@ public class BrowseFacilitiesSection {
     }
 
     // Return a filtered list of cards
-    private List<FacilityCard> getFilteredList(List<FacilityCard> cards, String county, String waste) {
+    private List<FacilityCard> getFilteredList(String county, String waste) {
         List<FacilityCard> filteredList = new ArrayList<>();
 
         // Check each card
-        for (FacilityCard card : cards) {
+        for (FacilityCard card : facilityList) {
             boolean acceptCard = false;
             List<String> cardWaste = card.getAcceptedWaste();
             String cardCounty = card.getCounty();
@@ -172,10 +172,23 @@ public class BrowseFacilitiesSection {
 
         return filteredList;
     }
+    
+    public void getSearchResult(String query){
+        List<FacilityCard> list = new ArrayList();
+        String lowerQuery = query.toLowerCase();
+        for(FacilityCard card : facilityList){
+            String lowerName = card.getFacilityName().toLowerCase();
+            if(lowerName.equals(lowerQuery)){
+                list.add(card);
+            }
+        }
+        
+        facilityList = list;
+    }
 
     // Load new card list
     public void loadNewCards(String county, String waste) {
         // If no filter selected by GUI
-        facilityList = getFilteredList(fileFacilityList, county, waste);
+        facilityList = getFilteredList(county, waste);
     }
 }
