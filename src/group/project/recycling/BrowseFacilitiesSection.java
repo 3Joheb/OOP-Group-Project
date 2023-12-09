@@ -194,11 +194,10 @@ public class BrowseFacilitiesSection {
     private List<FacilityCard> getFilteredList(String query, String county, String waste) {
         List<FacilityCard> filteredList;
 
-        // TODO: Add checks to make sure nulls and empties dont go through methods
-        filteredList = query.isBlank() ? fileFacilityList : getSearchFilter(fileFacilityList, query); // check for null or blank
-        filteredList = county.equals("NONE") ? filteredList : getCountyFilter(filteredList, county); // check for string = NONE
-        filteredList = waste.equals("NONE") ? filteredList : getWasteFilter(filteredList, waste); // check for string = NONE
-
+        // Ternaries prevent filter functions from processing the list
+        filteredList = query.isBlank() ? fileFacilityList : getSearchFilter(fileFacilityList, query);
+        filteredList = county.equals("NONE") ? filteredList : getCountyFilter(filteredList, county); 
+        filteredList = waste.equals("NONE") ? filteredList : getWasteFilter(filteredList, waste);
         return filteredList;
     }
 

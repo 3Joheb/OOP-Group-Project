@@ -136,9 +136,11 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         dropOffTxtAr.setAutoscrolls(false);
         dropOffTxtAr.setBorder(null);
         dropOffTxtAr.setCaretColor(new java.awt.Color(242, 242, 242));
-        dropOffTxtAr.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        dropOffTxtAr.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         dropOffTxtAr.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         dropOffTxtAr.setEnabled(false);
+        dropOffTxtAr.setFocusable(false);
+        dropOffTxtAr.setOpaque(false);
         dropOffTxtAr.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
         nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
