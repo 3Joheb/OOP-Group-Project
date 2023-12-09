@@ -21,14 +21,14 @@ public class BrowseFacilitiesSection {
     private final BrowseFacilitiesSectionGUI GUI;
 
     // List to store card data from JSON file
-    private List<FacilityCard> fileFacilityList = new ArrayList<>();
+    private final List<FacilityCard> fileFacilityList = new ArrayList<>();
 
     // List to store card data that will be displayed
     // This list can be filtered
     private List<FacilityCard> facilityList = new ArrayList<>();
 
     // Set accepted waste list
-    private List<String> acceptedWaste = Arrays.asList("Paper (newspapers, magazines, cardboard)",
+    private final List<String> acceptedWaste = Arrays.asList("Paper (newspapers, magazines, cardboard)",
             "Plastic bottles",
             "Glass bottles and jars",
             "Aluminum cans",
@@ -139,56 +139,72 @@ public class BrowseFacilitiesSection {
     }
 
     // Return a filtered list of cards
-    private List<FacilityCard> getFilteredList(String county, String waste) {
+    private List<FacilityCard> getWasteFilter(List<FacilityCard> list, String waste) {
         List<FacilityCard> filteredList = new ArrayList<>();
+        waste = waste.toLowerCase();
 
         // Check each card
-        for (FacilityCard card : facilityList) {
-            boolean acceptCard = false;
+        for (FacilityCard card : list) {
             List<String> cardWaste = card.getAcceptedWaste();
-            String cardCounty = card.getCounty();
 
             // Check waste filter
-            if (waste.equals("NONE")) {
-                acceptCard = true;  // No waste filter, accept all
-            } else {
-                for (String wasteType : cardWaste) {
-                    if (wasteType.equals(waste)) {
-                        acceptCard = true;
-                        break;
-                    }
+            for (String wasteType : cardWaste) {
+                wasteType = wasteType.toLowerCase();
+                if (wasteType.equals(waste)) {
+                    filteredList.add(card);
+                    break;
                 }
             }
+        }
 
-            // Check county filter
-            if (!county.equals("NONE") && !cardCounty.equals(county)) {
-                acceptCard = false;
-            }
+        return filteredList;
+    }
 
-            if (acceptCard) {
+    private List<FacilityCard> getCountyFilter(List<FacilityCard> list, String county) {
+        List<FacilityCard> filteredList = new ArrayList<>();
+        county = county.toLowerCase();
+
+        // Check each card
+        for (FacilityCard card : list) {
+            String cardCounty = card.getCounty();
+            cardCounty = cardCounty.toLowerCase();
+
+            if (cardCounty.equals(county)) {
                 filteredList.add(card);
             }
         }
 
         return filteredList;
     }
-    
-    public void getSearchResult(String query){
-        List<FacilityCard> list = new ArrayList();
+
+    private List<FacilityCard> getSearchFilter(List<FacilityCard> list, String query) {
+        List<FacilityCard> filteredList = new ArrayList<>();
         String lowerQuery = query.toLowerCase();
-        for(FacilityCard card : facilityList){
+
+        for (FacilityCard card : list) {
             String lowerName = card.getFacilityName().toLowerCase();
-            if(lowerName.equals(lowerQuery)){
-                list.add(card);
+            if (lowerName.equals(lowerQuery)) {
+                filteredList.add(card);
             }
         }
-        
-        facilityList = list;
+
+        return filteredList;
+    }
+
+    private List<FacilityCard> getFilteredList(String query, String county, String waste) {
+        List<FacilityCard> filteredList;
+
+        // TODO: Add checks to make sure nulls and empties dont go through methods
+        filteredList = query.isBlank() ? fileFacilityList : getSearchFilter(fileFacilityList, query); // check for null or blank
+        filteredList = county.equals("NONE") ? filteredList : getCountyFilter(filteredList, county); // check for string = NONE
+        filteredList = waste.equals("NONE") ? filteredList : getWasteFilter(filteredList, waste); // check for string = NONE
+
+        return filteredList;
     }
 
     // Load new card list
-    public void loadNewCards(String county, String waste) {
+    public void loadNewCards(String query, String county, String waste) {
         // If no filter selected by GUI
-        facilityList = getFilteredList(county, waste);
+        facilityList = getFilteredList(query, county, waste);
     }
 }
