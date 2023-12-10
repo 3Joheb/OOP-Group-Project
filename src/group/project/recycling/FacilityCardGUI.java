@@ -20,19 +20,19 @@ public class FacilityCardGUI extends javax.swing.JPanel {
     }
 
     public void setNameLbl(String name) {
-        nameLbl.setText(name);
+        nameLbl.setText(formatText(name));
     }
 
     public void setStreetLbl(String street) {
-        streetLbl.setText(street);
+        streetLbl.setText(formatText(street));
     }
 
     public void setCityLbl(String city) {
-        cityLbl.setText(city);
+        cityLbl.setText(formatText(city));
     }
 
     public void setCountyLbl(String county) {
-        countyLbl.setText(county);
+        countyLbl.setText(formatText(county));
     }
     
     public void setTimeLbl(String openTime, String closeTime){
@@ -59,6 +59,17 @@ public class FacilityCardGUI extends javax.swing.JPanel {
         } catch(Exception e) {
             System.out.println("Err loading img");
         } 
+    }
+    
+    private String formatText(String text){
+        String firstLetter = text.substring(0, 1); // Extracts text from 0 to 1
+        
+        if(!text.isBlank()){
+            // Extract text from 1 onwards and concatinate to first letter
+            return firstLetter.toUpperCase() + text.substring(1);
+        } 
+        
+        return text;
     }
 
     /**
