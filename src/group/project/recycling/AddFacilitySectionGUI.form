@@ -37,7 +37,11 @@
                           <Component id="pNumLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="streetLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="countyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="openTimeLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="closeTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="wasteAcceptedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="imgLbl" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -124,6 +128,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="openTimeTFld" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="openTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -350,6 +355,14 @@
           <Font name="Eras Medium ITC" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Please fill all fields"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="10" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Military Time e.g. 0700"/>
       </Properties>
     </Component>
   </SubComponents>

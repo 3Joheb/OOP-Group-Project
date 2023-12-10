@@ -15,11 +15,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     private final AddFacilitySection logic;
 
-    // Store source path for validation
-    // GUI resets texts, but logic vars persist for next write
-    // Source path prevents using the old image after button press
-    private String sourcePath;
-
     /**
      * Creates new form AddFacilityGUI
      *
@@ -70,6 +65,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         wasteJList = new javax.swing.JList<>();
         fieldErrLbl = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1092, 614));
         setMinimumSize(new java.awt.Dimension(1092, 614));
@@ -140,6 +136,9 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         fieldErrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         fieldErrLbl.setText("Please fill all fields");
 
+        jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
+        jLabel2.setText("Military Time e.g. 0700");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,7 +155,10 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                             .addComponent(pNumLbl)
                             .addComponent(streetLbl)
                             .addComponent(countyLbl)
-                            .addComponent(openTimeLbl)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(openTimeLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2))
                             .addComponent(closeTimeLbl)
                             .addComponent(wasteAcceptedLbl)
                             .addComponent(imgLbl)
@@ -224,7 +226,8 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(openTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(openTimeLbl))
+                    .addComponent(openTimeLbl)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeTimeTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,9 +266,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
         // Hide error msg
         fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51, 0));
-
-        // Store img path
-        sourcePath = logic.getImgPath();
 
         // Logic setters
         logic.setCompanyName(companyNameTFld.getText());
@@ -310,8 +310,6 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         countyTFld.setText("");
         openTimeTFld.setText("");
         closeTimeTFld.setText("");
-
-        sourcePath = null;
     }
 
     private boolean isFieldsFilled() {
@@ -337,7 +335,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         }
 
         // Check image 
-        if (sourcePath == null) {
+        if (logic.getImgPath() == null) {
             fieldErrLbl.setText("Please select an image");
             return false;
         }
@@ -361,6 +359,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JLabel fieldErrLbl;
     private javax.swing.JLabel formHeadingLbl;
     private javax.swing.JLabel imgLbl;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel openTimeLbl;
     private javax.swing.JTextField openTimeTFld;

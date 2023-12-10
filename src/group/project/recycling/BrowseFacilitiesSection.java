@@ -123,6 +123,7 @@ public class BrowseFacilitiesSection {
                 // Create new instance of class to store data
                 FacilityCard card = new FacilityCard();
                 card.setFacilityName(name);
+                card.setCounty(county);
                 card.setStreet(street);
                 card.setCity(city);
                 card.setOpenTime(openTime);

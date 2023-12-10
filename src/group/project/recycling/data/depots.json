@@ -1,9 +1,9 @@
 [
   {
-    "name": "Depot 1",
+    "name": "EcoHub Recycling Center",
     "address": {
-      "street": "123 Test city",
-      "city": "Dublin",
+      "street": "Humming Street",
+      "city": "Dublin City",
       "county": "Dublin"
     },
     "time": {
@@ -16,11 +16,11 @@
     }
   },
   {
-    "name": "Depot 2",
+    "name": "GreenCycle Depot",
     "address": {
-      "street": "155 Test city",
-      "city": "Dublin",
-      "county": "Dublin"
+      "street": "South Wall",
+      "city": "Galway City",
+      "county": "Galway"
     },
     "time": {
       "open": "0900",
@@ -32,11 +32,11 @@
     }
   },
   {
-    "name": "Depot 3",
+    "name": "Renewal Resources Hub",
     "address": {
-      "street": "133 Test city",
-      "city": "Dublin",
-      "county": "Dublin"
+      "street": "Portsmith Lane",
+      "city": "Drogheda",
+      "county": "Louth"
     },
     "time": {
       "open": "0900",
@@ -48,11 +48,11 @@
     }
   },
   {
-    "name": "Depot 1",
+    "name": "EarthGuard Recycling Facility",
     "address": {
-      "street": "123 Test city",
-      "city": "Dublin",
-      "county": "Dublin"
+      "street": "Bucksberry Avenue",
+      "city": "Portlaois",
+      "county": "Loais"
     },
     "time": {
       "open": "0900",
@@ -64,11 +64,11 @@
     }
   },
   {
-    "name": "Depot 2",
+    "name": "EcoHarbor Collection Center",
     "address": {
-      "street": "155 Test city",
-      "city": "Dublin",
-      "county": "Dublin"
+      "street": "Goffereys Street",
+      "city": "Bray",
+      "county": "Wicklow"
     },
     "time": {
       "open": "0900",
@@ -80,11 +80,11 @@
     }
   },
   {
-    "name": "Depot 3",
+    "name": "Sustainable Solutions Depot",
     "address": {
-      "street": "133 Test city",
-      "city": "Dublin",
-      "county": "Dublin"
+      "street": "Harolds Street",
+      "city": "Limerick",
+      "county": "Limerick"
     },
     "time": {
       "open": "0900",

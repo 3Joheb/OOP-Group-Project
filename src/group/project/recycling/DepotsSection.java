@@ -105,7 +105,7 @@ public class DepotsSection {
                 // Collections.singleton() returns a list containing the argument e.g. [userObj]
                 // This makes sure the root JSON data type is a list and not an object
                 List<User> userList = Collections.singletonList(userObj);
-                
+
                 // Create new file
                 objMapper.writeValue(file, userList);
 
@@ -167,30 +167,34 @@ public class DepotsSection {
     }
 
     public void setFullName(String fn) {
-        fullName = fn;
+        fullName = formatText(fn);
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = formatText(email);
     }
 
     public void setNumber(String num) {
-        number = num;
+        number = formatText(num);
     }
 
     public void setStreet(String street) {
-        this.street = street;
+        this.street = formatText(street);
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.city = formatText(city);
     }
 
     public void setCounty(String county) {
-        this.county = county;
+        this.county = formatText(county);
     }
 
     public void setPaymentValue(Integer value) {
         paymentValue = value;
+    }
+
+    private String formatText(String text) {
+        return text.replaceAll("\\s+", " ");
     }
 }

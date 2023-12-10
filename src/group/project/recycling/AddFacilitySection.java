@@ -108,7 +108,8 @@ public class AddFacilitySection {
     public void saveJSONFile() {
         // Save image locally
         saveImageLocally();
-
+        sourcePath = null;
+        
         // JSON file path
         String filePath = "src/group/project/recycling/data/facilities.json";
 
@@ -120,6 +121,7 @@ public class AddFacilitySection {
         Contact contactObj = new Contact(email, number);
         Time timeObj = new Time(openTime, closeTime);
         Facility facilityObj = new Facility(companyName, facilityName, contactObj, addressObj, timeObj, acceptedWaste, destinationPath);
+        System.out.println(facilityObj);
 
         try {
             File file = new File(filePath);
@@ -157,40 +159,40 @@ public class AddFacilitySection {
     }
 
     public void setCompanyName(String name) {
-        companyName = name;
+        companyName = formatText(name);
     }
 
     public void setFacilityName(String name) {
-        facilityName = name;
+        facilityName = formatText(name);
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = formatText(email);
     }
 
     public void setNumber(String num) {
-        number = num;
+        number = formatText(num);
     }
 
     public void setStreet(String street) {
-        this.street = street;
+        this.street = formatText(street);
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.city = formatText(city);
     }
 
     public void setCounty(String county) {
-        this.county = county;
+        this.county = formatText(county);
     }
 
     public void setOpenTime(String time) {
         // Format is military e.g. 0700 = 7am
-        openTime = time;
+        openTime = formatText(time);
     }
 
     public void setCloseTime(String time) {
-        closeTime = time;
+        closeTime = formatText(time);
     }
 
     public void setAcceptedWaste(List<String> waste) {
@@ -199,5 +201,9 @@ public class AddFacilitySection {
 
     public String getImgPath() {
         return sourcePath;
+    }
+    
+    private String formatText(String text){
+        return text.replaceAll("\\s+", " ");
     }
 }

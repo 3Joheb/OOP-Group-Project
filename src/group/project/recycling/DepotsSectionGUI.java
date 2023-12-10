@@ -359,7 +359,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         logic.setPaymentValue(getPaymentValue());
 
         // Run save file method
-        //logic.saveJSONFile();
+        logic.saveJSONFile();
 
         // Reset text fields
         resetTextFields();

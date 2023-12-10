@@ -30,7 +30,7 @@ public class DepotCardGUI extends javax.swing.JPanel {
     }
 
     public void setTimeLbl(String openTime, String closeTime) {
-        openTimeLbl.setText(openTime + "-" + closeTime);
+        openTimeLbl.setText(openTime + " - " + closeTime);
     }
 
     public void setPhoneNumLbl(String num) {
