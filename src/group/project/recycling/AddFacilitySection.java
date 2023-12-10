@@ -108,7 +108,7 @@ public class AddFacilitySection {
     public void saveJSONFile() {
         // Save image locally
         saveImageLocally();
-        
+
         // JSON file path
         String filePath = "src/group/project/recycling/data/facilities.json";
 
@@ -195,5 +195,9 @@ public class AddFacilitySection {
 
     public void setAcceptedWaste(List<String> waste) {
         acceptedWaste = waste;
+    }
+
+    public String getImgPath() {
+        return sourcePath;
     }
 }

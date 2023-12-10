@@ -42,11 +42,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
-                      <Component id="payBtn" min="-2" pref="150" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="147" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -60,15 +55,6 @@
                                   <Component id="totalLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="closestDepotLbl" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="usrSldrValue" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="depotSldr0Lbl" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="closestDepotSldr" min="-2" pref="144" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
@@ -103,6 +89,15 @@
                                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                               <Component id="pickUpTxtAr" min="-2" pref="302" max="-2" attributes="0"/>
                                           </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="closestDepotLbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="usrSldrValue" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="depotSldr0Lbl" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="closestDepotSldr" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="depotSldr50Lbl" min="-2" max="-2" attributes="0"/>
@@ -119,6 +114,19 @@
                               <EmptySpace min="-2" pref="335" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
+                              <Component id="payBtn" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="470" max="-2" attributes="0"/>
+                              <Component id="fieldErrLbl" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -137,7 +145,9 @@
                               <Component id="pickupHeadingLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="pickUpTxtAr" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="fieldErrLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
                                   <Component id="nameLbl" alignment="2" min="-2" max="-2" attributes="0"/>
                                   <Component id="nameTFld" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -186,7 +196,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -401,6 +411,17 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="usrSldrValue">
+            </Component>
+            <Component class="javax.swing.JLabel" name="fieldErrLbl">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Eras Medium ITC" size="12" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="cc" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Please fill all fields"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

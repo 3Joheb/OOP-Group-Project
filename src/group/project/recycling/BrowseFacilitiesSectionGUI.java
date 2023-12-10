@@ -223,6 +223,8 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
 
     private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
+        // (String) is a type case, this means we're telling the compiler countyComboBox.getSelectedItem(); is 100% a string
+        // You do this when you're sure of the type being returned
         wasteTxt = (String) wasteComboBox.getSelectedItem();
 
         logic.loadNewCards(searchTxt, countyTxt, wasteTxt);
@@ -232,7 +234,7 @@ public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
     private void countyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBoxActionPerformed
         // TODO add your handling code here:
         countyTxt = (String) countyComboBox.getSelectedItem();
-        
+
         logic.loadNewCards(searchTxt, countyTxt, wasteTxt);
         repaintCards();
     }//GEN-LAST:event_countyComboBoxActionPerformed

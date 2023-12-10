@@ -9,16 +9,18 @@ package group.project.recycling;
  * @author zoheb
  */
 public class DepotsSectionGUI extends javax.swing.JPanel {
+
     private DepotsSection logic;
     private Integer paymentValue;
 
     /**
      * Creates new form DepotsGUI
+     *
      * @param logic
      */
     public DepotsSectionGUI(DepotsSection logic) {
         initComponents();
-        
+
         // Save logic instance
         this.logic = logic;
 
@@ -26,11 +28,14 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         pickUpTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
         dropOffTxtAr.setBackground(new java.awt.Color(0, 0, 0, 0));
 
+        // Hide error label
+        fieldErrLbl.setForeground(new java.awt.Color(0, 0, 0, 0));
+
         // set slider max value
         closestDepotSldr.setMaximum(50);
-        
+
         // Create cards using logic list
-        for(DepotCard card : logic.getCards()){
+        for (DepotCard card : logic.getCards()) {
             createNewCardGUI(card);
         }
     }
@@ -94,6 +99,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         depotSldr0Lbl = new javax.swing.JLabel();
         depotSldr50Lbl = new javax.swing.JLabel();
         usrSldrValue = new javax.swing.JLabel();
+        fieldErrLbl = new javax.swing.JLabel();
 
         scrollPane.setBorder(null);
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -188,14 +194,14 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
 
         depotSldr50Lbl.setText("50 KM");
 
+        fieldErrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+        fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51));
+        fieldErrLbl.setText("Please fill all fields");
+
         javax.swing.GroupLayout scrollContainerLayout = new javax.swing.GroupLayout(scrollContainer);
         scrollContainer.setLayout(scrollContainerLayout);
         scrollContainerLayout.setHorizontalGroup(
             scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(scrollContainerLayout.createSequentialGroup()
-                .addGap(456, 456, 456)
-                .addComponent(payBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scrollContainerLayout.createSequentialGroup()
                 .addContainerGap(147, Short.MAX_VALUE)
                 .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,14 +214,6 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                             .addComponent(totalLbl)
                             .addGroup(scrollContainerLayout.createSequentialGroup()
                                 .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(scrollContainerLayout.createSequentialGroup()
-                                        .addComponent(closestDepotLbl)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(usrSldrValue)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(depotSldr0Lbl)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(closestDepotSldr, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
                                         .addComponent(countyLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -242,7 +240,15 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                                         .addComponent(emailTFld, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollContainerLayout.createSequentialGroup()
                                         .addGap(41, 41, 41)
-                                        .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(scrollContainerLayout.createSequentialGroup()
+                                        .addComponent(closestDepotLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(usrSldrValue)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(depotSldr0Lbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(closestDepotSldr, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(depotSldr50Lbl)))
                         .addGap(360, 360, 360))
@@ -252,6 +258,15 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scrollContainerLayout.createSequentialGroup()
                         .addComponent(dropOffTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(335, 335, 335))))
+            .addGroup(scrollContainerLayout.createSequentialGroup()
+                .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scrollContainerLayout.createSequentialGroup()
+                        .addGap(456, 456, 456)
+                        .addComponent(payBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(scrollContainerLayout.createSequentialGroup()
+                        .addGap(470, 470, 470)
+                        .addComponent(fieldErrLbl)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         scrollContainerLayout.setVerticalGroup(
             scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +283,9 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                         .addComponent(pickupHeadingLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pickUpTxtAr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
+                        .addGap(34, 34, 34)
+                        .addComponent(fieldErrLbl)
+                        .addGap(37, 37, 37)
                         .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(nameLbl)
                             .addComponent(nameTFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -306,7 +323,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
                         .addGroup(scrollContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(closestDepotLbl)
                             .addComponent(usrSldrValue))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         scrollPane.setViewportView(scrollContainer);
@@ -324,6 +341,14 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
+        // Check fields are filled
+        if(!isFieldsFilled()){
+            fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51));
+            return;
+        }
+        
+        fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51, 0));
+
         // Save text field values to logic variables
         logic.setFullName(nameTFld.getText());
         logic.setEmail(emailTFld.getText());
@@ -332,15 +357,15 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         logic.setCity(cityTFld.getText());
         logic.setCounty(countyTFld.getText());
         logic.setPaymentValue(getPaymentValue());
-        
+
         // Run save file method
-        logic.saveJSONFile();
-        
+        //logic.saveJSONFile();
+
         // Reset text fields
         resetTextFields();
     }//GEN-LAST:event_payBtnActionPerformed
 
-    private void resetTextFields(){
+    private void resetTextFields() {
         nameTFld.setText("");
         emailTFld.setText("");
         pNumTFld.setText("");
@@ -348,7 +373,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         cityTFld.setText("");
         countyTFld.setText("");
     }
-    
+
     private void closestDepotSldrStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_closestDepotSldrStateChanged
 
         int sliderValue = closestDepotSldr.getValue();
@@ -374,8 +399,25 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
             paymentValue = 10;
         }
     }
-    
-    
+
+    private boolean isFieldsFilled() {
+        // Save text field values to logic variables
+        String[] textFields = {
+            nameTFld.getText(), emailTFld.getText(),
+            pNumTFld.getText(), streetTFld.getText(), 
+            cityTFld.getText(), countyTFld.getText()
+        };
+
+        for(String tf : textFields){
+            if(tf.isBlank()){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardContainer;
     private javax.swing.JScrollPane cardScrollPane;
@@ -391,6 +433,7 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
     private javax.swing.JTextArea dropOffTxtAr;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTFld;
+    private javax.swing.JLabel fieldErrLbl;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JTextField nameTFld;
     private javax.swing.JLabel pNumLbl;

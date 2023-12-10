@@ -127,11 +127,11 @@ public class DepotsSection {
                 // Store json values
                 // Note that I've added no error handling for non existing keys
                 String name = depotObj.get("name").asText();
-                String street = depotObj.get("location").get("street").asText();
-                String city = depotObj.get("location").get("city").asText();
+                String street = depotObj.get("address").get("street").asText();
+                String city = depotObj.get("address").get("city").asText();
                 String openTime = depotObj.get("time").get("open").asText();
                 String closeTime = depotObj.get("time").get("close").asText();
-                String num = depotObj.get("contact").get("phone").asText();
+                String num = depotObj.get("contact").get("number").asText();
 
                 // Create new instance of class to store data
                 DepotCard card = new DepotCard();

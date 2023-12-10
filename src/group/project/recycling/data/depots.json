@@ -1,7 +1,7 @@
 [
   {
     "name": "Depot 1",
-    "location": {
+    "address": {
       "street": "123 Test city",
       "city": "Dublin",
       "county": "Dublin"
@@ -12,12 +12,12 @@
     },
     "contact": {
       "email": "test-email@waste.com",
-      "phone": "013345768"
+      "number": "013345768"
     }
   },
   {
     "name": "Depot 2",
-    "location": {
+    "address": {
       "street": "155 Test city",
       "city": "Dublin",
       "county": "Dublin"
@@ -28,12 +28,12 @@
     },
     "contact": {
       "email": "test-email@waste.com",
-      "phone": "013654318"
+      "number": "013654318"
     }
   },
   {
     "name": "Depot 3",
-    "location": {
+    "address": {
       "street": "133 Test city",
       "city": "Dublin",
       "county": "Dublin"
@@ -44,12 +44,12 @@
     },
     "contact": {
       "email": "test-email@waste.com",
-      "phone": "0132334318"
+      "number": "0132334318"
     }
   },
   {
     "name": "Depot 1",
-    "location": {
+    "address": {
       "street": "123 Test city",
       "city": "Dublin",
       "county": "Dublin"
@@ -60,12 +60,12 @@
     },
     "contact": {
       "email": "test-email@waste.com",
-      "phone": "013345768"
+      "number": "013345768"
     }
   },
   {
     "name": "Depot 2",
-    "location": {
+    "address": {
       "street": "155 Test city",
       "city": "Dublin",
       "county": "Dublin"
@@ -76,12 +76,12 @@
     },
     "contact": {
       "email": "test-email@waste.com",
-      "phone": "013654318"
+      "number": "013654318"
     }
   },
   {
     "name": "Depot 3",
-    "location": {
+    "address": {
       "street": "133 Test city",
       "city": "Dublin",
       "county": "Dublin"
@@ -92,7 +92,7 @@
     },
     "contact": {
       "email": "test-email@waste.com",
-      "phone": "0132334318"
+      "number": "0132334318"
     }
   }
 ]

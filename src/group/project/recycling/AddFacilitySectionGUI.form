@@ -25,25 +25,33 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="formHeadingLbl" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="facilityNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pNumLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="streetLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="countyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="closeTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="wasteAcceptedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="imgLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="companyNameLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="facilityNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pNumLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="streetLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="countyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="closeTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="wasteAcceptedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="imgLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
-                                  <Component id="companyNameLbl" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                              <Component id="submitBtn" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="companyNameTFld" max="32767" attributes="0"/>
                                   <Component id="facilityNameTFld" max="32767" attributes="0"/>
@@ -62,14 +70,10 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="formHeadingLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fieldErrLbl" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="485" max="-2" attributes="0"/>
-                      <Component id="submitBtn" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="77" max="32767" attributes="0"/>
@@ -142,7 +146,10 @@
                   <Component id="selectFileBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="submitBtn" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="submitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fieldErrLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -337,5 +344,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="fieldErrLbl">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Please fill all fields"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

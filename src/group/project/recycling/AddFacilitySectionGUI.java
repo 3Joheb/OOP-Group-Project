@@ -14,8 +14,11 @@ import javax.swing.JFileChooser;
 public class AddFacilitySectionGUI extends javax.swing.JPanel {
 
     private final AddFacilitySection logic;
+
+    // Store source path for validation
+    // GUI resets texts, but logic vars persist for next write
+    // Source path prevents using the old image after button press
     private String sourcePath;
-    private String imageName;
 
     /**
      * Creates new form AddFacilityGUI
@@ -24,6 +27,9 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
      */
     public AddFacilitySectionGUI(AddFacilitySection logic) {
         initComponents();
+
+        // Set field error color
+        fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51, 0));
 
         // Save logic instance
         this.logic = logic;
@@ -63,6 +69,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         submitBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         wasteJList = new javax.swing.JList<>();
+        fieldErrLbl = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1092, 614));
         setMinimumSize(new java.awt.Dimension(1092, 614));
@@ -130,29 +137,38 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(wasteJList);
 
+        fieldErrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
+        fieldErrLbl.setText("Please fill all fields");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(322, 322, 322)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(322, 322, 322)
+                        .addGap(33, 33, 33)
+                        .addComponent(formHeadingLbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(facilityNameLbl)
+                            .addComponent(pNumLbl)
+                            .addComponent(streetLbl)
+                            .addComponent(countyLbl)
+                            .addComponent(openTimeLbl)
+                            .addComponent(closeTimeLbl)
+                            .addComponent(wasteAcceptedLbl)
+                            .addComponent(imgLbl)
+                            .addComponent(emailLbl)
+                            .addComponent(companyNameLbl)
+                            .addComponent(cityLbl)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(163, 163, 163)
+                                .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(facilityNameLbl)
-                                    .addComponent(pNumLbl)
-                                    .addComponent(streetLbl)
-                                    .addComponent(countyLbl)
-                                    .addComponent(openTimeLbl)
-                                    .addComponent(closeTimeLbl)
-                                    .addComponent(wasteAcceptedLbl)
-                                    .addComponent(imgLbl)
-                                    .addComponent(emailLbl)
-                                    .addComponent(companyNameLbl)
-                                    .addComponent(cityLbl))
-                                .addGap(165, 165, 165)
+                                .addGap(5, 5, 5)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(companyNameTFld)
                                     .addComponent(facilityNameTFld)
@@ -168,11 +184,8 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                                     .addComponent(closeTimeTFld)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(formHeadingLbl))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(485, 485, 485)
-                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fieldErrLbl)))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,7 +241,9 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
                     .addComponent(imgLbl)
                     .addComponent(selectFileBtn))
                 .addGap(35, 35, 35)
-                .addComponent(submitBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitBtn)
+                    .addComponent(fieldErrLbl))
                 .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -239,7 +254,18 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_selectFileBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        // TODO add your handling code here:
+        // Check fields are filled
+        if (!isFieldsFilled()) {
+            // Show error msg
+            fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51));
+            return;
+        }
+
+        // Hide error msg
+        fieldErrLbl.setForeground(new java.awt.Color(204, 0, 51, 0));
+
+        // Store img path
+        sourcePath = logic.getImgPath();
 
         // Logic setters
         logic.setCompanyName(companyNameTFld.getText());
@@ -254,7 +280,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         logic.setAcceptedWaste(wasteJList.getSelectedValuesList());
 
         logic.saveJSONFile();
-        
+
         resetTextFields();
     }//GEN-LAST:event_submitBtnActionPerformed
 
@@ -284,6 +310,39 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         countyTFld.setText("");
         openTimeTFld.setText("");
         closeTimeTFld.setText("");
+
+        sourcePath = null;
+    }
+
+    private boolean isFieldsFilled() {
+        // Save text field values to logic variables
+        String[] textFields = {
+            companyNameTFld.getText(), emailTFld.getText(),
+            pNumTFld.getText(), streetTFld.getText(), cityTFld.getText(),
+            countyTFld.getText(), openTimeTFld.getText(), closeTimeTFld.getText()
+        };
+
+        // Check text fields
+        for (String tf : textFields) {
+            if (tf.isBlank()) {
+                fieldErrLbl.setText("Please fill all text fields");
+                return false;
+            }
+        }
+
+        // Check Jlist
+        if (wasteJList.getSelectedValuesList().isEmpty()) {
+            fieldErrLbl.setText("Please select waste accepted");
+            return false;
+        }
+
+        // Check image 
+        if (sourcePath == null) {
+            fieldErrLbl.setText("Please select an image");
+            return false;
+        }
+
+        return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -299,6 +358,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
     private javax.swing.JTextField emailTFld;
     private javax.swing.JLabel facilityNameLbl;
     private javax.swing.JTextField facilityNameTFld;
+    private javax.swing.JLabel fieldErrLbl;
     private javax.swing.JLabel formHeadingLbl;
     private javax.swing.JLabel imgLbl;
     private javax.swing.JScrollPane jScrollPane1;

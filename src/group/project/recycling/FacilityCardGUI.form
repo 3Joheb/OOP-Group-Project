@@ -21,16 +21,21 @@
               <Component id="imgLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="wasteTxtAr" min="-2" pref="161" max="-2" attributes="0"/>
+                  <Component id="wasteTxtAr" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="221" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
