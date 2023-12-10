@@ -1,0 +1,98 @@
+[
+  {
+    "name": "EcoHub Recycling Center",
+    "address": {
+      "street": "Humming Street",
+      "city": "Dublin City",
+      "county": "Dublin"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "number": "013345768"
+    }
+  },
+  {
+    "name": "GreenCycle Depot",
+    "address": {
+      "street": "South Wall",
+      "city": "Galway City",
+      "county": "Galway"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "number": "013654318"
+    }
+  },
+  {
+    "name": "Renewal Resources Hub",
+    "address": {
+      "street": "Portsmith Lane",
+      "city": "Drogheda",
+      "county": "Louth"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "number": "0132334318"
+    }
+  },
+  {
+    "name": "EarthGuard Recycling Facility",
+    "address": {
+      "street": "Bucksberry Avenue",
+      "city": "Portlaois",
+      "county": "Loais"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "number": "013345768"
+    }
+  },
+  {
+    "name": "EcoHarbor Collection Center",
+    "address": {
+      "street": "Goffereys Street",
+      "city": "Bray",
+      "county": "Wicklow"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "number": "013654318"
+    }
+  },
+  {
+    "name": "Sustainable Solutions Depot",
+    "address": {
+      "street": "Harolds Street",
+      "city": "Limerick",
+      "county": "Limerick"
+    },
+    "time": {
+      "open": "0900",
+      "close": "1700"
+    },
+    "contact": {
+      "email": "test-email@waste.com",
+      "number": "0132334318"
+    }
+  }
+]

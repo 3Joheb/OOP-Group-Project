@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JFileChooser" name="jFileChooser1">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1092, 614]"/>
@@ -29,122 +25,136 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="322" pref="322" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="formHeadingLbl" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="formHeadingLbl" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="facilityNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pNumLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="streetLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="countyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="companyNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="facilityNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="emailLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pNumLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addressLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cityLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="countyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="closeTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="wasteAcceptedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="imgLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="openTimeLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="closeTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="wasteAcceptedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="imgLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="companyNameLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                              <Component id="submitBtn" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="companyNameTFld" max="32767" attributes="0"/>
                                   <Component id="facilityNameTFld" max="32767" attributes="0"/>
                                   <Component id="emailTFld" max="32767" attributes="0"/>
                                   <Component id="pNumTFld" max="32767" attributes="0"/>
-                                  <Component id="addressTFld" max="32767" attributes="0"/>
+                                  <Component id="streetTFld" max="32767" attributes="0"/>
                                   <Component id="cityTFld" max="32767" attributes="0"/>
                                   <Component id="countyTFld" max="32767" attributes="0"/>
                                   <Component id="openTimeTFld" max="32767" attributes="0"/>
-                                  <Component id="closeTimeTFld" max="32767" attributes="0"/>
-                                  <Component id="wasteTFld" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="selectFileBtn" min="-2" pref="157" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="closeTimeTFld" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" pref="425" max="32767" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fieldErrLbl" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="485" max="-2" attributes="0"/>
-                      <Component id="submitBtn" min="-2" pref="100" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace pref="274" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="formHeadingLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="companyNameTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="companyNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="formHeadingLbl" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="2" attributes="0">
-                                          <Component id="companyNameTFld" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="companyNameLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="facilityNameLbl" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="facilityNameTFld" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="emailTFld" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="pNumTFld" min="-2" max="-2" attributes="0"/>
+                  <Component id="facilityNameTFld" min="-2" max="-2" attributes="0"/>
+                  <Component id="facilityNameLbl" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addressLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pNumTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pNumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="streetTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="streetLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cityTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="countyLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="countyTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="countyLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="openTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="openTimeTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="openTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="closeTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="closeTimeTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="closeTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="wasteAcceptedLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="wasteTFld" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="113" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="wasteAcceptedLbl" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="imgLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="selectFileBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
-              <Component id="submitBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="submitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fieldErrLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -191,12 +201,12 @@
         <Property name="text" type="java.lang.String" value="Phone number:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="addressLbl">
+    <Component class="javax.swing.JLabel" name="streetLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Address:"/>
+        <Property name="text" type="java.lang.String" value="Street:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cityLbl">
@@ -220,7 +230,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Open time:"/>
+        <Property name="text" type="java.lang.String" value="Opening time:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="closeTimeLbl">
@@ -228,7 +238,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Close time:"/>
+        <Property name="text" type="java.lang.String" value="Closing time:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="wasteAcceptedLbl">
@@ -248,23 +258,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="companyNameTFld">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="companyNameTFldActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="facilityNameTFld">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityNameTFldActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTFld">
     </Component>
     <Component class="javax.swing.JTextField" name="pNumTFld">
     </Component>
-    <Component class="javax.swing.JTextField" name="addressTFld">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressTFldActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="streetTFld">
     </Component>
     <Component class="javax.swing.JTextField" name="cityTFld">
     </Component>
@@ -273,8 +274,6 @@
     <Component class="javax.swing.JTextField" name="openTimeTFld">
     </Component>
     <Component class="javax.swing.JTextField" name="closeTimeTFld">
-    </Component>
-    <Component class="javax.swing.JTextField" name="wasteTFld">
     </Component>
     <Component class="javax.swing.JButton" name="selectFileBtn">
       <Properties>
@@ -309,6 +308,62 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitBtnActionPerformed"/>
       </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="wasteJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="20">
+                <StringItem index="0" value="Paper (newspapers, magazines, cardboard)"/>
+                <StringItem index="1" value="Plastic bottles"/>
+                <StringItem index="2" value="Glass bottles and jars"/>
+                <StringItem index="3" value="Aluminum cans"/>
+                <StringItem index="4" value="Steel cans"/>
+                <StringItem index="5" value="Electronics (computers, laptops, smartphones)"/>
+                <StringItem index="6" value="Batteries (alkaline, rechargeable)"/>
+                <StringItem index="7" value="Textiles (clothing, shoes)"/>
+                <StringItem index="8" value="Organic waste (food scraps, yard waste)"/>
+                <StringItem index="9" value="Metal appliances (refrigerators, washing machines)"/>
+                <StringItem index="10" value="Paperboard (cereal boxes, shoeboxes)"/>
+                <StringItem index="11" value="Styrofoam"/>
+                <StringItem index="12" value="Light bulbs (CFLs, LEDs)"/>
+                <StringItem index="13" value="Printer cartridges"/>
+                <StringItem index="14" value="Tires"/>
+                <StringItem index="15" value="Paint cans"/>
+                <StringItem index="16" value="Wood waste"/>
+                <StringItem index="17" value="Used cooking oil"/>
+                <StringItem index="18" value="Household hazardous waste (cleaning products, chemicals)"/>
+                <StringItem index="19" value="Plastic bags"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="fieldErrLbl">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Please fill all fields"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="10" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Military Time e.g. 0700"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

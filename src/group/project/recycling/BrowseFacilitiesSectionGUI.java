@@ -4,26 +4,66 @@
  */
 package group.project.recycling;
 
+import java.util.List;
+
 /**
  *
  * @author zoheb
  */
-public class BrowseFacilitiesGUI extends javax.swing.JPanel {
+public class BrowseFacilitiesSectionGUI extends javax.swing.JPanel {
+
+    private final BrowseFacilitiesSection logic;
+    private String searchTxt = "";
+    private String countyTxt = "NONE";
+    private String wasteTxt = "NONE";
 
     /**
      * Creates new form BrowseFacilitiesGUI
+     *
+     * @param logic
      */
-    public BrowseFacilitiesGUI() {
+    public BrowseFacilitiesSectionGUI(BrowseFacilitiesSection logic) {
         initComponents();
-        
-        //increase scroll increment
+
+        // Store logic reference
+        this.logic = logic;
+
+        // Increase scroll increment
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
-        
-        // Create and add three cards
-        for (int i = 0; i < 10; i++) {
-            FacilityCardGUI card = new FacilityCardGUI();
-            cardPanel.add(card);
+
+        // Create card GUIs
+        for (FacilityCard card : logic.getList()) {
+            createNewCardGUI(card);
         }
+    }
+
+    private void createNewCardGUI(FacilityCard card) {
+        // Store card variables
+        String cardName = card.getFacilityName();
+        String street = card.getStreet();
+        String city = card.getCity();
+        String county = card.getCounty();
+        String openTime = card.getOpenTime();
+        String closeTime = card.getCloseTime();
+        List<String> acceptedWaste = card.getAcceptedWaste();
+        String email = card.getEmail();
+        String num = card.getNum();
+        String imgPath = card.getImgPath();
+
+        // Create new card gui instance
+        FacilityCardGUI cardGUI = new FacilityCardGUI();
+        cardGUI.setNameLbl(cardName);
+        cardGUI.setStreetLbl(street);
+        cardGUI.setCityLbl(city);
+        cardGUI.setCountyLbl(county);
+        cardGUI.setTimeLbl(openTime, closeTime);
+        cardGUI.setAcceptedWasteLbl(acceptedWaste);
+        cardGUI.setEmailLbl(email);
+        cardGUI.setNumLbl(num);
+        cardGUI.setImgIconPath(imgPath);
+
+        // Add card to card container/panel
+        cardPanel.add(cardGUI);
     }
 
     /**
@@ -59,11 +99,6 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
         optionsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         searchTxtFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        searchTxtFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtFldActionPerformed(evt);
-            }
-        });
 
         searchBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         searchBtn.setText("search");
@@ -74,10 +109,15 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
         });
 
         countyComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dublin", "Kildare", "Galway", "Mayo" }));
+        countyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Carlow", "Cavan", "Clare", "Cork", "Donegal", "Dublin", "Galway", "Kerry", "Kildare", "Kilkenny", "Laois (formerly called Queen's County)", "Leitrim", "Limerick", "Longford", "Louth", "Mayo", "Meath", "Monaghan", "Offaly (formerly called King's County)", "Roscommon", "Sligo", "Tipperary", "Waterford", "Westmeath", "Wexford", "Wicklow" }));
+        countyComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countyComboBoxActionPerformed(evt);
+            }
+        });
 
         wasteComboBox.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wood", "Electronics", "Textiles", "Plastics" }));
+        wasteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "Paper (newspapers, magazines, cardboard)", "Plastic bottles", "Glass bottles and jars", "Aluminum cans", "Steel cans", "Electronics (computers, laptops, smartphones)", "Batteries (alkaline, rechargeable)", "Textiles (clothing, shoes)", "Organic waste (food scraps, yard waste)", "Metal appliances (refrigerators, washing machines)", "Paperboard (cereal boxes, shoeboxes)", "Styrofoam", "Light bulbs (CFLs, LEDs)", "Printer cartridges", "Tires", "Paint cans", "Wood waste", "Used cooking oil", "Household hazardous waste (cleaning products, chemicals)", "Plastic bags" }));
         wasteComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wasteComboBoxActionPerformed(evt);
@@ -173,18 +213,43 @@ public class BrowseFacilitiesGUI extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchTxtFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchTxtFldActionPerformed
-
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
+        searchTxt = searchTxtFld.getText();
+
+        logic.loadNewCards(searchTxt, countyTxt, wasteTxt);
+        repaintCards();
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void wasteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wasteComboBoxActionPerformed
         // TODO add your handling code here:
+        // (String) is a type case, this means we're telling the compiler countyComboBox.getSelectedItem(); is 100% a string
+        // You do this when you're sure of the type being returned
+        wasteTxt = (String) wasteComboBox.getSelectedItem();
+
+        logic.loadNewCards(searchTxt, countyTxt, wasteTxt);
+        repaintCards();
     }//GEN-LAST:event_wasteComboBoxActionPerformed
 
+    private void countyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countyComboBoxActionPerformed
+        // TODO add your handling code here:
+        countyTxt = (String) countyComboBox.getSelectedItem();
+
+        logic.loadNewCards(searchTxt, countyTxt, wasteTxt);
+        repaintCards();
+    }//GEN-LAST:event_countyComboBoxActionPerformed
+
+    private void repaintCards() {
+        // Remove old card GUIs
+        cardPanel.removeAll(); // remove from panel
+        cardPanel.revalidate(); // inform layout manager of change
+        cardPanel.repaint(); // make the visual update
+
+        // Create card GUIs
+        for (FacilityCard card : logic.getList()) {
+            createNewCardGUI(card);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;

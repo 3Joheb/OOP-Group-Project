@@ -21,14 +21,21 @@
               <Component id="imgLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="locationLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="wasteAcceptedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="pNumLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="wasteTxtAr" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="openTimeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -36,24 +43,27 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="imgLbl" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="locationLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="countyLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="openTimeLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="wasteAcceptedLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="pNumLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="wasteTxtAr" min="-2" pref="93" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="imgLbl" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="9" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,39 +79,31 @@
     <Component class="javax.swing.JLabel" name="nameLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Eras Medium ITC" size="16" style="0"/>
+          <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="locationLbl">
+    <Component class="javax.swing.JLabel" name="streetLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Eras Medium ITC" size="16" style="0"/>
+          <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Location"/>
+        <Property name="text" type="java.lang.String" value="Street"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="openTimeLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Eras Medium ITC" size="16" style="0"/>
+          <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Open time - Close time"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="wasteAcceptedLbl">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Eras Medium ITC" size="16" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Waste Accepted"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="emailLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Eras Medium ITC" size="16" style="0"/>
+          <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
@@ -109,9 +111,53 @@
     <Component class="javax.swing.JLabel" name="pNumLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Eras Medium ITC" size="16" style="0"/>
+          <Font name="Eras Medium ITC" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Phone nunber"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cityLbl">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="City"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="countyLbl">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="County"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextArea" name="wasteTxtAr">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="20"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Eras Medium ITC" size="14" style="0"/>
+        </Property>
+        <Property name="lineWrap" type="boolean" value="true"/>
+        <Property name="rows" type="int" value="5"/>
+        <Property name="text" type="java.lang.String" value="Waste Accepted"/>
+        <Property name="wrapStyleWord" type="boolean" value="true"/>
+        <Property name="autoscrolls" type="boolean" value="false"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+        <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[0, 0, 0, 0]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>
