@@ -4,6 +4,10 @@
  */
 package group.project;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -13,11 +17,14 @@ import javax.swing.JOptionPane;
  */
 public class DonateGUI extends javax.swing.JFrame {
 
+    private ArrayList<Donate> donate;// setting up my array
+
     /**
      * Creates new form DonateGUI
      */
     public DonateGUI() {
         initComponents();
+        donate = new ArrayList<>();
     }
 
     /**
@@ -42,6 +49,9 @@ public class DonateGUI extends javax.swing.JFrame {
         donationLbl = new javax.swing.JLabel();
         submitBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        viewBtn = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +60,12 @@ public class DonateGUI extends javax.swing.JFrame {
 
         cnumLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         cnumLbl.setText("Card Number:");
+
+        cnumFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cnumFldActionPerformed(evt);
+            }
+        });
 
         nameLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         nameLbl.setText("Name on card:");
@@ -65,6 +81,11 @@ public class DonateGUI extends javax.swing.JFrame {
 
         submitBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         submitBtn.setText("Submit Donation");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
 
         backBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         backBtn.setText("Back");
@@ -74,25 +95,48 @@ public class DonateGUI extends javax.swing.JFrame {
             }
         });
 
+        viewBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        viewBtn.setText("View Donation");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBtnActionPerformed(evt);
+            }
+        });
+
+        searchBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        searchBtn.setText("Search ");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
+        saveBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        saveBtn.setText("Save Details");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(donateTitle)
-                .addGap(196, 196, 196))
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(expLbl)
-                    .addComponent(cvcLbl)
-                    .addComponent(donationLbl)
-                    .addComponent(nameLbl)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(cnumLbl)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(23, 23, 23)
+                        .addComponent(submitBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(donationLbl)
+                            .addComponent(cvcLbl)
+                            .addComponent(expLbl)
+                            .addComponent(nameLbl)
+                            .addComponent(cnumLbl))))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(expFld)
                     .addGroup(layout.createSequentialGroup()
@@ -103,12 +147,23 @@ public class DonateGUI extends javax.swing.JFrame {
                             .addComponent(donationFld))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(109, 109, 109))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(submitBtn)
-                .addGap(58, 58, 58)
-                .addComponent(backBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(donateTitle)
+                            .addGap(196, 196, 196))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(viewBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(backBtn)
+                            .addGap(47, 47, 47)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(saveBtn)
+                        .addGap(100, 100, 100)
+                        .addComponent(searchBtn)
+                        .addGap(112, 112, 112))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,24 +186,118 @@ public class DonateGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cvcLbl)
                     .addComponent(cvcFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(donationLbl)
                     .addComponent(donationFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitBtn)
-                    .addComponent(backBtn))
-                .addGap(98, 98, 98))
+                    .addComponent(backBtn)
+                    .addComponent(viewBtn))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchBtn)
+                    .addComponent(saveBtn))
+                .addGap(47, 47, 47))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-       GuideGUI g = new GuideGUI();
-       g.setVisible(true);
+        GuideGUI g = new GuideGUI();//this part of the code links the java class to this page
+        g.setVisible(true);;//this part allows the gui to show up when you click the button
     }//GEN-LAST:event_backBtnActionPerformed
+    private boolean isInteger(String input) { // this method called isInteger validates whether or not the input is an integer or not 
+        try {
+            Integer.parseInt(input);//it tries reading it as an integer and if it can then it lets the program run
+            return true; 
+        } catch (NumberFormatException e) {// for if it fails to read an integer it gives an error
+            return false;
+        }
+    }
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        Donate d = new Donate();// declaring the instantiable
+        d.setCardNum(cnumFld.getText()); //getting and setting the instantiable data
+        String cardText = cnumFld.getText();
+        if (isInteger(cardText)) { // running the validation check on it 
+            d.setCvc(Integer.parseInt(cardText));
+        } else {
+            JOptionPane.showMessageDialog(null, "Card number must be a valid number.");
+            return; 
+        }
+        d.setName(nameFld.getText());
+        d.setExpiry(expFld.getText());
+        d.setCvc(Integer.parseInt(cvcFld.getText()));
+        String cvcText = cvcFld.getText();
+        if (isInteger(cvcText)) {  // running the validation check on it 
+            d.setCvc(Integer.parseInt(cvcText));
+        } else {
+            JOptionPane.showMessageDialog(null, "CVC must be a valid number.");
+            return; // Stop further processing if validation fails
+        }
+        d.setAmount(Integer.parseInt(donationFld.getText()));
+        String amountText = donationFld.getText();
+        if (isInteger(cvcText)) { // runs the validation on the cvc and ensures it is an integer and if it is it lets the program run and if not it throws an error message
+            d.setCvc(Integer.parseInt(amountText));
+        } else {
+            JOptionPane.showMessageDialog(null, "Donation must be a valid number.");
+            return;
+        }
+        donate.add(d);
+
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        if (donate.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "sorry there are no volunteers to delete");
+        } else {
+            String searchTerm = JOptionPane.showInputDialog(null, "Please enter a name to search");
+            for (Donate d : donate) {
+                if (d.getName().equalsIgnoreCase(searchTerm)) {
+                    JOptionPane.showMessageDialog(null, d.getDetails());
+                }
+            }
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+        // TODO add your handling code here:
+        for (Donate d : donate) {
+            JOptionPane.showMessageDialog(null, d.getDetails());
+        }
+    }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+        File outFile;
+        FileWriter fw;
+        BufferedWriter bw;
+
+        String donater = donationFld.getText();
+
+        try {
+            outFile = new File("DonationList.txt");
+            fw = new FileWriter(outFile, true);
+            bw = new BufferedWriter(fw);
+
+            bw.write(donater);
+            bw.newLine();
+
+            bw.close();
+            JOptionPane.showMessageDialog(null, "Thank you for Donating your Donation has now been added to our Donations list");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e);
+        }
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void cnumFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cnumFldActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_cnumFldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +325,9 @@ public class DonateGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DonateGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -198,6 +350,9 @@ public class DonateGUI extends javax.swing.JFrame {
     private javax.swing.JLabel expLbl;
     private javax.swing.JTextField nameFld;
     private javax.swing.JLabel nameLbl;
+    private javax.swing.JButton saveBtn;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JButton submitBtn;
+    private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 }

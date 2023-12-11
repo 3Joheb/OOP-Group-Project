@@ -4,8 +4,7 @@
  */
 package group.project;
 
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -109,23 +108,23 @@ public class GuideGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-         MainGUI m = new MainGUI();
-         m.setVisible(true);
+        MainGUI m = new MainGUI();//this part of the code links the main gui to this page
+        m.setVisible(true);//this part allows the gui to show up when you click the button 
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void feedbackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackBtnActionPerformed
-        FeedbackGUI f = new FeedbackGUI();
-        f.setVisible(true);
+        FeedbackGUI f = new FeedbackGUI();//this part of the code links the java class to this page
+        f.setVisible(true);//this part allows the gui to show up when you click the button 
     }//GEN-LAST:event_feedbackBtnActionPerformed
 
     private void donateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateBtnActionPerformed
-       DonateGUI d = new DonateGUI();
-        d.setVisible(true);
+        DonateGUI d = new DonateGUI();//this part of the code links the java class to this page
+        d.setVisible(true);//this part allows the gui to show up when you click the button 
     }//GEN-LAST:event_donateBtnActionPerformed
 
     private void volunteerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volunteerBtnActionPerformed
-        VolunteerGUI v = new VolunteerGUI();
-        v.setVisible(true);
+        VolunteerGUI v = new VolunteerGUI();//this part of the code links the java class to this page
+        v.setVisible(true);//this part allows the gui to show up when you click the button 
     }//GEN-LAST:event_volunteerBtnActionPerformed
 
     /**
@@ -153,6 +152,12 @@ public class GuideGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GuideGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

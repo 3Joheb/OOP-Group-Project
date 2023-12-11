@@ -13,11 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class FeedbackGUI extends javax.swing.JFrame {
 
+    private ArrayList<Feedback> feedback;
+
     /**
      * Creates new form TechGUI
      */
     public FeedbackGUI() {
         initComponents();
+        feedback = new ArrayList<>();
     }
 
     /**
@@ -36,20 +39,21 @@ public class FeedbackGUI extends javax.swing.JFrame {
         question1Lbl = new javax.swing.JLabel();
         question1Cbx = new javax.swing.JComboBox<>();
         question2Lbl = new javax.swing.JLabel();
-        rdB1 = new javax.swing.JRadioButton();
-        rdB2 = new javax.swing.JRadioButton();
         question3Lbl = new javax.swing.JLabel();
-        rdB3 = new javax.swing.JRadioButton();
-        rdB4 = new javax.swing.JRadioButton();
-        rdB5 = new javax.swing.JRadioButton();
         question4Lbl = new javax.swing.JLabel();
-        rdB6 = new javax.swing.JRadioButton();
-        rdB7 = new javax.swing.JRadioButton();
-        rdB8 = new javax.swing.JRadioButton();
         submitBtn = new javax.swing.JButton();
         question5Lbl = new javax.swing.JLabel();
         question5Cbx = new javax.swing.JComboBox<>();
         backBtn = new javax.swing.JButton();
+        question2Cbx = new javax.swing.JComboBox<>();
+        question3Cbx = new javax.swing.JComboBox<>();
+        question4Cbx = new javax.swing.JComboBox<>();
+        question6Cbx = new javax.swing.JComboBox<>();
+        question6Lbl = new javax.swing.JLabel();
+        question7Lbl = new javax.swing.JLabel();
+        question8Lbl = new javax.swing.JLabel();
+        question7Tf = new javax.swing.JTextField();
+        question8Tf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,67 +61,35 @@ public class FeedbackGUI extends javax.swing.JFrame {
         title.setText("FeedBack");
 
         question1Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        question1Lbl.setText("Q1. Would you consider buying used items over new items ?  ");
+        question1Lbl.setText("Q1. How did you find the content of our app ?  ");
 
         question1Cbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
-        question1Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Yes", "No" }));
+        question1Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Good", "Bad", "Could be better" }));
+        question1Cbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                question1CbxActionPerformed(evt);
+            }
+        });
 
         question2Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         question2Lbl.setText("Q2. What kind of waste in the world do you think impacts us most ?  ");
 
-        buttonGroup1.add(rdB1);
-        rdB1.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB1.setText("Improper Diposal of waste products ");
-        rdB1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdB1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(rdB2);
-        rdB2.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB2.setText("The impacts of Fast Fashion ");
-
         question3Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        question3Lbl.setText("Q3. Are you aware of the effects of fast fashion ? ");
-
-        buttonGroup2.add(rdB3);
-        rdB3.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB3.setText("Not Aware ");
-
-        buttonGroup2.add(rdB4);
-        rdB4.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB4.setText("Somewhat Aware ");
-
-        buttonGroup2.add(rdB5);
-        rdB5.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB5.setText("Very Aware");
-        rdB5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdB5ActionPerformed(evt);
-            }
-        });
+        question3Lbl.setText("Q3. Were you aware of the effects of fast fashion previously ? ");
 
         question4Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        question4Lbl.setText("Q4. Are you aware of how your waste is disposed of ? ");
-
-        buttonGroup3.add(rdB6);
-        rdB6.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB6.setText("No clue");
-
-        buttonGroup3.add(rdB7);
-        rdB7.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB7.setText("Some Idea");
-
-        buttonGroup3.add(rdB8);
-        rdB8.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        rdB8.setText("Completely Aware");
+        question4Lbl.setText("Q4. Did our our waste section make you more aware of the misproper dumping of waste ? ");
 
         submitBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         submitBtn.setText("Submit Results");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
 
         question5Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        question5Lbl.setText("Q5. Has viewing our site made you more conscious of how you will re use items going forward ");
+        question5Lbl.setText("Q5. Has viewing our site made you more conscious of how you will re use items going forward ? ");
 
         question5Cbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
         question5Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Yes", "No" }));
@@ -130,109 +102,154 @@ public class FeedbackGUI extends javax.swing.JFrame {
             }
         });
 
+        question2Cbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
+        question2Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Household Objects", "Clothes" }));
+        question2Cbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                question2CbxActionPerformed(evt);
+            }
+        });
+
+        question3Cbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
+        question3Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Yes", "No", "Had heard of it" }));
+        question3Cbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                question3CbxActionPerformed(evt);
+            }
+        });
+
+        question4Cbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
+        question4Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Yes", "No" }));
+        question4Cbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                question4CbxActionPerformed(evt);
+            }
+        });
+
+        question6Cbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
+        question6Cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Choose", "Yes", "No" }));
+        question6Cbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                question6CbxActionPerformed(evt);
+            }
+        });
+
+        question6Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        question6Lbl.setText("Q6. Are you aware of the SDG'S of the world ?");
+
+        question7Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        question7Lbl.setText("Q7. What is your opinion of SDG 12 ? ");
+
+        question8Lbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        question8Lbl.setText("Q8. Do you have any Suggestions on how we can improve our website ? ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(question4Lbl))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(title))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(question2Lbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(question4Lbl)
-                            .addComponent(question3Lbl))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rdB3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rdB4)
-                        .addGap(99, 99, 99)
-                        .addComponent(rdB5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rdB6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rdB1)
-                                .addGap(49, 49, 49)
-                                .addComponent(rdB2)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(rdB7)
-                        .addGap(101, 101, 101)
-                        .addComponent(rdB8)
-                        .addGap(75, 75, 75))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(question5Lbl)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(question1Lbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(question1Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 52, Short.MAX_VALUE))))
+                                .addComponent(question6Lbl)
+                                .addGap(179, 179, 179))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(question7Lbl)
+                                .addGap(212, 212, 212))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(question8Lbl)))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(submitBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backBtn)
+                .addGap(71, 71, 71))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
-                        .addComponent(submitBtn)
-                        .addGap(48, 48, 48)
-                        .addComponent(backBtn))
+                        .addGap(208, 208, 208)
+                        .addComponent(question1Lbl))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addComponent(question5Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(180, 180, 180)
+                        .addComponent(question3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(question2Lbl))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addComponent(title))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addComponent(question5Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(301, 301, 301)
+                        .addComponent(question6Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(question7Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(question8Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(question2Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(296, 296, 296)
+                        .addComponent(question1Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(296, 296, 296)
+                        .addComponent(question3Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(question4Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(question1Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(question1Lbl))
-                        .addGap(30, 30, 30)
-                        .addComponent(question2Lbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rdB2)
-                            .addComponent(rdB1))))
-                .addGap(30, 30, 30)
-                .addComponent(question3Lbl)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdB4)
-                    .addComponent(rdB3)
-                    .addComponent(rdB5))
-                .addGap(27, 27, 27)
-                .addComponent(question4Lbl)
+                .addGap(18, 18, 18)
+                .addComponent(question1Lbl)
+                .addGap(18, 18, 18)
+                .addComponent(question1Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdB7)
-                    .addComponent(rdB8)
-                    .addComponent(rdB6))
+                .addComponent(question2Lbl)
+                .addGap(18, 18, 18)
+                .addComponent(question2Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(question3Lbl)
+                .addGap(18, 18, 18)
+                .addComponent(question3Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(question4Lbl)
+                .addGap(18, 18, 18)
+                .addComponent(question4Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(question5Lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(question5Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(question5Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(question6Lbl)
+                .addGap(18, 18, 18)
+                .addComponent(question6Cbx, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(question7Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(question7Tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(question8Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(question8Tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitBtn)
                     .addComponent(backBtn))
@@ -242,18 +259,48 @@ public class FeedbackGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdB1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdB1ActionPerformed
-
-    private void rdB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdB5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdB5ActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-       GuideGUI g = new GuideGUI();
-       g.setVisible(true);
+        GuideGUI g = new GuideGUI();
+        g.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        Feedback f = new Feedback();
+
+        f.setQ1((String) question1Cbx.getSelectedItem());//target the combo boxes and converting the answer to string
+        f.setQ2((String) question2Cbx.getSelectedItem());
+        f.setQ3((String) question3Cbx.getSelectedItem());
+        f.setQ4((String) question4Cbx.getSelectedItem());
+        f.setQ5((String) question5Cbx.getSelectedItem());
+        f.setQ6((String) question6Cbx.getSelectedItem());
+        f.setQ7(question7Tf.getText());
+        f.setQ8(question8Tf.getText());
+        feedback.add(f);
+        JOptionPane.showMessageDialog(null, "Thank you for completing our feedback survey if you would like to learn more about being consicous of your waste please see to the 12th SDG");
+
+
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void question1CbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_question1CbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_question1CbxActionPerformed
+
+    private void question2CbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_question2CbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_question2CbxActionPerformed
+
+    private void question3CbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_question3CbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_question3CbxActionPerformed
+
+    private void question4CbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_question4CbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_question4CbxActionPerformed
+
+    private void question6CbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_question6CbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_question6CbxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +335,30 @@ public class FeedbackGUI extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -304,19 +375,20 @@ public class FeedbackGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JComboBox<String> question1Cbx;
     private javax.swing.JLabel question1Lbl;
+    private javax.swing.JComboBox<String> question2Cbx;
     private javax.swing.JLabel question2Lbl;
+    private javax.swing.JComboBox<String> question3Cbx;
     private javax.swing.JLabel question3Lbl;
+    private javax.swing.JComboBox<String> question4Cbx;
     private javax.swing.JLabel question4Lbl;
     private javax.swing.JComboBox<String> question5Cbx;
     private javax.swing.JLabel question5Lbl;
-    private javax.swing.JRadioButton rdB1;
-    private javax.swing.JRadioButton rdB2;
-    private javax.swing.JRadioButton rdB3;
-    private javax.swing.JRadioButton rdB4;
-    private javax.swing.JRadioButton rdB5;
-    private javax.swing.JRadioButton rdB6;
-    private javax.swing.JRadioButton rdB7;
-    private javax.swing.JRadioButton rdB8;
+    private javax.swing.JComboBox<String> question6Cbx;
+    private javax.swing.JLabel question6Lbl;
+    private javax.swing.JLabel question7Lbl;
+    private javax.swing.JTextField question7Tf;
+    private javax.swing.JLabel question8Lbl;
+    private javax.swing.JTextField question8Tf;
     private javax.swing.JButton submitBtn;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
