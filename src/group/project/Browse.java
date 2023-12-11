@@ -8,33 +8,22 @@ package group.project;
  *
  * @author adria
  */
-public class List {
-    private String Quality, Size, Type, Name;
-    private int Quantity; 
+public class Browse {
+    private String  Size, Type, Name;
     private double Price;
 
-    public List(){
-    Quality = "";
+    public Browse(){
     Size = "" ;
     Type = "" ;
     Name = "" ;
-    Quantity = 0;
     Price = 0.0;
 }
-    public List(String Quality,String Size,String Type, String Name,int Quantity, double Price  ){
-        this.Quality = Quality;
-        this.Size = Size;
+    public Browse(String Quality,String Size,String Type, String Name, double Price  ){
+       
+         this.Size = Size;
         this.Type = Type;
         this.Name = Name;
         this.Price = Price;
-    }
-
-    public String getQuality() {
-        return Quality;
-    }
-
-    public void setQuality(String Quality) {
-        this.Quality = Quality;
     }
 
     public String getSize() {
@@ -61,14 +50,6 @@ public class List {
         this.Name = Name;
     }
 
-    public int getQuantity() {
-        return Quantity;
-    }
-
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
-    }
-
     public double getPrice() {
         return Price;
     }
@@ -76,10 +57,8 @@ public class List {
     public void setPrice(double Price) {
         this.Price = Price;
     }
-    
-    
-        
 
+   
     
     
 }
