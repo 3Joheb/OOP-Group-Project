@@ -1,1 +1,84 @@
-[{"company_name":"EcoRecycle Solutions","facility_name":"GreenGuard Recycling Hub","contact":{"email":"info@ecorecycle.com","number":"353 1 234 5678"},"address":{"street":"Green Street","city":"Dublin","county":"Dublin"},"time":{"opening":"0800","closing":"1800"},"accepted_waste":["Glass bottles and jars","Steel cans","Electronics (computers, laptops, smartphones)"],"image_path":"/group/project/recycling/img/facility_1702245921061-pexels-tom-fisk-6060193.jpg"},{"company_name":"Renewal Resources Ltd.","facility_name":"EcoHarbor Recycling Center","contact":{"email":"contact@renewalresources.ie","number":"353 21 987 6543"},"address":{"street":"Harbor Lane","city":"Cork","county":"Cork"},"time":{"opening":"0700","closing":"1900"},"accepted_waste":["Styrofoam","Printer cartridges","Tires","Paint cans"],"image_path":"/group/project/recycling/img/facility_1702246012553-pexels-tom-fisk-6060193.jpg"},{"company_name":"GreenCycle Ireland","facility_name":"Nature's Depot","contact":{"email":"info@greencycle.ie","number":"353 91 876 5432"},"address":{"street":"Eco Avenue","city":"Galway","county":"Galway"},"time":{"opening":"0900","closing":"1700"},"accepted_waste":["Paper (newspapers, magazines, cardboard)","Organic waste (food scraps, yard waste)","Paperboard (cereal boxes, shoeboxes)","Styrofoam","Wood waste"],"image_path":"/group/project/recycling/img/facility_1702246079212-pexels-tom-fisk-6060193.jpg"}]
+[
+  {
+    "company_name": "EcoRecycle Solutions",
+    "facility_name": "GreenGuard Recycling Hub",
+    "contact": { "email": "info@ecorecycle.com", "number": "353 1 234 5678" },
+    "address": {
+      "street": "Green Street",
+      "city": "Dublin",
+      "county": "Dublin"
+    },
+    "time": { "opening": "0800", "closing": "1800" },
+    "accepted_waste": [
+      "Glass bottles and jars",
+      "Steel cans",
+      "Electronics (computers, laptops, smartphones)"
+    ],
+    "image_path": "/group/project/recycling/img/pexels-tom-fisk-6060193.jpg"
+  },
+  {
+    "company_name": "Renewal Resources Ltd.",
+    "facility_name": "EcoHarbor Recycling Center",
+    "contact": {
+      "email": "contact@renewalresources.ie",
+      "number": "353 21 987 6543"
+    },
+    "address": { "street": "Harbor Lane", "city": "Cork", "county": "Cork" },
+    "time": { "opening": "0700", "closing": "1900" },
+    "accepted_waste": [
+      "Styrofoam",
+      "Printer cartridges",
+      "Tires",
+      "Paint cans"
+    ],
+    "image_path": "/group/project/recycling/img/outside-millerhill.jpg"
+  },
+  {
+    "company_name": "GreenCycle Ireland",
+    "facility_name": "Nature's Depot",
+    "contact": { "email": "info@greencycle.ie", "number": "353 91 876 5432" },
+    "address": { "street": "Eco Avenue", "city": "Galway", "county": "Galway" },
+    "time": { "opening": "0900", "closing": "1700" },
+    "accepted_waste": [
+      "Paper (newspapers, magazines, cardboard)",
+      "Organic waste (food scraps, yard waste)",
+      "Paperboard (cereal boxes, shoeboxes)",
+      "Styrofoam",
+      "Wood waste"
+    ],
+    "image_path": "/group/project/recycling/img/pexels-johannes-plenio-3105242.jpg"
+  },
+  {
+    "company_name": "EcoCare Recycling Solutions",
+    "facility_name": "CareCycle Depot",
+    "contact": { "email": "info@ecocare.ie", "number": "353 42 345 6789" },
+    "address": { "street": "Care Lane", "city": "Dundalk", "county": "Louth" },
+    "time": { "opening": "0800", "closing": "1700" },
+    "accepted_waste": [
+      "Organic waste (food scraps, yard waste)",
+      "Light bulbs (CFLs, LEDs)",
+      "Printer cartridges",
+      "Batteries (alkaline, rechargeable)",
+      "Plastic bags"
+    ],
+    "image_path": "/group/project/recycling/img/pexels-marcin-jozwiak-3808769.jpg"
+  },
+  {
+    "company_name": "GreenTech Recycling Ireland",
+    "facility_name": "TechRecycle Hub",
+    "contact": {
+      "email": "contact@greentechrecycle.ie",
+      "number": "353 1 987 6543"
+    },
+    "address": { "street": "Tech Street", "city": "Bray", "county": "Wicklow" },
+    "time": { "opening": "0800", "closing": "1700" },
+    "accepted_waste": [
+      "Textiles (clothing, shoes)",
+      "Styrofoam",
+      "Paperboard (cereal boxes, shoeboxes)",
+      "Steel cans",
+      "Wood waste"
+    ],
+    "image_path": "/group/project/recycling/img/photo-location-goodyear.jpg"
+  }
+]

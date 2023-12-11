@@ -10,8 +10,8 @@ package group.project.recycling;
  */
 public class DepotsSectionGUI extends javax.swing.JPanel {
 
-    private DepotsSection logic;
-    private Integer paymentValue;
+    private final DepotsSection logic;
+    private int paymentValue;
 
     /**
      * Creates new form DepotsGUI
@@ -386,11 +386,11 @@ public class DepotsSectionGUI extends javax.swing.JPanel {
         totalLbl.setText("Total: €" + Integer.toString(paymentValue));
     }//GEN-LAST:event_closestDepotSldrStateChanged
 
-    public Integer getPaymentValue() {
+    public int getPaymentValue() {
         return paymentValue;
     }
 
-    private void setPaymentValue(Integer sliderValue) {
+    private void setPaymentValue(int sliderValue) {
         if (sliderValue < 10) {
             paymentValue = 5;
         } else if (sliderValue > 35) {

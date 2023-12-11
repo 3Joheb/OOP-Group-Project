@@ -136,7 +136,7 @@ public class AddFacilitySectionGUI extends javax.swing.JPanel {
         fieldErrLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         fieldErrLbl.setText("Please fill all fields");
 
-        jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 0, 10)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 0, 11)); // NOI18N
         jLabel2.setText("Military Time e.g. 0700");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
