@@ -30,7 +30,7 @@ public class DepotsSection {
     private String street;
     private String city;
     private String county;
-    private Integer paymentValue;
+    private int paymentValue;
 
     // List to store card data
     private List<DepotCard> depotList = new ArrayList<>();
@@ -190,7 +190,7 @@ public class DepotsSection {
         this.county = formatText(county);
     }
 
-    public void setPaymentValue(Integer value) {
+    public void setPaymentValue(int value) {
         paymentValue = value;
     }
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author adria
  */
 public class ListGUI extends javax.swing.JFrame {
-    private ArrayList <List> list;
+    private ArrayList <ListApp> list;
 
     /**
      * Creates new form ClothesGUI
@@ -28,16 +28,16 @@ public class ListGUI extends javax.swing.JFrame {
         Quantitylbl.setVisible(false);
         Cardlbl.setVisible(false);
         Addresslbl.setVisible(false);
-        PriceFld.setVisible(false);
+        PriceCbx.setVisible(false);
         NameFld.setVisible(false);
         QuantityFld.setVisible(false);
         CardFld.setVisible(false);
         AddressFld.setVisible(false);
+        Deslbl.setVisible(false);
+        DesTA.setVisible(false);
+        Subbtn.setVisible(false);
+        Sublbl.setVisible(false);
         list = new ArrayList<>();
-        
-        
-        
-        
         
         
         
@@ -66,7 +66,6 @@ public class ListGUI extends javax.swing.JFrame {
         CardFld = new javax.swing.JTextField();
         QuantityFld = new javax.swing.JTextField();
         NameFld = new javax.swing.JTextField();
-        PriceFld = new javax.swing.JTextField();
         SizeCbx = new javax.swing.JComboBox<>();
         QualityCbx = new javax.swing.JComboBox<>();
         TypeCbx = new javax.swing.JComboBox<>();
@@ -74,6 +73,12 @@ public class ListGUI extends javax.swing.JFrame {
         BuyBtn = new javax.swing.JRadioButton();
         BrowseBtn = new javax.swing.JRadioButton();
         homeBtn = new javax.swing.JButton();
+        Deslbl = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DesTA = new javax.swing.JTextArea();
+        Subbtn = new javax.swing.JButton();
+        Sublbl = new javax.swing.JLabel();
+        PriceCbx = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,8 +121,6 @@ public class ListGUI extends javax.swing.JFrame {
         QuantityFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
 
         NameFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
-
-        PriceFld.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
 
         SizeCbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         SizeCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S", "M", "L" }));
@@ -163,49 +166,77 @@ public class ListGUI extends javax.swing.JFrame {
             }
         });
 
+        Deslbl.setText("Description");
+
+        DesTA.setColumns(20);
+        DesTA.setRows(5);
+        jScrollPane1.setViewportView(DesTA);
+
+        Subbtn.setText("Submit ");
+        Subbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubbtnActionPerformed(evt);
+            }
+        });
+
+        PriceCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "€5", "€10", "€15" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Sizelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Qlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(Typelbl)
-                    .addComponent(Pricelbl)
-                    .addComponent(Namelbl)
-                    .addComponent(Quantitylbl)
-                    .addComponent(Cardlbl)
-                    .addComponent(Addresslbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(PriceFld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NameFld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(QuantityFld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CardFld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AddressFld, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(QualityCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SizeCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TypeCbx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BuyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(16, 16, 16))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BrowseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(8, 8, 8))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(homeBtn)
                 .addGap(59, 59, 59)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Sizelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Qlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Typelbl)
+                            .addComponent(Pricelbl)
+                            .addComponent(Namelbl)
+                            .addComponent(Quantitylbl)
+                            .addComponent(Cardlbl)
+                            .addComponent(Addresslbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(NameFld, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QuantityFld, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CardFld, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AddressFld, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QualityCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SizeCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TypeCbx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceCbx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(126, 126, 126)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BuyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(16, 16, 16))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BrowseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(8, 8, 8))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Subbtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Sublbl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Deslbl)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +263,7 @@ public class ListGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Pricelbl)
-                    .addComponent(PriceFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PriceCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Namelbl)
@@ -249,7 +280,15 @@ public class ListGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Addresslbl)
                     .addComponent(AddressFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Deslbl)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Subbtn)
+                    .addComponent(Sublbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
         );
 
         pack();
@@ -270,11 +309,16 @@ public class ListGUI extends javax.swing.JFrame {
         Quantitylbl.setVisible(false);
         Cardlbl.setVisible(true);
         Addresslbl.setVisible(true);
-        PriceFld.setVisible(false);
+        PriceCbx.setVisible(false);
         NameFld.setVisible(false);
         QuantityFld.setVisible(false);
         CardFld.setVisible(true);
         AddressFld.setVisible(true);
+        Deslbl.setVisible(false);
+        DesTA.setVisible(false);
+        Subbtn.setVisible(true);
+        Sublbl.setVisible(true);
+        
         
                 
         
@@ -291,11 +335,15 @@ public class ListGUI extends javax.swing.JFrame {
         Quantitylbl.setVisible(true);
         Cardlbl.setVisible(false);
         Addresslbl.setVisible(false);
-        PriceFld.setVisible(true);
+        PriceCbx.setVisible(true);
         NameFld.setVisible(true);
         QuantityFld.setVisible(true);
         CardFld.setVisible(false);
         AddressFld.setVisible(false);
+        Deslbl.setVisible(false);
+        DesTA.setVisible(false);
+        Subbtn.setVisible(false);
+        Sublbl.setVisible(false);
     }//GEN-LAST:event_BrowseBtnActionPerformed
 
     private void ListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListBtnActionPerformed
@@ -311,11 +359,15 @@ public class ListGUI extends javax.swing.JFrame {
         Quantitylbl.setVisible(false);
         Cardlbl.setVisible(false);
         Addresslbl.setVisible(false);
-        PriceFld.setVisible(true);
+        PriceCbx.setVisible(true);
         NameFld.setVisible(false);
         QuantityFld.setVisible(false);
         CardFld.setVisible(false);
         AddressFld.setVisible(false);
+        Deslbl.setVisible(true);
+        DesTA.setVisible(true);
+        Subbtn.setVisible(false);
+        Sublbl.setVisible(false);
         
         
     }//GEN-LAST:event_ListBtnActionPerformed
@@ -324,6 +376,28 @@ public class ListGUI extends javax.swing.JFrame {
          MainGUI m = new MainGUI();
          m.setVisible(true);
     }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void SubbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubbtnActionPerformed
+        // TODO add your handling code here:Generate random number
+           // instance for buy class
+    Buy buyInstance = new Buy();
+
+    // Set values 
+    buyInstance.setName(NameFld.getText()); // type for name
+    buyInstance.setAddress(AddressFld.getText()); // type for address
+    buyInstance.setCardNum(CardFld.getText()); // type for card number
+    String price = (String) PriceCbx.getSelectedItem();
+    double value = Double.parseDouble(price.substring(1));
+    buyInstance.setPrice(value); 
+
+    boolean orderSubmitted = buyInstance.submitOrder();
+    if (orderSubmitted) {
+        // Order is succsefull
+    } else {
+        // Order failed
+    }
+        
+    }//GEN-LAST:event_SubbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -369,10 +443,12 @@ public class ListGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton BuyBtn;
     private javax.swing.JTextField CardFld;
     private javax.swing.JLabel Cardlbl;
+    private javax.swing.JTextArea DesTA;
+    private javax.swing.JLabel Deslbl;
     private javax.swing.JRadioButton ListBtn;
     private javax.swing.JTextField NameFld;
     private javax.swing.JLabel Namelbl;
-    private javax.swing.JTextField PriceFld;
+    private javax.swing.JComboBox<String> PriceCbx;
     private javax.swing.JLabel Pricelbl;
     private javax.swing.JLabel Qlbl;
     private javax.swing.JComboBox<String> QualityCbx;
@@ -380,9 +456,12 @@ public class ListGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Quantitylbl;
     private javax.swing.JComboBox<String> SizeCbx;
     private javax.swing.JLabel Sizelbl;
+    private javax.swing.JButton Subbtn;
+    private javax.swing.JLabel Sublbl;
     private javax.swing.JComboBox<String> TypeCbx;
     private javax.swing.JLabel Typelbl;
     private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

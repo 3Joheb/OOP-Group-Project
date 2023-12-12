@@ -13,11 +13,22 @@ import javax.swing.JOptionPane;
  */
 public class VolunteerGUI extends javax.swing.JFrame {
 
+    private ArrayList<Volunteer> volunteer;
+
     /**
      * Creates new form VolunteerGUI
      */
     public VolunteerGUI() {
         initComponents();
+        pTimeLBL.setVisible(false);
+        ftimeLBL.setVisible(false);
+        pTimeTF.setVisible(false);
+        fTimeTF.setVisible(false);
+        salaryLBL.setVisible(false);
+        salaryTF.setVisible(false);
+        expTf.setVisible(false);
+        expLbl.setVisible(false);
+        volunteer = new ArrayList<>();
     }
 
     /**
@@ -29,6 +40,7 @@ public class VolunteerGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         quizTitle = new javax.swing.JLabel();
         fNameLbl = new javax.swing.JLabel();
         fNameFld = new javax.swing.JTextField();
@@ -39,11 +51,20 @@ public class VolunteerGUI extends javax.swing.JFrame {
         pnumLbl = new javax.swing.JLabel();
         pnumFld = new javax.swing.JTextField();
         volunteerLbl = new javax.swing.JLabel();
-        volunteerCbx = new javax.swing.JComboBox<>();
-        hoursLbl = new javax.swing.JLabel();
-        hoursCbx = new javax.swing.JComboBox<>();
+        pTimeLBL = new javax.swing.JLabel();
         submitBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        fullRDO = new javax.swing.JRadioButton();
+        partRDO = new javax.swing.JRadioButton();
+        viewBtn = new javax.swing.JButton();
+        ftimeLBL = new javax.swing.JLabel();
+        pTimeTF = new javax.swing.JTextField();
+        fTimeTF = new javax.swing.JTextField();
+        salaryTF = new javax.swing.JTextField();
+        salaryLBL = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
+        expLbl = new javax.swing.JLabel();
+        expTf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,17 +92,16 @@ public class VolunteerGUI extends javax.swing.JFrame {
         volunteerLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         volunteerLbl.setText("Volunteer Type:");
 
-        volunteerCbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        volunteerCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select a choice", "Full-Time", "Part-Time" }));
-
-        hoursLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        hoursLbl.setText("Hours Per Week:");
-
-        hoursCbx.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
-        hoursCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select a choice", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8" }));
+        pTimeLBL.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        pTimeLBL.setText("Part-Time Hours Per Week:");
 
         submitBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         submitBtn.setText("Submit Details");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
 
         backBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
         backBtn.setText("Back");
@@ -91,84 +111,167 @@ public class VolunteerGUI extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(fullRDO);
+        fullRDO.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        fullRDO.setText("Full-Time");
+        fullRDO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullRDOActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(partRDO);
+        partRDO.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        partRDO.setText("Part-Time");
+        partRDO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partRDOActionPerformed(evt);
+            }
+        });
+
+        viewBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        viewBtn.setText("View Details");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBtnActionPerformed(evt);
+            }
+        });
+
+        ftimeLBL.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        ftimeLBL.setText("Full-Time Hours Per Week:");
+
+        salaryLBL.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        salaryLBL.setText("Allowance Needed (opitonal):");
+
+        searchBtn.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        searchBtn.setText("Search Details");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
+        expLbl.setFont(new java.awt.Font("Eras Medium ITC", 0, 14)); // NOI18N
+        expLbl.setText("Past Experience:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fNameLbl)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(pnumLbl))
+                            .addComponent(emailLbl, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnumFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lNameLbl)
+                            .addComponent(fNameLbl))
+                        .addGap(58, 58, 58)
+                        .addComponent(fNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(fullRDO, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(partRDO, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lNameLbl)
-                                    .addComponent(emailLbl)
-                                    .addComponent(pnumLbl)
-                                    .addComponent(volunteerLbl)
-                                    .addComponent(hoursLbl))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(salaryLBL)
+                                        .addComponent(ftimeLBL)
+                                        .addComponent(expLbl))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(57, 57, 57)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(pnumFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(emailFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(hoursCbx, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(volunteerCbx, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addGap(20, 20, 20)
+                                        .addComponent(submitBtn)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pTimeLBL)
+                                .addGap(12, 12, 12)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pTimeTF)
+                            .addComponent(fTimeTF)
+                            .addComponent(salaryTF)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(viewBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addComponent(searchBtn)
+                                .addGap(36, 36, 36))
+                            .addComponent(expTf))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backBtn)
+                .addGap(80, 80, 80))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(268, 268, 268)
-                        .addComponent(quizTitle))
+                        .addGap(292, 292, 292)
+                        .addComponent(volunteerLbl))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(submitBtn)
-                        .addGap(62, 62, 62)
-                        .addComponent(backBtn)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                        .addGap(302, 302, 302)
+                        .addComponent(quizTitle)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addComponent(quizTitle)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fNameLbl)
-                            .addComponent(fNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lNameLbl)
-                            .addComponent(lNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(emailLbl)
-                            .addComponent(emailFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pnumLbl)
-                            .addComponent(pnumFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(volunteerLbl)
-                            .addComponent(volunteerCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(hoursLbl)
-                            .addComponent(hoursCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(187, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(submitBtn)
-                            .addComponent(backBtn))
-                        .addGap(122, 122, 122))))
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fNameLbl)
+                    .addComponent(fNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lNameLbl)
+                    .addComponent(lNameFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLbl)
+                    .addComponent(emailFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pnumLbl)
+                    .addComponent(pnumFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(volunteerLbl)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fullRDO)
+                    .addComponent(partRDO))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pTimeLBL)
+                    .addComponent(pTimeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ftimeLBL)
+                    .addComponent(fTimeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salaryTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salaryLBL))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(expLbl)
+                    .addComponent(expTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitBtn)
+                    .addComponent(backBtn)
+                    .addComponent(viewBtn)
+                    .addComponent(searchBtn))
+                .addGap(83, 83, 83))
         );
 
         pack();
@@ -182,6 +285,89 @@ public class VolunteerGUI extends javax.swing.JFrame {
         GuideGUI g = new GuideGUI();
         g.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void fullRDOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullRDOActionPerformed
+        // TODO add your handling code here:
+        pTimeLBL.setVisible(false);
+        expTf.setVisible(true);
+        ftimeLBL.setVisible(true);
+        expLbl.setVisible(true);
+        pTimeTF.setVisible(false);
+        fTimeTF.setVisible(true);
+        salaryLBL.setVisible(true);
+        salaryTF.setVisible(true);
+    }//GEN-LAST:event_fullRDOActionPerformed
+
+    private void partRDOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partRDOActionPerformed
+        // TODO add your handling code here:
+        pTimeLBL.setVisible(true);
+        expTf.setVisible(false);
+        expLbl.setVisible(false);
+        ftimeLBL.setVisible(false);
+        pTimeTF.setVisible(true);
+        fTimeTF.setVisible(false);
+        salaryLBL.setVisible(false);
+        salaryTF.setVisible(false);
+
+    }//GEN-LAST:event_partRDOActionPerformed
+
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        if (fullRDO.isSelected()) {
+            FullTime f = new FullTime();
+            f.setfName(fNameFld.getText());
+            f.setlName(lNameFld.getText());
+            f.setEmail(emailFld.getText());
+            f.setExperience(expTf.getText());
+            f.setpNumber(Integer.parseInt(pnumFld.getText()));
+            f.setfTime(fTimeTF.getText());
+            int min = 25; // setting the minimum value for full time hours so it doesn't overlap with part time
+            int fullTimeHours = Integer.parseInt(pTimeTF.getText());
+            if (fullTimeHours < min) {
+                JOptionPane.showMessageDialog(null, "Full-time hours cannot be below " + min);
+                return;
+            }
+            f.setWeeklySalary(Integer.parseInt(salaryTF.getText()));
+            volunteer.add(f);
+        } else if (partRDO.isSelected()) {
+            PartTime p = new PartTime();
+            p.setfName(fNameFld.getText());
+            p.setlName(lNameFld.getText());
+            p.setEmail(emailFld.getText());
+            p.setpNumber(Integer.parseInt(pnumFld.getText()));
+            p.setpTime(fTimeTF.getText());
+            int max = 25; // setting the maximum hours for part time so that the hours don't overlap with each other 
+            int partTimeHours = Integer.parseInt(pTimeTF.getText());
+            if (partTimeHours > max) {
+                JOptionPane.showMessageDialog(null, "Part-time hours cannot exceed " + max);
+                return;
+            }
+            volunteer.add(p);
+        }
+
+
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+        // TODO add your handling code here: 
+        for (Volunteer v : volunteer) {
+            JOptionPane.showMessageDialog(null, v.getDetails());
+        }
+    }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        if (volunteer.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "sorry there are no volunteers to delete");
+        } else {
+            String searchTerm = JOptionPane.showInputDialog(null, "Please enter a name to search");
+            for (Volunteer v : volunteer) {
+                if (v.getfName().equalsIgnoreCase(searchTerm)) {
+                    JOptionPane.showMessageDialog(null, v.getDetails());
+                }
+            }
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +395,9 @@ public class VolunteerGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VolunteerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -220,19 +409,29 @@ public class VolunteerGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField emailFld;
     private javax.swing.JLabel emailLbl;
+    private javax.swing.JLabel expLbl;
+    private javax.swing.JTextField expTf;
     private javax.swing.JTextField fNameFld;
     private javax.swing.JLabel fNameLbl;
-    private javax.swing.JComboBox<String> hoursCbx;
-    private javax.swing.JLabel hoursLbl;
+    private javax.swing.JTextField fTimeTF;
+    private javax.swing.JLabel ftimeLBL;
+    private javax.swing.JRadioButton fullRDO;
     private javax.swing.JTextField lNameFld;
     private javax.swing.JLabel lNameLbl;
+    private javax.swing.JLabel pTimeLBL;
+    private javax.swing.JTextField pTimeTF;
+    private javax.swing.JRadioButton partRDO;
     private javax.swing.JTextField pnumFld;
     private javax.swing.JLabel pnumLbl;
     private javax.swing.JLabel quizTitle;
+    private javax.swing.JLabel salaryLBL;
+    private javax.swing.JTextField salaryTF;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JButton submitBtn;
-    private javax.swing.JComboBox<String> volunteerCbx;
+    private javax.swing.JButton viewBtn;
     private javax.swing.JLabel volunteerLbl;
     // End of variables declaration//GEN-END:variables
 }
